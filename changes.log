@@ -1,0 +1,11 @@
+Changes 1.0 -- 1.1
+
+   * Added the function HWModuleByTensorProduct.
+
+   * Removed the record QGOptions (we want the modules to tore their
+     sparse matrices anyway, and also we want to store the canonical
+     elements).
+
+   * Calculation of the comultiplication map when the Hopf structure
+     is twisted is a lot faster now.
+   
