@@ -8,10 +8,10 @@
 
 <TitlePage>
   <Title> <Package>QuaGroup</Package> </Title>
-  <Version>Version 1.0</Version>
+  <Version>Version 1.2</Version>
   <Author>Willem A. de Graaf
-    <Email> quagroup@hetnet.nl</Email>
-<Homepage>http://www-circa.mcs.st-and.ac.uk/~wdg</Homepage>
+    <Email> degraaf@science.unitn.it</Email>
+<Homepage>http://www.science.unitn.it/~degraaf</Homepage>
   </Author>
 
   <Copyright>&copyright; 2002 Willem A. de Graaf <P/>
