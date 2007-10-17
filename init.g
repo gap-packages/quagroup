@@ -8,7 +8,7 @@
 
 # declare package
 
-DeclareAutoPackage("quagroup","1.1", function() return true; end );
+DeclareAutoPackage("quagroup","1.3", function() return true; end );
 DeclarePackageDocumentation( "quagroup", "doc" );
 
 
