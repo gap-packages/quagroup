@@ -1,0 +1,1973 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+                      "DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>GAP (quagroup) - Chapter 3: QuaGroup</title>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+</head>
+<body>
+
+
+<div class="pcenter"><table class="chlink"><tr><td class="chlink1">Goto Chapter: </td><td><a href="chap0.html">Top</a></td><td><a href="chap1.html">1</a></td><td><a href="chap2.html">2</a></td><td><a href="chap3.html">3</a></td><td><a href="chapBib.html">Bib</a></td><td><a href="chapInd.html">Ind</a></td></tr></table><br /></div>
+<p><a id="s0ss0" name="s0ss0"></a></p>
+
+<h3>3. QuaGroup</h3>
+
+<p>In this chapter we describe the functionality provided by <strong class="pkg">QuaGroup</strong>.</p>
+
+<p><a id="s1ss0" name="s1ss0"></a></p>
+
+<h4>3.1 Global constants</h4>
+
+<p><a id="s1ss1" name="s1ss1"></a></p>
+
+<h5>3.1-1 QuantumField</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QuantumField</code></td><td class="tdright">( global variable )</td></tr></table></div>
+<p>This is the field Q(q) of rational functions in q, over Q.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; QuantumField;
+QuantumField
+
+</pre></td></tr></table>
+
+<p><a id="s1ss2" name="s1ss2"></a></p>
+
+<h5>3.1-2 _q</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; _q</code></td><td class="tdright">( global variable )</td></tr></table></div>
+<p>This is an indeterminate; <var>QuantumField</var> is the field of rational functions in this indeterminate. The identifier <var>_q</var> is fixed once the package <strong class="pkg">QuaGroup</strong> is loaded. The symbol <var>_q</var> is chosen (instead of <var>q</var>) in order to avoid potential name clashes. We note that <var>_q</var> is printed as <var>q</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; _q;
+q
+gap&gt; _q in QuantumField;
+true
+
+</pre></td></tr></table>
+
+<p><a id="s2ss0" name="s2ss0"></a></p>
+
+<h4>3.2 Gaussian integers</h4>
+
+<p><a id="s2ss1" name="s2ss1"></a></p>
+
+<h5>3.2-1 GaussNumber</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; GaussNumber</code>( <var>n, par</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>This function computes for the integer <var>n</var> the Gaussian integer [n]_v=<var>par</var> (cf. Section <a href="chap2.html#s1ss0"><b>2.1</b></a>).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; GaussNumber( 4, _q );
+q^-3+q^-1+q+q^3
+
+</pre></td></tr></table>
+
+<p><a id="s2ss2" name="s2ss2"></a></p>
+
+<h5>3.2-2 GaussianFactorial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; GaussianFactorial</code>( <var>n, par</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>This function computes for the integer <var>n</var> the Gaussian factorial [n]!_v=<var>par</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; GaussianFactorial( 3, _q );
+q^-3+2*q^-1+2*q+q^3
+gap&gt; GaussianFactorial( 3, _q^2 );
+q^-6+2*q^-2+2*q^2+q^6
+
+</pre></td></tr></table>
+
+<p><a id="s2ss3" name="s2ss3"></a></p>
+
+<h5>3.2-3 GaussianBinomial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; GaussianBinomial</code>( <var>n, k, par</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>This function computes for two integers <var>n</var> and <var>k</var> the Gaussian binomial <var>n</var> choose <var>k</var>, where the parameter v is replaced by <var>par</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; GaussianBinomial( 5, 2, _q^2 );
+q^-12+q^-8+2*q^-4+2+2*q^4+q^8+q^12
+
+</pre></td></tr></table>
+
+<p><a id="s3ss0" name="s3ss0"></a></p>
+
+<h4>3.3 Roots and root systems</h4>
+
+<p>In this section we describe some functions for dealing with root systems. These functions supplement the ones already present in the <strong class="pkg">GAP</strong> library.</p>
+
+<p><a id="s3ss1" name="s3ss1"></a></p>
+
+<h5>3.3-1 RootSystem</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; RootSystem</code>( <var>type, rank</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; RootSystem</code>( <var>list</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>type</var> is a capital letter between <var>"A"</var> and <var>"G"</var>, and <var>rank</var> is a positive integer (&gt;= 1 if <var>type="A"</var>, &gt;= 2 if <var>type="B"</var>, <var>"C"</var>, &gt;= 4 if <var>type="D"</var>, 6,7,8 if <var>type="E"</var>, 4 if <var>type="F"</var>, and 2 if <var>type="G"</var>). This function returns the root system of type <var>type</var> and rank <var>rank</var>. In the second form <var>list</var> is a list of types and ranks, e.g., <var>[ "B", 2, "F", 4, "D", 7 ]</var>.</p>
+
+<p>The root system constructed by this function comes with he attributes <var>PositiveRoots</var>, <var>NegativeRoots</var>, <var>SimpleSystem</var>, <var>CartanMatrix</var>, <var>BilinearFormMat</var>. Here the attribute <var>SimpleSystem</var> contains a set of simple roots, written as unit vectors. <var>PositiveRoots</var> is a list of the positive roots, written as linear combinations of the simple roots, and likewise for <var>NegativeRoots</var>. <var>CartanMatrix( R )</var> is the Cartan matrix of the root system <var>R</var>, where the entry on position ( i, j ) is given by &lt; alpha_i, alpha_j^v&gt; where alpha_i is the i-th simple root. <var>BilinearFormMat( R )</var> is the matrix of the bilinear form, where the entry on position ( i, j ) is given by ( alpha_i, alpha_j ) (see Section <a href="chap2.html#s2ss0"><b>2.2</b></a>).</p>
+
+<p><var>WeylGroup( R )</var> returns the Weyl group of the root system <var>R</var>. We refer to the <strong class="pkg">GAP</strong> reference manual for an overview of the functions for Weyl groups in the <strong class="pkg">GAP</strong> library. We mention the functions <var>ConjugateDominantWeight( W, wt )</var> (returns the dominant weight in the <var>W</var>-orbit of the weight <var>wt</var>), and <var>WeylOrbitIterator( W, wt )</var> (returns an iterator for the <var>W</var>-orbit containing the weight <var>wt</var>). We write weights as integral linear combinations of fundamental weights, so in <strong class="pkg">GAP</strong> weights are represented by lists of integers (of length equal to the rank of the root system).</p>
+
+<p>Also we mention the function <var>PositiveRootsAsWeights( R )</var> that returns the positive roots of <var>R</var> written as weights, i.e., as linear combinations of the fundamental weights.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:=RootSystem( [ "B", 2, "F", 4, "E", 6 ] );
+&lt;root system of type B2 F4 E6&gt;
+gap&gt; R:= RootSystem( "A", 2 );
+&lt;root system of type A2&gt;
+gap&gt; PositiveRoots( R );
+[ [ 1, 0 ], [ 0, 1 ], [ 1, 1 ] ]
+gap&gt; BilinearFormMat( R );
+[ [ 2, -1 ], [ -1, 2 ] ]
+gap&gt; W:= WeylGroup( R );
+Group([ [ [ -1, 1 ], [ 0, 1 ] ], [ [ 1, 0 ], [ 1, -1 ] ] ])
+gap&gt; ConjugateDominantWeight( W, [-3,2] );
+[ 2, 1 ]
+gap&gt; o:= WeylOrbitIterator( W, [-3,2] );
+&lt;iterator&gt;
+# Using the iterator we can loop over the orbit:
+gap&gt; NextIterator( o );
+[ 2, 1 ]
+gap&gt; NextIterator( o );
+[ -1, -2 ]
+gap&gt; PositiveRootsAsWeights( R );
+[ [ 2, -1 ], [ -1, 2 ], [ 1, 1 ] ]
+
+</pre></td></tr></table>
+
+<p><a id="s3ss2" name="s3ss2"></a></p>
+
+<h5>3.3-2 BilinearFormMatNF</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; BilinearFormMatNF</code>( <var>R</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This is the matrix of the "normalized" bilinear form. This means that all diagonal entries are even, and 2 is the minimum value occurring on the diagonal. If <var>R</var> is a root system constructed by <code class="func">RootSystem</code> (<a href="chap3.html#s3ss1"><b>3.3-1</b></a>), then this is equal to <var>BilinearFormMat( R )</var>.</p>
+
+<p><a id="s3ss3" name="s3ss3"></a></p>
+
+<h5>3.3-3 PositiveRootsNF</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; PositiveRootsNF</code>( <var>R</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This is the list of positive roots of the root system <var>R</var>, written as linear combinations of the simple roots. This means that the simple roots are unit vectors. If <var>R</var> is a root system constructed by <code class="func">RootSystem</code> (<a href="chap3.html#s3ss1"><b>3.3-1</b></a>), then this is equal to <var>PositiveRoots( R )</var>.</p>
+
+<p>One of the reasons for writing the positive roots like this is the following. Let <var>a, b</var> be two elements of <var>PositiveRootsNF( R )</var>, and let <var>B</var> be the matrix of the bilinear form. Then <var>a*( B*b )</var> is the result of applying the bilinear form to <var>a, b</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( SimpleLieAlgebra( "B", 2, Rationals ) );;
+gap&gt; PositiveRootsNF( R );
+[ [ 1, 0 ], [ 0, 1 ], [ 1, 1 ], [ 1, 2 ] ]
+# We note that in this case PositiveRoots( R ) will give the positive roots in
+# a different format.
+
+</pre></td></tr></table>
+
+<p><a id="s3ss4" name="s3ss4"></a></p>
+
+<h5>3.3-4 SimpleSystemNF</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; SimpleSystemNF</code>( <var>R</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This is the list of simple roots of <var>R</var>, written as unit vectors (this means that they are elements of <var>PositiveRootsNF( R )</var>). If <var>R</var> is a root system constructed by <code class="func">RootSystem</code> (<a href="chap3.html#s3ss1"><b>3.3-1</b></a>), then this is equal to <var>SimpleSystem( R )</var>.</p>
+
+<p><a id="s3ss5" name="s3ss5"></a></p>
+
+<h5>3.3-5 PositiveRootsInConvexOrder</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; PositiveRootsInConvexOrder</code>( <var>R</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This function returns the positive roots of the root system <var>R</var>, in the "convex" order. Let w_0=s_1cdots s_t be a reduced expression of the longest element in the Weyl group. Then the k-th element of the list returned by this function is s_1cdots s_k-1(alpha_k). (Where the reduced expression used is the one returned by <var>LongestWeylWord( R )</var>.) If alpha, beta and alpha+beta are positive roots, then alpha+beta occurs between alpha and beta (whence the name convex order).</p>
+
+<p>In the output all roots are written in "normal form", i.e., as elements of <var>PositiveRootsNF( R )</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; PositiveRootsInConvexOrder( R );
+[ [ 1, 0 ], [ 3, 1 ], [ 2, 1 ], [ 3, 2 ], [ 1, 1 ], [ 0, 1 ] ]
+
+</pre></td></tr></table>
+
+<p><a id="s3ss6" name="s3ss6"></a></p>
+
+<h5>3.3-6 SimpleRootsAsWeights</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; SimpleRootsAsWeights</code>( <var>R</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Returns the simple roots of the root system <var>R</var>, written as linear combinations of the fundamental weights.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "A", 2 );;
+gap&gt; SimpleRootsAsWeights( R );
+[ [ 2, -1 ], [ -1, 2 ] ]
+
+</pre></td></tr></table>
+
+<p><a id="s4ss0" name="s4ss0"></a></p>
+
+<h4>3.4 Weyl groups and their elements</h4>
+
+<p>Now we describe a few functions that deal with reduced words in the Weyl group of the root system <var>R</var>. These words are represented as lists of positive integers i, denoting the i-th simple reflection (which corresponds to the i-th element of <var>SimpleSystem( R )</var>). For example <var>[ 3, 2, 1, 3, 1 ]</var> represents the expression s_3 s_2 s_1 s_3 s_1.</p>
+
+<p><a id="s4ss1" name="s4ss1"></a></p>
+
+<h5>3.4-1 ApplyWeylElement</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; ApplyWeylElement</code>( <var>W, wt, wd</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>wd</var> is a (not necessarily reduced) word in the Weyl group <var>W</var>, and <var>wt</var> is a weight (written as integral linear combination of the simple weights). This function returns the result of applying <var>wd</var> to <var>wt</var>. For example, if <var>wt=</var>mu, and <var>wd = [ 1, 2 ]</var> then this function returns s_1s_2(mu) (where s_i is the simple reflection corresponding to the i-th simple root).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; W:= WeylGroup( RootSystem( "G", 2 ) ) ;;
+gap&gt; ApplyWeylElement( W, [ -3, 7 ], [ 1, 1, 2, 1, 2 ] );
+[ 15, -11 ]
+
+</pre></td></tr></table>
+
+<p><a id="s4ss2" name="s4ss2"></a></p>
+
+<h5>3.4-2 LengthOfWeylWord</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; LengthOfWeylWord</code>( <var>W, wd</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>wd</var> is a word in the Weyl group <var>W</var>. This function returns the length of that word.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; W:= WeylGroup( RootSystem( "F", 4 ) ) ;
+&lt;matrix group with 4 generators&gt;
+gap&gt; LengthOfWeylWord( W, [ 1, 3, 2, 4, 2 ] );
+3
+
+</pre></td></tr></table>
+
+<p><a id="s4ss3" name="s4ss3"></a></p>
+
+<h5>3.4-3 LongestWeylWord</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; LongestWeylWord</code>( <var>R</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>R</var> is a root system. <var>LongestWeylWord( R )</var> returns the longest word in the Weyl group of <var>R</var>.</p>
+
+<p>If this function is called for a root system <var>R</var>, a reduced expression for the longest element in the Weyl group is calculated (the one which is the smallest in the lexicographical ordering). However, if you would like to work with a different reduced expression, then it is possible to set it by <var>SetLongestWeylWord( R, wd )</var>, where <var>wd</var> is a reduced expression of the longest element in the Weyl group. Note that you will have to do this before calling <var>LongestWeylWord</var>, or any function that may call <var>LongestWeylWord</var> (once the attribute is set, it will not be possible to change it). Note also that you must be sure that the word you give is in fact a reduced expression for the longest element in the Weyl group, as this is not checked (you can check this with <code class="func">LengthOfWeylWord</code> (<a href="chap3.html#s4ss2"><b>3.4-2</b></a>)).</p>
+
+<p>We note that virtually all algorithms for quantized enveloping algebras depend on the choice of reduced expression for the longest element in the Weyl group (as the PBW-type basis depends on this).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; LongestWeylWord( R );
+[ 1, 2, 1, 2, 1, 2 ]
+
+</pre></td></tr></table>
+
+<p><a id="s4ss4" name="s4ss4"></a></p>
+
+<h5>3.4-4 ReducedWordIterator</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; ReducedWordIterator</code>( <var>W, wd</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>W</var> is a Weyl group, and <var>wd</var> a reduced word. This function returns an iterator for the set of reduced words that represent the same element as <var>wd</var>. The elements are output in ascending lexicographical order.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "F", 4 );;
+gap&gt; it:= ReducedWordIterator( WeylGroup(R), LongestWeylWord(R) );
+&lt;iterator&gt;
+gap&gt; NextIterator( it );
+[ 1, 2, 1, 3, 2, 1, 3, 2, 3, 4, 3, 2, 1, 3, 2, 3, 4, 3, 2, 1, 3, 2, 3, 4 ]
+gap&gt; k:= 1;;
+gap&gt; while not IsDoneIterator( it ) do
+&gt; k:= k+1; w:= NextIterator( it );
+&gt; od;
+gap&gt; k;
+2144892
+
+</pre></td></tr></table>
+
+<p>So there are 2144892 reduced expressions for the longest element in the Weyl group of type F_4.</p>
+
+<p><a id="s4ss5" name="s4ss5"></a></p>
+
+<h5>3.4-5 ExchangeElement</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; ExchangeElement</code>( <var>W, wd, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>W</var> is a Weyl group, and <var>wd</var> is a <em>reduced</em> word in <var>W</var>, and <var>ind</var> is an index between 1 and the rank of the root system. Let <var>v</var> denote the word obtained from <var>wd</var> by adding <var>ind</var> at the end. This function <em>assumes</em> that the length of <var>v</var> is one less than the length of <var>wd</var>, and returns a reduced expression for <var>v</var> that is obtained from <var>wd</var> by deleting one entry. Nothing is guaranteed of the output if the length of <var>v</var> is bigger than the length of <var>wd</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; wd:= LongestWeylWord( R );;
+gap&gt; ExchangeElement( WeylGroup(R), wd, 1 );
+[ 2, 1, 2, 1, 2 ]
+
+</pre></td></tr></table>
+
+<p><a id="s4ss6" name="s4ss6"></a></p>
+
+<h5>3.4-6 GetBraidRelations</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; GetBraidRelations</code>( <var>W, wd1, wd2</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>W</var> is a Weyl group, and <var>wd1</var>, <var>wd2</var> are two reduced words representing the same element in <var>W</var>. This function returns a list of braid relations that can be applied to <var>wd1</var> to obtain <var>wd2</var>. Here a braid relation is represented as a list, with at the odd positions integers that represent positions in a word, and at the even positions the indices that are on those positions after applying the relation. For example, let <var>wd</var> be the word <var>[ 1, 2, 1, 3, 2, 1 ]</var> and let <var>r = [ 3, 3, 4, 1 ]</var> be a relation. Then the result of applying <var>r</var> to <var>wd</var> is <var>[ 1, 2, 3, 1, 2, 1]</var> (i.e., on the third position we put a 3, and on the fourth position a 1).</p>
+
+<p>We note that the function does not check first whether <var>wd1</var> and <var>wd2</var> represent the same element in <var>W</var>. If this is not the case, then an error will occur during the execution of the function, or it will produce wrong output.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "A", 3 );;
+gap&gt; wd1:= LongestWeylWord( R );
+[ 1, 2, 1, 3, 2, 1 ]
+gap&gt; wd2:= [ 1, 3, 2, 1, 3, 2 ];;
+gap&gt; GetBraidRelations( WeylGroup(R), wd1, wd2 );
+[ [ 3, 3, 4, 1 ], [ 4, 2, 5, 1, 6, 2 ], [ 2, 3, 3, 2, 4, 3 ],
+  [ 4, 1, 5, 3 ] ]
+
+</pre></td></tr></table>
+
+<p><a id="s4ss7" name="s4ss7"></a></p>
+
+<h5>3.4-7 LongWords</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; LongWords</code>( <var>R</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>For a root system <var>R</var> this returns a list of triples (of length equal to the rank of <var>R</var>). Let <var>t</var> be the <var>k</var>-th triple occurring in this list. The first element of <var>t</var> is an expression for the longest element of the Weyl group, starting with <var>k</var>. The second element is a list of braid relations, moving this expression to the value of <var>LongestWeylWord( R )</var>. The third element is a list of braid relations performing the reverse transformation.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "A", 3 );;
+gap&gt; LongWords( R )[3];
+[ [ 3, 1, 2, 1, 3, 2 ],
+  [ [ 3, 3, 4, 1 ], [ 4, 2, 5, 1, 6, 2 ], [ 2, 3, 3, 2, 4, 3 ],
+      [ 4, 1, 5, 3 ], [ 1, 3, 2, 1 ] ],
+  [ [ 4, 3, 5, 1 ], [ 1, 1, 2, 3 ], [ 2, 2, 3, 3, 4, 2 ],
+      [ 4, 1, 5, 2, 6, 1 ], [ 3, 1, 4, 3 ] ] ]
+
+</pre></td></tr></table>
+
+<p><a id="s5ss0" name="s5ss0"></a></p>
+
+<h4>3.5 Quantized enveloping algebras </h4>
+
+<p>In <strong class="pkg">QuaGroup</strong> we deal with two types of quantized enveloping algebra. First there are the quantized enveloping algebras defined over the field <code class="func">QuantumField</code> (<a href="chap3.html#s1ss1"><b>3.1-1</b></a>). We say that these algebras are "generic" quantized enveloping algebras, in <strong class="pkg">QuaGroup</strong> they have the category <var>IsGenericQUEA</var>. Secondly, we deal with the quantized enveloping algebras that are defined over a different field.</p>
+
+<p><a id="s5ss1" name="s5ss1"></a></p>
+
+<h5>3.5-1 QuantizedUEA</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QuantizedUEA</code>( <var>R</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QuantizedUEA</code>( <var>R, F, v</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QuantizedUEA</code>( <var>L</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QuantizedUEA</code>( <var>L, F, v</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>In the first two forms <var>R</var> is a root system. With only <var>R</var> as input, the corresponding generic quantized enveloping algebra is constructed. It is stored as an attribute of <var>R</var> (so that constructing it twice for the same root system yields the same object). Also the root system is stored in the quantized enveloping algebra as the attribute <var>RootSystem</var>.</p>
+
+<p>The attribute <var>GeneratorsOfAlgebra</var> contains the generators of a PBW-type basis (see Section <a href="chap2.html#s4ss0"><b>2.4</b></a>), that are constructed relative to the reduced expression for the longest element in the Weyl group that is contained in <var>LongestWeylWord( R )</var>. We refer to <code class="func">ObjByExtRep</code> (<a href="chap3.html#s5ss2"><b>3.5-2</b></a>) for a description of the construction of elements of a quantized enveloping algebra.</p>
+
+<p>The call <var>QuantizedUEA( R, F, v )</var> returns the quantized universal enveloping algebra with quantum parameter <var>v</var>, which must lie in the field <var>F</var>. In this case the elements of <var>GeneratorsOfAlgebra</var> are the images of the generators of the corresponding generic quantized enveloping algebra. This means that if <var>v</var> is a root of unity, then the generators will not generate the whole algebra, but rather a finite dimensional subalgebra (as for instance E_i^k=0 for k large enough). It is possible to construct elements that do not lie in this finite dimensional subalgebra using <code class="func">ObjByExtRep</code> (<a href="chap3.html#s5ss2"><b>3.5-2</b></a>).</p>
+
+<p>In the last two cases <var>L</var> must be a semisimple Lie algebra. The two calls are short for <var>QuantizedUEA( RootSystem( L ) )</var> and <var>QuantizedUEA( RootSystem( L ), F, v )</var> respectively.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+# We construct the generic quantized enveloping algebra corresponding
+# to the root system of type A2+G2:
+gap&gt; R:= RootSystem( [ "A", 2, "G", 2 ] );;
+gap&gt; U:= QuantizedUEA( R );
+QuantumUEA( &lt;root system of type A2 G2&gt;, Qpar = q )
+gap&gt; RootSystem( U );
+&lt;root system of type A2 G2&gt;
+gap&gt; g:= GeneratorsOfAlgebra( U );
+[ F1, F2, F3, F4, F5, F6, F7, F8, F9, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,
+  K2+(q^-1-q)*[ K2 ; 1 ], K3, K3+(q^-1-q)*[ K3 ; 1 ], K4,
+  K4+(q^-3-q^3)*[ K4 ; 1 ], E1, E2, E3, E4, E5, E6, E7, E8, E9 ]
+# These elements generate a PBW-type basis of U; the nine elements Fi,
+# and the nine elements Ei correspond to the roots listed in convex order:
+gap&gt; PositiveRootsInConvexOrder( R );
+[ [ 1, 0, 0, 0 ], [ 1, 1, 0, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 1, 0 ],
+  [ 0, 0, 3, 1 ], [ 0, 0, 2, 1 ], [ 0, 0, 3, 2 ], [ 0, 0, 1, 1 ],
+  [ 0, 0, 0, 1 ] ]
+# So, for example, F5 is an element of weight -[ 0, 0, 3, 1 ].
+# We can also multiply elements; the result is written on the PBW-basis:
+gap&gt; g[17]*g[4];
+(q^-6-1)*F4*[ K4 ; 1 ]+(q^-3)*F4*K4
+# Now we construct a non-generic quantized enveloping algebra:
+gap&gt; R:= RootSystem( "A", 2 );;
+gap&gt; U:= QuantizedUEA( R, CF(3), E(3) );;
+gap&gt; g:= GeneratorsOfAlgebra( U );
+[ F1, F2, F3, K1, K1+(-E(3)+E(3)^2)*[ K1 ; 1 ], K2,
+  K2+(-E(3)+E(3)^2)*[ K2 ; 1 ], E1, E2, E3 ]
+
+</pre></td></tr></table>
+
+<p>As can be seen in the example, every element of U is written as a linear combination of monomials in the PBW-generators; the generators of U^- come first, then the generators of U^0, and finally the generators of U^+.</p>
+
+<p><a id="s5ss2" name="s5ss2"></a></p>
+
+<h5>3.5-2 ObjByExtRep</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; ObjByExtRep</code>( <var>fam, list</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>fam</var> is the elements family of a quantized enveloping algebra <var>U</var>. Secondly, <var>list</var> is a list describing an element of <var>U</var>. We explain how this description works. First we describe an indexing system for the generators of <var>U</var>. Let <var>R</var> be the root system of <var>U</var>. Let <var>t</var> be the number of positive roots, and <var>rank</var> the rank of the root system. Then the generators of <var>U</var> are <var>Fk</var>, <var>Ki</var> (and its inverse), <var>Ek</var>, for <var>k=1...t</var>, <var>i=1..rank</var>. (See Section <a href="chap2.html#s4ss0"><b>2.4</b></a>; for the construction of the <var>Fk</var>, <var>Ek</var>, the value of <var>LongestWeylWord( R )</var> is used.) Now the index of <var>Fk</var> is <var>k</var>, and the index of <var>Ek</var> is <var>t+rank+k</var>. Furthermore, elements of the algebra generated by the <var>Ki</var>, and its inverse, are written as linear combinations of products of "binomials", as in Section <a href="chap2.html#s5ss0"><b>2.5</b></a>. The element</p>
+
+<p class="pcenter">\[ K_i^{d}\begin{bmatrix} K_{i} \\ s \end{bmatrix}  \]</p>
+
+<p>(where d=0,1), is indexed as <var>[ t+i, d ]</var> (what happens to the <var>s</var> is described later). So an index is either an integer, or a list of two integers.</p>
+
+<p>A monomial is a list of indices, each followed by an exponent. First come the indices of the <var>Fk</var>, (<var>1..t</var>), then come the lists of the form <var>[ t+i, d ]</var>, and finally the indices of the <var>Ek</var>. Each index is followed by an exponent. An index of the form <var>[ t+i, d ]</var> is followed by the <var>s</var> in the above formula.</p>
+
+<p>The second argument of <var>ObjByExtRep</var> is a list of monomials followed by coefficients. This function returns the element of <var>U</var> described by this list.</p>
+
+<p>Finally we remark that the element</p>
+
+<p class="pcenter">\[ K_i^{d}\begin{bmatrix} K_{i} \\ s \end{bmatrix}  \]</p>
+
+<p>is printed as <var>Ki[ Ki ; s ]</var> if <var>d=1</var>, and as <var>[ Ki ; s ]</var> if <var>d=0</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2) );;
+gap&gt; fam:= ElementsFamily( FamilyObj( U ) );;
+gap&gt; list:= [ [ 2, 3, [ 4, 0 ], 8, 6, 11 ], _q^2,    # monomial and coefficient
+&gt; [ 1, 7, 3, 5, [ 5, 1 ], 3, 8, 9 ], _q^-1 + _q^2 ]; # monomial and coefficient
+[ [ 2, 3, [ 4, 0 ], 8, 6, 11 ], q^2, [ 1, 7, 3, 5, [ 5, 1 ], 3, 8, 9 ],
+  q^-1+q^2 ]
+gap&gt; ObjByExtRep( fam, list );
+(q^2)*F2^(3)*[ K1 ; 8 ]*E1^(11)+(q^-1+q^2)*F1^(7)*F3^(5)*K2[ K2 ; 3 ]*E3^(9)
+
+</pre></td></tr></table>
+
+<p><a id="s5ss3" name="s5ss3"></a></p>
+
+<h5>3.5-3 ExtRepOfObj</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; ExtRepOfObj</code>( <var>elm</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>For the element <var>elm</var> of a quantized enveloping algebra, this function returns the list that defines <var>elm</var> (see <code class="func">ObjByExtRep</code> (<a href="chap3.html#s5ss2"><b>3.5-2</b></a>)).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2) );;
+gap&gt; g:= GeneratorsOfAlgebra(U);
+[ F1, F2, F3, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2, K2+(q^-1-q)*[ K2 ; 1 ], E1,
+  E2, E3 ]
+gap&gt; ExtRepOfObj( g[5] );
+[ [ [ 4, 1 ], 0 ], 1, [ [ 4, 0 ], 1 ], q^-1-q ]
+
+</pre></td></tr></table>
+
+<p><a id="s5ss4" name="s5ss4"></a></p>
+
+<h5>3.5-4 QuantumParameter</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QuantumParameter</code>( <var>U</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Returns the quantum parameter used in the definition of <var>U</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem("A",2);;
+gap&gt; U0:= QuantizedUEA( R, CF(3), E(3) );;
+gap&gt; QuantumParameter( U0 );
+E(3)
+
+</pre></td></tr></table>
+
+<p><a id="s5ss5" name="s5ss5"></a></p>
+
+<h5>3.5-5 CanonicalMapping</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; CanonicalMapping</code>( <var>U</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>U</var> is a quantized enveloping algebra. Let <var>U0</var> denote the corresponding "generic" quantized enveloping algebra. This function returns the mapping <var>U0 --&gt; U</var> obtained by mapping <var>q</var> (which is the quantum parameter of <var>U0</var>) to the quantum parameter of <var>U</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem("A", 3 );;
+gap&gt; U:= QuantizedUEA( R, CF(5), E(5) );;
+gap&gt; f:= CanonicalMapping( U );
+MappingByFunction( QuantumUEA( &lt;root system of type A
+3&gt;, Qpar = q ), QuantumUEA( &lt;root system of type A3&gt;, Qpar =
+E(5) ), function( u ) ... end )
+gap&gt; U0:= Source( f );
+QuantumUEA( &lt;root system of type A3&gt;, Qpar = q )
+gap&gt; g:= GeneratorsOfAlgebra( U0 );;
+gap&gt; u:= g[18]*g[9]*g[6];
+(q^2)*F6*K2*E6+(q)*K2*[ K3 ; 1 ]
+gap&gt; Image( f, u );
+(E(5)^2)*F6*K2*E6+(E(5))*K2*[ K3 ; 1 ]
+
+</pre></td></tr></table>
+
+<p><a id="s5ss6" name="s5ss6"></a></p>
+
+<h5>3.5-6 WriteQEAToFile</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; WriteQEAToFile</code>( <var>U, file</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> is a quantized enveloping algebra, and file is a string containing the name of a file. This function writes some data to <var>file</var>, that allows <code class="func">ReadQEAFromFile</code> (<a href="chap3.html#s5ss7"><b>3.5-7</b></a>) to recover it.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",3) );;
+gap&gt; WriteQEAToFile( U, "/home/wdg/A3" );
+
+</pre></td></tr></table>
+
+<p><a id="s5ss7" name="s5ss7"></a></p>
+
+<h5>3.5-7 ReadQEAFromFile</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; ReadQEAFromFile</code>( <var>file</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>file</var> is a string containing the name of a file, to which a quantized enveloping algebra has been written by <code class="func">WriteQEAToFile</code> (<a href="chap3.html#s5ss6"><b>3.5-6</b></a>). This function recovers the quantized enveloping algebra.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",3) );;
+gap&gt; WriteQEAToFile( U, "/home/wdg/A3" );
+gap&gt; U0:= ReadQEAFromFile( "/home/wdg/A3" );
+QuantumUEA( &lt;root system of type A3&gt;, Qpar = q )
+
+</pre></td></tr></table>
+
+<p><a id="s6ss0" name="s6ss0"></a></p>
+
+<h4>3.6  Homomorphisms and automorphisms </h4>
+
+<p>Here we describe functions for creating homomorphisms and (anti)-automorphisms of a quantized enveloping algebra.</p>
+
+<p><a id="s6ss1" name="s6ss1"></a></p>
+
+<h5>3.6-1 QEAHomomorphism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QEAHomomorphism</code>( <var>U, A, list</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> is a generic quantized enveloping algebra (i.e., with quantum parameter <var>_q</var>), <var>A</var> is an algebra with one over <var>QuantumField</var>, and <var>list</var> is a list of <var>4*rank</var> elements of <var>A</var> (where <var>rank</var> is the rank of the root system of <var>U</var>). On the first rank positions there are the images of the F_alpha (where the alpha are simple roots, listed in the order in which they occur in <var>SimpleSystem( R )</var>). On the positions <var>rank+1...2*rank</var> are the images of the K_alpha. On the positions <var>2*rank+1...3*rank</var> are the images of the K_alpha^-1, and finally on the positions <var>3*rank+1...4*rank</var> occur the images of the E_alpha.</p>
+
+<p>This function returns the homomorphism <var>U -&gt; A</var>, defined by this data. In the example below we construct a homomorphism from one quantized enveloping algebra into another. Both are constructed relative to the same root system, but with different reduced expressions for the longest element of the Weyl group.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; SetLongestWeylWord( R, [1,2,1,2,1,2] );
+gap&gt; UR:= QuantizedUEA( R );;
+gap&gt; S:= RootSystem( "G", 2 );;
+gap&gt; SetLongestWeylWord( S, [2,1,2,1,2,1] );
+gap&gt; US:= QuantizedUEA( S );;
+gap&gt; gS:= GeneratorsOfAlgebra( US );
+[ F1, F2, F3, F4, F5, F6, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,
+  K2+(q^-3-q^3)*[ K2 ; 1 ], E1, E2, E3, E4, E5, E6 ]
+gap&gt; SimpleSystem( R );
+[ [ 1, 0 ], [ 0, 1 ] ]
+gap&gt; PositiveRootsInConvexOrder( S );
+[ [ 0, 1 ], [ 1, 1 ], [ 3, 2 ], [ 2, 1 ], [ 3, 1 ], [ 1, 0 ] ]
+# We see that the simple roots of R occur on positions 6 and 1
+# in the list PositiveRootsInConvexOrder( S ); This means that we
+# get the following list of images of the homomorphism:
+gap&gt; imgs:= [ gS[6], gS[1],      # the images of the F_{\alpha}
+&gt; gS[7], gS[9],                  # the images of the K_{\alpha}
+&gt; gS[8], gS[10],                 # the images of the K_{\alpha}^{-1}
+&gt; gS[16], gS[11] ];              # the images of the E_{\alpha}
+[ F6, F1, K1, K2, K1+(q^-1-q)*[ K1 ; 1 ], K2+(q^-3-q^3)*[ K2 ; 1 ], E6, E1
+ ]
+gap&gt; h:= QEAHomomorphism( UR, US, imgs );
+&lt;homomorphism: QuantumUEA( &lt;root system of type G
+2&gt;, Qpar = q ) -&gt; QuantumUEA( &lt;root system of type G2&gt;, Qpar = q )&gt;
+gap&gt; Image( h, GeneratorsOfAlgebra( UR )[3] );
+(1-q^4-q^6+q^10)*F1*F6^(2)+(-q^2+q^6)*F2*F6+(q^4)*F4
+
+</pre></td></tr></table>
+
+<p><a id="s6ss2" name="s6ss2"></a></p>
+
+<h5>3.6-2 QEAAutomorphism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QEAAutomorphism</code>( <var>U, list</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QEAAutomorphism</code>( <var>U, f</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>In the first form <var>U</var> is a generic quantized enveloping algebra (i.e., with quantum parameter <var>_q</var>), and <var>list</var> is a list of <var>4*rank</var> elements of <var>U</var> (where <var>rank</var> is the rank of the corresponding root system). On the first <var>rank</var> positions there are the images of the F_alpha (where the alpha are simple roots, listed in the order in which they occur in <var>SimpleSystem( R )</var>). On the positions <var>rank+1...2*rank</var> are the images of the K_alpha. On the positions <var>2*rank+1...3*rank</var> are the images of the K_alpha^-1, and finally on the positions <var>3*rank+1...4*rank</var> occur the images of the E_alpha.</p>
+
+<p>In the second form <var>U</var> is a non-generic quantized enveloping algebra, and <var>f</var> is an automorphism of the corresponding generic quantized enveloping algebra. The corresponding automorphism of <var>U</var> is constructed. In this case <var>f</var> must not be the bar-automorphism of the corresponding generic quantized enveloping algebra (cf. <code class="func">BarAutomorphism</code> (<a href="chap3.html#s6ss6"><b>3.6-6</b></a>)), as this automorphism doesn't work in the non-generic case.</p>
+
+<p>The image of an element <var>x</var> under an automorphism <var>f</var> is computed by <var>Image( f, x )</var>. Note that there is no function for calculating pre-images (in general this seems to be a very hard task). If you want the inverse of an automorphism, you have to construct it explicitly (e.g., by <var>QEAAutomorphism( U, list )</var>, where <var>list</var> is a list of pre-images).</p>
+
+<p>Below we construct the automorphism omega (cf. Section <a href="chap2.html#s2ss0"><b>2.2</b></a>) of the quantized enveloping of type A_3, when the quantum parameter is <var>_q</var>, and when the quantum parameter is a fifth root of unity.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+# First we construct the quantized enveloping algebra:
+gap&gt; R:= RootSystem( "A", 3 );;
+gap&gt; U0:= QuantizedUEA( R );
+QuantumUEA( &lt;root system of type A3&gt;, Qpar = q )
+gap&gt; g:= GeneratorsOfAlgebra( U0 );
+[ F1, F2, F3, F4, F5, F6, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,
+  K2+(q^-1-q)*[ K2 ; 1 ], K3, K3+(q^-1-q)*[ K3 ; 1 ], E1, E2, E3, E4, E5, E6 ]
+# Now, for instance, we map F_{\alpha} to E_{\alpha}, where \alpha
+# is a simple root. In order to find where those F_{\alpha}, E_{\alpha}
+# are in the list of generators, we look at the list of positive roots
+# in convex order:
+gap&gt; PositiveRootsInConvexOrder( R );
+[ [ 1, 0, 0 ], [ 1, 1, 0 ], [ 0, 1, 0 ], [ 1, 1, 1 ], [ 0, 1, 1 ],
+  [ 0, 0, 1 ] ]
+# So the simple roots occur on positions 1, 3, 6. This means that we
+# have the following list of images:
+gap&gt; imgs:= [ g[13], g[15], g[18], g[8], g[10], g[12], g[7], g[9], g[11],
+&gt; g[1], g[3], g[6] ];
+[ E1, E3, E6, K1+(q^-1-q)*[ K1 ; 1 ], K2+(q^-1-q)*[ K2 ; 1 ],
+  K3+(q^-1-q)*[ K3 ; 1 ], K1, K2, K3, F1, F3, F6 ]
+gap&gt; f:= QEAAutomorphism( U0, imgs );
+&lt;automorphism of QuantumUEA( &lt;root system of type A3&gt;, Qpar = q )&gt;
+gap&gt; Image( f, g[2] );
+(-q)*E2
+# f induces an automorphism of any non-generic quantized enveloping
+# algebra with the same root system R:
+gap&gt; U1:= QuantizedUEA( R, CF(5), E(5) );
+QuantumUEA( &lt;root system of type A3&gt;, Qpar = E(5) )
+gap&gt; h:= QEAAutomorphism( U1, f );
+&lt;automorphism of QuantumUEA( &lt;root system of type A3&gt;, Qpar = E(5) )&gt;
+gap&gt; Image( h, GeneratorsOfAlgebra(U1)[7] );
+(-E(5)+E(5)^4)*[ K1 ; 1 ]+K1
+
+</pre></td></tr></table>
+
+<p><a id="s6ss3" name="s6ss3"></a></p>
+
+<h5>3.6-3 QEAAntiAutomorphism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QEAAntiAutomorphism</code>( <var>U, list</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QEAAntiAutomorphism</code>( <var>U, f</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>These are functions for constructing anti-automorphisms of quantized enveloping algebras. The same comments apply as for <code class="func">QEAAutomorphism</code> (<a href="chap3.html#s6ss2"><b>3.6-2</b></a>).</p>
+
+<p><a id="s6ss4" name="s6ss4"></a></p>
+
+<h5>3.6-4 AutomorphismOmega</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; AutomorphismOmega</code>( <var>U</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This is the automorphism omega (cf. Section <a href="chap2.html#s2ss0"><b>2.2</b></a>).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "A", 3 );;
+gap&gt; U:= QuantizedUEA( R, CF(5), E(5) );
+QuantumUEA( &lt;root system of type A3&gt;, Qpar = E(5) )
+gap&gt; f:= AutomorphismOmega( U );
+&lt;automorphism of QuantumUEA( &lt;root system of type A3&gt;, Qpar = E(5) )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s6ss5" name="s6ss5"></a></p>
+
+<h5>3.6-5 AntiAutomorphismTau</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; AntiAutomorphismTau</code>( <var></var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This is the anti-automorphism tau (cf. Section <a href="chap2.html#s2ss0"><b>2.2</b></a>).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "A", 3 );;
+gap&gt; U:= QuantizedUEA( R, CF(5), E(5) );
+QuantumUEA( &lt;root system of type A3&gt;, Qpar = E(5) )
+gap&gt; t:= AntiAutomorphismTau( U );
+&lt;anti-automorphism of QuantumUEA( &lt;root system of type A3&gt;, Qpar = E(5) )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s6ss6" name="s6ss6"></a></p>
+
+<h5>3.6-6 BarAutomorphism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; BarAutomorphism</code>( <var>U</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This is the automorphism bar~ defined in Section <a href="chap2.html#s2ss0"><b>2.2</b></a> Here <var>U</var> must be a generic quantized enveloping algebra.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem(["A",2,"B",2]) );;
+gap&gt; bar:= BarAutomorphism( U );
+&lt;automorphism of QuantumUEA( &lt;root system of type A2 B2&gt;, Qpar = q )&gt;
+gap&gt; Image( bar, GeneratorsOfAlgebra( U )[5] );
+(-q^-2+q^2)*F4*F7+F5
+
+</pre></td></tr></table>
+
+<p><a id="s6ss7" name="s6ss7"></a></p>
+
+<h5>3.6-7 AutomorphismTalpha</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; AutomorphismTalpha</code>( <var>U, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>This is the automorphism T_alpha (cf. Section <a href="chap2.html#s4ss0"><b>2.4</b></a>), where alpha is the <var>ind</var>-th simple root.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "B", 3 ) );;
+gap&gt; f:=AutomorphismTalpha( U, 1 );
+&lt;automorphism of QuantumUEA( &lt;root system of type B3&gt;, Qpar = q )&gt;
+gap&gt; a:= GeneratorsOfAlgebra( U )[3];
+F3
+gap&gt;  Image( f, a );
+F2
+
+</pre></td></tr></table>
+
+<p><a id="s6ss8" name="s6ss8"></a></p>
+
+<h5>3.6-8 DiagramAutomorphism</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; DiagramAutomorphism</code>( <var>U, perm</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>This is the automorphism of <var>U</var> induced by a diagram automorphism of the underlying root system. The diagram automorphism is represented by the permutation <var>perm</var>, which is the permutation of the simple roots performed by the diagram automorphism.</p>
+
+<p>In the example below we construct the diagram automorphism of the root system of type A_3, which is represented by the permutation <var>(1,3)</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "A", 3 );;
+gap&gt; U:= QuantizedUEA( R );;
+gap&gt; f:= DiagramAutomorphism( U, (1,3) );
+&lt;automorphism of QuantumUEA( &lt;root system of type A3&gt;, Qpar = q )&gt;
+gap&gt; g:= GeneratorsOfAlgebra( U );
+[ F1, F2, F3, F4, F5, F6, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,
+  K2+(q^-1-q)*[ K2 ; 1 ], K3, K3+(q^-1-q)*[ K3 ; 1 ], E1, E2, E3, E4, E5, E6
+ ]
+gap&gt; Image( f, g[1] );
+F6
+
+</pre></td></tr></table>
+
+<p><a id="s6ss9" name="s6ss9"></a></p>
+
+<h5>3.6-9 \*</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; \*</code>( <var>f, h</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>We can compose automorphisms and anti-automorphisms using the infix <var>*</var> operator. The result of composing two automorphisms is an automorphism. The result of composing an automorphism and an anti-automorphism is an anti-automorphism. The result of composing two anti-automorphisms is an automorphism.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "B", 3 ) );;
+gap&gt; f:=AutomorphismTalpha( U, 1 );
+&lt;automorphism of QuantumUEA( &lt;root system of type B3&gt;, Qpar = q )&gt;
+gap&gt; h:= AutomorphismOmega( U );
+&lt;automorphism of QuantumUEA( &lt;root system of type B3&gt;, Qpar = q )&gt;
+gap&gt; f*h;
+&lt;automorphism of QuantumUEA( &lt;root system of type B3&gt;, Qpar = q )&gt;
+gap&gt; t:= AntiAutomorphismTau( U );;
+gap&gt; T:= AutomorphismTalpha( U, 2 );;
+gap&gt; Tinv:= t*T*t;
+&lt;automorphism of QuantumUEA( &lt;root system of type B3&gt;, Qpar = q )&gt;
+# (The last call may take a little while.)
+gap&gt; x:= Image( T, GeneratorsOfAlgebra( U )[1] );
+(1-q^4)*F1*F3+(-q^2)*F2
+gap&gt; Image( Tinv, x );
+F1
+
+</pre></td></tr></table>
+
+<p>According to <a href="chapBib.html#biBJ96">[J96]</a>, 8.14(10), tau circ T_alpha circ tau is the inverse of T_alpha.</p>
+
+<p><a id="s7ss0" name="s7ss0"></a></p>
+
+<h4>3.7 Hopf algebra structure</h4>
+
+<p>Here we describe functions for dealing with the Hopf algebra structure of a quantized enveloping algebra. This structure enables us to construct tensor products, and dual modules of modules over a quantized enveloping algebra. We refer to the next section (Section <a href="chap3.html#s8ss0"><b>3.8</b></a>) for some functions for creating modules.</p>
+
+<p><a id="s7ss1" name="s7ss1"></a></p>
+
+<h5>3.7-1 TensorPower</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; TensorPower</code>( <var>U, d</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> is a quantized universal enveloping algebra, and <var>d</var> a non-negative integer. This function returns the associative algebra with underlying vector space the <var>d</var>-fold tensor product of <var>U</var> with itself. The product is defined component wise.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( [ "B", 2 ] ) );;
+gap&gt; T:= TensorPower( U, 3 );
+&lt;algebra over QuantumField, with 36 generators&gt;
+gap&gt; g:= GeneratorsOfAlgebra( T );;
+gap&gt; x:= g[1];
+1*(1&lt;x&gt;1&lt;x&gt;F1)
+gap&gt; y:= g[30];
+1*(E2&lt;x&gt;1&lt;x&gt;1)
+gap&gt; x*y;
+1*(E2&lt;x&gt;1&lt;x&gt;F1)
+
+</pre></td></tr></table>
+
+<p><a id="s7ss2" name="s7ss2"></a></p>
+
+<h5>3.7-2 UseTwistedHopfStructure</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; UseTwistedHopfStructure</code>( <var>U, f, finv</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> is a quantized enveloping algebra, and <var>f</var>, <var>finv</var> two (anti-) automorphisms of <var>U</var>, where <var>finv</var> is the inverse of <var>f</var>. After calling this function the Hopf structure on <var>U</var> is used that is obtained from the "normal" Hopf structure (see Section <a href="chap2.html#s3ss0"><b>2.3</b></a>) by twisting it with <var>f</var>.</p>
+
+<p>A call to this function sets the attribute <var>HopfStructureTwist</var>, which is the list <var>[ f, finv ]</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2), CF(5), E(5) );;
+gap&gt; t:= AntiAutomorphismTau( U );;
+gap&gt; UseTwistedHopfStructure( U, t, t );
+
+</pre></td></tr></table>
+
+<p><a id="s7ss3" name="s7ss3"></a></p>
+
+<h5>3.7-3 ComultiplicationMap</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; ComultiplicationMap</code>( <var>U, d</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>This is a homomorphism from the quantized enveloping algebra <var>U</var> to the <var>d</var>-fold tensor power of <var>U</var> with itself. It is obtained by a repeated application of the comultiplication of <var>U</var>. So for <var>d=2</var> we get the comultiplication of <var>U</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2), CF(5), E(5) );;
+gap&gt; D:= ComultiplicationMap( U, 3 );
+&lt;Comultiplication of QuantumUEA( &lt;root system of type A2&gt;, Qpar =
+E(5) ), degree 3&gt;
+gap&gt; Image( D, GeneratorsOfAlgebra(U)[4] );
+1*(K1&lt;x&gt;K1&lt;x&gt;K1)
+
+</pre></td></tr></table>
+
+<p><a id="s7ss4" name="s7ss4"></a></p>
+
+<h5>3.7-4 AntipodeMap</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; AntipodeMap</code>( <var>U</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This is the antipode map of the quantized enveloping algebra <var>U</var>, which is constructed as an anti-automorphism of <var>U</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2), CF(5), E(5) );;
+gap&gt; a:= AntipodeMap( U );
+&lt;anti-automorphism of QuantumUEA( &lt;root system of type A2&gt;, Qpar = E(5) )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s7ss5" name="s7ss5"></a></p>
+
+<h5>3.7-5 CounitMap</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; CounitMap</code>( <var>U</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This is the counit map of the quantized enveloping algebra <var>U</var>, which is constructed as a function from <var>U</var> to the ground field.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2), CF(5), E(5) );;
+gap&gt; co:= CounitMap( U );
+function( u ) ... end
+gap&gt; x:= GeneratorsOfAlgebra( U )[4];
+K1
+gap&gt; co( x );
+1
+
+</pre></td></tr></table>
+
+<p><a id="s8ss0" name="s8ss0"></a></p>
+
+<h4>3.8 Modules</h4>
+
+<p>Here we describe some functions for constructing left modules over quantized enveloping algebras. We refer to the <strong class="pkg">GAP</strong> reference manual for an overview of basic functions for algebra modules, which are also applicable to the modules constructed by the functions described in this section. We mention <var>MatrixOfAction</var>, <var>DirectSumOfAlgebraModules</var>. The action of an element of the algebra on an element of the module is calculated by the infix operator <var>^</var>.</p>
+
+<p><a id="s8ss1" name="s8ss1"></a></p>
+
+<h5>3.8-1 HighestWeightModule</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; HighestWeightModule</code>( <var>U, wt</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> is a quantized universal enveloping algebra, and <var>wt</var> a dominant weight (i.e., a list of length equal to the rank of the root system, consisting of non-negative integers). This function returns a finite-dimensional highest-weight module of highest weight <var>wt</var> over <var>U</var>. If <var>U</var> is generic then this is the unique irreducible highest-weight module over <var>U</var>. Otherwise it is the Weyl module, cf. Section <a href="chap2.html#s5ss0"><b>2.5</b></a>. In this last case the module is not necessarily irreducible.</p>
+
+<p>Let <var>V</var> denote the module returned by this function. The first basis element of the attribute <var>Basis( V )</var> is a highest-weight vector; it is written as <var>1*v0</var>. Other basis elements are written as, for example, <var>F2*F9*v0</var>, which means that this vector is the result of letting the PBW-monomial <var>F2*F9</var> act on the highest-weight vector.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( [ "A", 2, "G", 2 ] ) );;
+gap&gt; V:= HighestWeightModule( U, [ 0, 1, 0, 2 ] );
+&lt;231-dimensional left-module over QuantumUEA( &lt;root system of type A2 G
+2&gt;, Qpar = q )&gt;
+gap&gt; Basis( V )[1];
+1*v0
+gap&gt; Basis(V)[23]+(_q^2+_q^-2)*Basis(V)[137];
+F3*F5*v0+(q^-2+q^2)*F8^(6)*v0
+# We compute the action of an element on a vector:
+gap&gt; gg:= GeneratorsOfAlgebra( U );;
+gap&gt; x:= gg[21]*gg[5];
+F5*E4+(-q^-1)*F6*K3
+gap&gt; x^Basis(V)[1];
+(-q^-1)*F6*v0
+
+</pre></td></tr></table>
+
+<p><a id="s8ss2" name="s8ss2"></a></p>
+
+<h5>3.8-2 IrreducibleQuotient</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; IrreducibleQuotient</code>( <var>V</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>V</var> is a highest-weight module over a non-generic quantized enveloping algebra. This function returns the quotient of <var>V</var> by the maximal submodule not containing the highest weight vector. This is not necessarily equal to <var>V</var> if the quantum parameter is a root of 1.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "A", 2 );;
+gap&gt; U:= QuantizedUEA( R, CF(3), E(3) );;
+gap&gt; V:= HighestWeightModule( U, [1,1] );
+&lt;8-dimensional left-module over QuantumUEA( &lt;root system of type A2&gt;, Qpar =
+E(3) )&gt;
+gap&gt; IrreducibleQuotient( V );
+&lt;7-dimensional left-module over QuantumUEA( &lt;root system of type A2&gt;, Qpar =
+E(3) )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s8ss3" name="s8ss3"></a></p>
+
+<h5>3.8-3 HWModuleByTensorProduct</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; HWModuleByTensorProduct</code>( <var>U, wt</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> must be a <em>generic</em> quantized enveloping algebra, and <var>wt</var> a dominant weight. This function returns the irreducible highest-weight module with highest weight <var>wt</var>. The algorithm uses tensor products (whence the name). On some inputs this algorithm is faster than the one use for <code class="func">HighestWeightModule:for a quantized env. alg.</code> (<b>???</b>), on some inputs it is slower. I do not know any good heuristics.</p>
+
+<p>The basis supplied with the module returned is the canonical basis.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("G",2) );;
+gap&gt; V:= HWModuleByTensorProduct( U, [2,1] );
+&lt;189-dimensional left-module over QuantumUEA( &lt;root system of type G
+2&gt;, Qpar = q )&gt;
+# (This is a case where this algorithm is a lot faster.)
+
+</pre></td></tr></table>
+
+<p><a id="s8ss4" name="s8ss4"></a></p>
+
+<h5>3.8-4 DIYModule</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; DIYModule</code>( <var>U, V, acts</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> is a generic quantized enveloping algebra, and <var>V</var> is a vector space over the field <var>QuantumField</var>. <var>U</var> acts on <var>V</var> and the action is described by the data in the list <var>acts</var>. <var>acts</var> is a list of lists, of length <var>4*l</var>, where <var>l</var> is the rank of the root system. <var>acts</var> describes the actions of the generators [F_1,...,F_l,K_1,...,K_l,K_1^-1,...,K_l^-1, E_1,...,E_l ]. (Here F_k is the generator F_alpha_k, where alpha_k is the k-th simple root, and likewise for E_k.) The action of each generator is described by a list of length <var>dim V</var>, giving the images of the basis elements of <var>V</var>. If an image is zero then it may be omitted: in that case there is a "hole" in the list. This function returns the <var>U</var>-module defined by the input.</p>
+
+<p>Let <var>R</var> be a root system of type A_1, and <var>U</var> the corresponding quantized enveloping algebra (generated by F, K, K^-1, E). In the example below we construct the 2-dimensional U-module with basis vectors v_1,v_2, and <var>U</var>-action given by Fv_1 = v_2, Fv_2=0, Kv_1 = qv_1, Kv_2=q^-1v_2, Ev_1=0, Ev_2=v_1.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",1) );
+QuantumUEA( &lt;root system of type A1&gt;, Qpar = q )
+gap&gt; V:= QuantumField^2;
+( QuantumField^2 )
+gap&gt; v:= BasisVectors( Basis(V) );
+[ [ 1, 0 ], [ 0, 1 ] ]
+gap&gt; acts:= [ [ v[2], 0*v[1] ], [ _q*v[1], _q^-1*v[2] ],
+&gt; [ _q^-1*v[1], _q*v[2] ], [ 0*v[1], v[1] ] ];;
+gap&gt; M:= DIYModule( U, V, acts );
+&lt;2-dimensional left-module over QuantumUEA( &lt;root system of type A
+1&gt;, Qpar = q )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s8ss5" name="s8ss5"></a></p>
+
+<h5>3.8-5 TensorProductOfAlgebraModules</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; TensorProductOfAlgebraModules</code>( <var>V, W</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; TensorProductOfAlgebraModules</code>( <var>V, W</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>V</var> and <var>W</var> are two modules over the same quantized enveloping algebra <var>U</var>. This function constructs the tensor product of <var>V</var> and <var>W</var> (as a <var>U</var>-module). For this the comultiplication map of <var>U</var> is used (see <code class="func">ComultiplicationMap</code> (<a href="chap3.html#s7ss3"><b>3.7-3</b></a>)).</p>
+
+<p>In the second form list is a list of <var>U</var>-modules. In that case the iterated tensor product is constructed.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( [ "A", 2 ] ) );;
+gap&gt; V1:= HighestWeightModule( U, [ 1, 0 ] );;
+gap&gt; V2:= HighestWeightModule( U, [ 0, 1 ] );;
+gap&gt; TensorProductOfAlgebraModules( V1, V2 );
+&lt;9-dimensional left-module over QuantumUEA( &lt;root system of type A2&gt;, Qpar = q )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s8ss6" name="s8ss6"></a></p>
+
+<h5>3.8-6 HWModuleByGenerator</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; HWModuleByGenerator</code>( <var>V, v, hw</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>V</var> is a module over a generic quantized enveloping algebra <var>U</var>, <var>v</var> is a highest-weight vector (i.e., all E_alpha<var>v=0</var>), of weight <var>hw</var>, which must be dominant. This function returns a highest-weight module over <var>U</var> isomorphic to the submodule of <var>V</var> generated by <var>v</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("B",2) );;
+gap&gt; W1:= HighestWeightModule( U, [1,0] );;
+gap&gt; W2:= HighestWeightModule( U, [0,1] );;
+gap&gt; T:= TensorProductOfAlgebraModules( W1, W2 );
+&lt;20-dimensional left-module over QuantumUEA( &lt;root system of type B
+2&gt;, Qpar = q )&gt;
+gap&gt; HWModuleByGenerator( T, Basis(T)[1], [1,1] );
+&lt;16-dimensional left-module over QuantumUEA( &lt;root system of type B
+2&gt;, Qpar = q )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s8ss7" name="s8ss7"></a></p>
+
+<h5>3.8-7 InducedQEAModule</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; InducedQEAModule</code>( <var>U, V</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> is a non-generic quantized enveloping algebra, and <var>V</var> a module over the corresponding generic quantized enveloping algebra. This function returns the <var>U</var>-module obtained from <var>V</var> by setting <var>_q</var> equal to the quantum parameter of <var>U</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem("B",2);;
+gap&gt; U:= QuantizedUEA( R );;
+gap&gt; U0:= QuantizedUEA( R, CF(3), E(3) );;
+gap&gt; V:= HighestWeightModule( U, [1,1] );;
+gap&gt; W:= InducedQEAModule( U0, V );
+&lt;16-dimensional left-module over QuantumUEA( &lt;root system of type B
+2&gt;, Qpar = E(3) )&gt;
+# This module is isomorphic to the one obtained by
+# HighestWeightModule( U0, [1,1] );
+
+</pre></td></tr></table>
+
+<p><a id="s8ss8" name="s8ss8"></a></p>
+
+<h5>3.8-8 GenericModule</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; GenericModule</code>( <var>W</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>For an induced module (see <code class="func">InducedQEAModule</code> (<a href="chap3.html#s8ss7"><b>3.8-7</b></a>)) this function returns the corresponding module over the generic quantized enveloping algebra.</p>
+
+<p><a id="s8ss9" name="s8ss9"></a></p>
+
+<h5>3.8-9 CanonicalMapping</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; CanonicalMapping</code>( <var>W</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>W</var> is an induced module. Let <var>V</var> be the corresponding generic module (<code class="func">GenericModule</code> (<a href="chap3.html#s8ss8"><b>3.8-8</b></a>)). This function returns the map <var>V --&gt; W</var>, that sets <var>_q</var> equal to the quantum parameter of the acting algebra of <var>W</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem("B",2);;
+gap&gt; U:= QuantizedUEA( R );;
+gap&gt; U0:= QuantizedUEA( R, CF(3), E(3) );;
+gap&gt; V:= HighestWeightModule( U, [1,1] );;
+gap&gt; W:= InducedQEAModule( U0, V );;
+gap&gt; f:= CanonicalMapping( W );
+MappingByFunction( &lt;
+16-dimensional left-module over QuantumUEA( &lt;root system of type B
+2&gt;, Qpar = q )&gt;, &lt;
+16-dimensional left-module over QuantumUEA( &lt;root system of type B
+2&gt;, Qpar = E(3) )&gt;, function( v ) ... end )
+gap&gt; Image( f, _q^2*Basis(V)[3] );
+(E(3)^2)*e.3
+
+</pre></td></tr></table>
+
+<p><a id="s8ss10" name="s8ss10"></a></p>
+
+<h5>3.8-10 U2Module</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; U2Module</code>( <var>U, hw</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> must be a quantized enveloping algebra of type A_2. This function returns the highest-weight module over <var>U</var> of highest-weight <var>hw</var> (which must be dominant). This function is generally a lot faster than <code class="func">HighestWeightModule:for a quantized env. alg.</code> (<b>???</b>).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2) );;
+gap&gt; A2Module( U, [4,7] );
+&lt;260-dimensional left-module over QuantumUEA( &lt;root system of type A
+2&gt;, Qpar = q )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s8ss11" name="s8ss11"></a></p>
+
+<h5>3.8-11 MinusculeModule</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; MinusculeModule</code>( <var>U, hw</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>U</var> must be a generic quantized enveloping algebra, and <var>hw</var> a minuscule dominant weight. This function returns the highest-weight module over <var>U</var> of highest-weight <var>hw</var>. This function is generally somewhat faster than <code class="func">HighestWeightModule:for a quantized env. alg.</code> (<b>???</b>).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",5) );;
+gap&gt; MinusculeModule( U, [0,0,1,0,0] );
+&lt;20-dimensional left-module over QuantumUEA( &lt;root system of type A
+5&gt;, Qpar = q )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s8ss12" name="s8ss12"></a></p>
+
+<h5>3.8-12 DualAlgebraModule</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; DualAlgebraModule</code>( <var>V</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>V</var> is a finite-dimensional left module over a quantized enveloping algebra <var>U</var>. This function returns the dual space of <var>V</var> as an algebra module. For this the antipode map of <var>U</var> is used (see <code class="func">AntipodeMap</code> (<a href="chap3.html#s7ss4"><b>3.7-4</b></a>)).</p>
+
+<p>Let <var>M</var> denote the module returned by this function. Then <var>M</var> has as basis the dual basis with respect to <var>Basis( V )</var>. An element of this basis is printed as <var>F@v</var>, where <var>v</var> is an element of <var>Basis( V )</var>. This is the function which takes the value <var>1</var> on <var>v</var> and <var>0</var> on all other basis elements. A general element of <var>M</var> is a linear combination of these basis elements.</p>
+
+<p>The elements of <var>M</var> can be viewed as functions which take arguments. However, internally the elements of <var>M</var> are represented as wrapped up functions. The function corresponding to an element <var>m</var> of <var>M</var> is obtained by <var>ExtRepOfObj( m )</var> (the result of which is printed in the same way as <var>m</var>, but is not equal to it).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2) );;
+gap&gt; V:= HighestWeightModule( U, [1,1] );;
+gap&gt; M:= DualAlgebraModule( V );
+&lt;8-dimensional left-module over QuantumUEA( &lt;root system of type A
+2&gt;, Qpar = q )&gt;
+gap&gt; u:= GeneratorsOfAlgebra( U )[2];
+F2
+gap&gt; vv:= BasisVectors( Basis( M ) );
+[ (1)*F@1*v0, (1)*F@F1*v0, (1)*F@F3*v0, (1)*F@F1*F3*v0, (1)*F@F2*v0,
+  (1)*F@F1*F2*v0, (1)*F@F2*F3*v0, (1)*F@F2^(2)*v0 ]
+gap&gt; u^vv[3];
+&lt;zero function&gt;
+# (The zero of the dual space is printed as &lt;zero function&gt;).
+gap&gt; u^vv[4];
+(q^3-q^5)*F@1*v0
+# We get the function corresponding to a vector in M by using ExtRepOfObj:
+gap&gt; f:= ExtRepOfObj( vv[1] );
+(1)*F@1*v0
+# We can calculate images of this function:
+gap&gt; List( Basis(V), v -&gt; Image( f, v ) );
+[ 1, 0, 0, 0, 0, 0, 0, 0 ]
+
+</pre></td></tr></table>
+
+<p><a id="s8ss13" name="s8ss13"></a></p>
+
+<h5>3.8-13 TrivialAlgebraModule</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; TrivialAlgebraModule</code>( <var>U</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Returns the trivial module over the quantized enveloping algebra <var>U</var>. For this the counit map of <var>U</var> is used.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2) );;
+gap&gt; V:= TrivialAlgebraModule( U );
+&lt;left-module over QuantumUEA( &lt;root system of type A2&gt;, Qpar = q )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s8ss14" name="s8ss14"></a></p>
+
+<h5>3.8-14 WeightsAndVectors</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; WeightsAndVectors</code>( <var>V</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>V</var> is a left module over a quantized enveloping algebra. <var>WeightsAndVectors( V )</var> is a list of two lists; the first of these is a list of the weights of <var>V</var>, the second a list of corresponding weight vectors. These are again grouped in lists: if the multiplicity of a weight is <var>m</var>, then there are <var>m</var> weight vectors, forming a basis of the corresponding weight space.</p>
+
+<p>Modules constructed by <code class="func">HighestWeightModule:for a quantized env. alg.</code> (<b>???</b>) come with this attribute set. There is a method installed for computing <var>WeightsAndVectors( V )</var>, for modules <var>V</var> over a generic quantized enveloping algebra, such that all basis vectors (i.e., all elements of <var>Basis( V )</var>) are weight vectors.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "A", 2 ) );;
+gap&gt; V:= HighestWeightModule( U, [ 1, 1 ] );;
+gap&gt; WeightsAndVectors( V );
+[ [ [ 1, 1 ], [ -1, 2 ], [ 2, -1 ], [ 0, 0 ], [ -2, 1 ], [ 1, -2 ],
+      [ -1, -1 ] ],
+  [ [ 1*v0 ], [ F1*v0 ], [ F3*v0 ], [ F1*F3*v0, F2*v0 ], [ F1*F2*v0 ],
+      [ F2*F3*v0 ], [ F2^(2)*v0 ] ] ]
+
+</pre></td></tr></table>
+
+<p><a id="s8ss15" name="s8ss15"></a></p>
+
+<h5>3.8-15 HighestWeightsAndVectors</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; HighestWeightsAndVectors</code>( <var>V</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Is analogous to <code class="func">WeightsAndVectors</code> (<a href="chap3.html#s8ss14"><b>3.8-14</b></a>); now only the highest weights are listed along with the corresponding highest-weight vectors.</p>
+
+<p>There is a method installed for this using <code class="func">WeightsAndVectors</code> (<a href="chap3.html#s8ss14"><b>3.8-14</b></a>); which means that it works if and only if <var>WeightsAndVectors( V )</var> works.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( [ "A", 2 ] ) );;
+gap&gt; V:= HighestWeightModule( U, [ 1, 1 ] );;
+gap&gt; HighestWeightsAndVectors( V );
+[ [ [ 1, 1 ] ], [ [ 1*v0 ] ] ]
+
+</pre></td></tr></table>
+
+<p><a id="s8ss16" name="s8ss16"></a></p>
+
+<h5>3.8-16 RMatrix</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; RMatrix</code>( <var>V</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>V</var> is a module over the a quantized enveloping algebra <var>U</var>. This function returns the matrix of a linear map theta : Votimes V -&gt; Votimes V that is a solution to the quantum Yang-Baxter equation. We have that thetacirc P is an isomorphism of <var>U</var>-modules, where P :Votimes V-&gt; Votimes V is the linear map such that P(votimes w)=wotimes v. For more details we refer to <a href="chapBib.html#biBJ96">[J96]</a>, Chapter 7.</p>
+
+<p>This function works for modules for which <code class="func">WeightsAndVectors</code> (<a href="chap3.html#s8ss14"><b>3.8-14</b></a>) works.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",1) );;
+gap&gt; V:= HighestWeightModule( U, [1] );;
+gap&gt; RMatrix( V );
+[ [ 1, 0, 0, 0 ], [ 0, q, 1-q^2, 0 ], [ 0, 0, q, 0 ], [ 0, 0, 0, 1 ] ]
+
+</pre></td></tr></table>
+
+<p><a id="s8ss17" name="s8ss17"></a></p>
+
+<h5>3.8-17 IsomorphismOfTensorModules</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; IsomorphismOfTensorModules</code>( <var>V, W</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>V</var>, <var>W</var> are two modules over the same quantized enveloping algebra <var>U</var>. This function returns a linear map theta : Votimes W-&gt; Wotimes V that is an isomorphism of U-modules.</p>
+
+<p>This function is only guaranteed to work correctly if the Hopf algebra structure is non-twisted (see <code class="func">UseTwistedHopfStructure</code> (<a href="chap3.html#s7ss2"><b>3.7-2</b></a>)).</p>
+
+<p>This function works for modules for which <code class="func">WeightsAndVectors</code> (<a href="chap3.html#s8ss14"><b>3.8-14</b></a>) works.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("B",2) );;
+gap&gt; V:= HighestWeightModule( U, [1,0] );;
+gap&gt; W:= HighestWeightModule( U, [0,1] );;
+gap&gt; h:= IsomorphismOfTensorModules( V, W );;
+gap&gt; VW:= Source( h );
+&lt;20-dimensional left-module over QuantumUEA( &lt;root system of type B
+2&gt;, Qpar = q )&gt;
+gap&gt; Image( h, Basis(VW)[13] );
+q*(1*v0&lt;x&gt;F3*v0)+1-q^2*(F4*v0&lt;x&gt;F2*v0)+q^-1-q^3*(F3*v0&lt;x&gt;1*v0)
+
+</pre></td></tr></table>
+
+<p><a id="s8ss18" name="s8ss18"></a></p>
+
+<h5>3.8-18 WriteModuleToFile</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; WriteModuleToFile</code>( <var>V, file</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>V</var> is a module over a quantized enveloping algebra, and <var>file</var> is a string containing the name of a file. This function writes some data to <var>file</var>, that allows <code class="func">ReadModuleFromFile</code> (<a href="chap3.html#s8ss19"><b>3.8-19</b></a>) to recover it.</p>
+
+<p>We remark that this function currently is only implemented for generic quantized enveloping algebras.</p>
+
+<p><a id="s8ss19" name="s8ss19"></a></p>
+
+<h5>3.8-19 ReadModuleFromFile</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; ReadModuleFromFile</code>( <var>file</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>file</var> is a string containing the name of a file, to which a module over a quantized enveloping algebra has been written by <code class="func">WriteModuleToFile</code> (<a href="chap3.html#s8ss18"><b>3.8-18</b></a>). This function recovers the module. More precisely: a new module is constructed that is isomorphic to the old one. In the process the algebra acting on the module is constructed anew (from data written to the file). This algebra can be accessed by <var>LeftActingAlgebra( V )</var>.</p>
+
+<p>We remark that this function currently is only implemented for generic quantized enveloping algebras.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",3) );;
+gap&gt; V:= HighestWeightModule( U, [1,1,1] );;
+gap&gt; WriteModuleToFile( V, "/home/wdg/A3mod" );
+gap&gt; W:= ReadModuleFromFile( "/home/wdg/A3mod" );
+&lt;64-dimensional left-module over QuantumUEA( &lt;root system of type A
+3&gt;, Qpar = q )&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s9ss0" name="s9ss0"></a></p>
+
+<h4>3.9 The path model</h4>
+
+<p>In this section we describe functions for dealing with the path model. We work only with LS-paths, which are represented by two lists, one of weights, and one of rationals (see Section <a href="chap2.html#s7ss0"><b>2.7</b></a>).</p>
+
+<p><a id="s9ss1" name="s9ss1"></a></p>
+
+<h5>3.9-1 DominantLSPath</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; DominantLSPath</code>( <var>R, wt</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>R</var> is a root system, and <var>wt</var> a dominant weight in the weight lattice of <var>R</var>. This function returns the LS-path that is the line from the origin to <var>wt</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; DominantLSPath( R, [1,3] );
+&lt;LS path of shape [ 1, 3 ] ending in [ 1, 3 ] &gt;
+
+</pre></td></tr></table>
+
+<p><a id="s9ss2" name="s9ss2"></a></p>
+
+<h5>3.9-2 Falpha</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; Falpha</code>( <var>path, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Is the result of applying the path operator f_alpha_<var>ind</var>} to the LS-path <var>path</var> (where alpha_<var>ind</var> is the <var>ind</var>-th simple root).</p>
+
+<p>The result is <var>fail</var> if f_alpha_<var>ind</var>}<var>(path)=0</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; p:=DominantLSPath( R, [1,3] );;
+gap&gt; p1:=Falpha( p, 1 );
+&lt;LS path of shape [ 1, 3 ] ending in [ -1, 4 ] &gt;
+gap&gt; Falpha( p1, 1 );
+fail
+
+</pre></td></tr></table>
+
+<p><a id="s9ss3" name="s9ss3"></a></p>
+
+<h5>3.9-3 Ealpha</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; Ealpha</code>( <var>path, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Is the result of applying the path operator e_alpha_<var>ind</var>} to the LS-path <var>path</var> (where alpha_<var>ind</var> is the <var>ind</var>-th simple root).</p>
+
+<p>The result is <var>fail</var> if e_alpha_<var>ind</var>}<var>(path)=0</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; p:=DominantLSPath( R, [1,3] );;
+gap&gt; Ealpha( p, 2 );
+fail
+gap&gt; p1:=Falpha( p, 1 );;
+gap&gt; Ealpha( p1, 1 );
+&lt;LS path of shape [ 1, 3 ] ending in [ 1, 3 ] &gt;
+
+</pre></td></tr></table>
+
+<p><a id="s9ss4" name="s9ss4"></a></p>
+
+<h5>3.9-4 LSSequence</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; LSSequence</code>( <var>path</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>returns the two sequences (of weights and rational numbers) that define the LS-path path.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; p:=DominantLSPath( R, [1,3] );;
+gap&gt; p1:= Falpha( Falpha( p, 1 ), 2 );;
+gap&gt; LSSequence( p1 );
+[ [ [ 11, -4 ], [ -1, 4 ] ], [ 0, 1/4, 1 ] ]
+
+</pre></td></tr></table>
+
+<p><a id="s9ss5" name="s9ss5"></a></p>
+
+<h5>3.9-5 WeylWord</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; WeylWord</code>( <var>path</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>path</var> is an LS-path in the orbit (under the root operators) of a dominant LS-path ending in the dominant weight lambda. This means that the first direction of path is of the form w(lambda) for some w in the Weyl group. This function returns a list [i_1,..., i_m ] such that w=s_i_1cdots s_i_m.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; p:=DominantLSPath( R, [1,3] );;
+gap&gt; p1:= Falpha( Falpha( Falpha( p, 1 ), 2 ), 1 );;
+gap&gt; WeylWord( p1 );
+[ 1, 2, 1 ]
+
+</pre></td></tr></table>
+
+<p><a id="s9ss6" name="s9ss6"></a></p>
+
+<h5>3.9-6 EndWeight</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; EndWeight</code>( <var>path</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>path</var> is an LS-path; this function returns the weight that is the endpoint of path</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "G", 2 );;
+gap&gt; p:=DominantLSPath( R, [1,3] );;
+gap&gt; p1:= Falpha( Falpha( Falpha( p, 1 ), 2 ), 1 );;
+gap&gt; EndWeight( p1 );
+[ 0, 3 ]
+
+</pre></td></tr></table>
+
+<p><a id="s9ss7" name="s9ss7"></a></p>
+
+<h5>3.9-7 CrystalGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; CrystalGraph</code>( <var>R, wt</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>This function returns a record describing the crystal graph of the highest-weight module with highest weight <var>wt</var>, over the quantized enveloping algebra corresponding to <var>R</var>. It is computed using the path model. Therefore the points in the graph are LS-paths.</p>
+
+<p>Denote the output by <var>r</var>; then <var>r.points</var> is the list of points of the graph. Furthermore, <var>r.edges</var> is a list of edges of the graph; this is a list of elements of the form <var>[ [ i, j ], u ]</var>. This means that there is an arrow from point <var>i</var> (i.e., the point on position <var>i</var> in <var>r.points</var>) to point <var>j</var>, with label <var>u</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; R:= RootSystem( "A", 2 );;
+gap&gt; CrystalGraph( R, [1,1] );
+rec(
+  points := [ &lt;LS path of shape [ 1, 1 ] ending in [ 1, 1 ] &gt;, &lt;LS path of sha\
+pe [ 1, 1 ] ending in [ -1, 2 ] &gt;, &lt;LS path of shape [ 1, 1 ] ending in
+        [ 2, -1 ] &gt;, &lt;LS path of shape [ 1, 1 ] ending in [ 0, 0 ] &gt;,
+      &lt;LS path of shape [ 1, 1 ] ending in [ 0, 0 ] &gt;,
+      &lt;LS path of shape [ 1, 1 ] ending in [ 1, -2 ] &gt;,
+      &lt;LS path of shape [ 1, 1 ] ending in [ -2, 1 ] &gt;,
+      &lt;LS path of shape [ 1, 1 ] ending in [ -1, -1 ] &gt; ],
+  edges := [ [ [ 1, 2 ], 1 ], [ [ 1, 3 ], 2 ], [ [ 2, 4 ], 2 ],
+      [ [ 3, 5 ], 1 ], [ [ 4, 6 ], 2 ], [ [ 5, 7 ], 1 ], [ [ 6, 8 ], 1 ],
+      [ [ 7, 8 ], 2 ] ] )
+
+</pre></td></tr></table>
+
+<p><a id="s10ss0" name="s10ss0"></a></p>
+
+<h4>3.10  Canonical bases </h4>
+
+<p>Here we describe functions for computing the canonical basis of the negative part of a quantized enveloping algebra, and of a module.</p>
+
+<p><a id="s10ss1" name="s10ss1"></a></p>
+
+<h5>3.10-1 Falpha</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; Falpha</code>( <var>x, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>x</var> is a PBW-monomial in U^- (i.e., a monomial in the F_alpha, where alpha runs over the positive roots). This function returns the result of applying the <var>ind</var>-th Kashiwara operator widetildeF_alpha_<var>ind</var>} to x (cf. Section <a href="chap2.html#s6ss0"><b>2.6</b></a>).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "F", 4 ) );;
+gap&gt; x:= One( U );
+1
+gap&gt; Falpha( Falpha( x, 3 ), 2 );
+F3*F9
+
+</pre></td></tr></table>
+
+<p><a id="s10ss2" name="s10ss2"></a></p>
+
+<h5>3.10-2 Ealpha</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; Ealpha</code>( <var>x, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>x</var> is a PBW-monomial in U^- (i.e., a monomial in the F_alpha, where alpha runs over the positive roots). This function returns the result of applying the <var>ind</var>-th Kashiwara operator widetildeE_alpha_<var>ind</var>} to x (cf. Section <a href="chap2.html#s6ss0"><b>2.6</b></a>). The result is <var>fail</var> if widetildeE_alpha_<var>ind</var>}<var>(x)=0</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "F", 4 ) );;
+gap&gt; Ealpha( One( U ), 2 );
+fail
+gap&gt; g:= GeneratorsOfAlgebra( U );;
+gap&gt; x:= g[1]*g[4]*g[7]*g[17];
+F1*F4*F7*F17
+gap&gt; Ealpha( x, 3 );
+F1*F2*F7*F17
+
+
+</pre></td></tr></table>
+
+<p><a id="s10ss3" name="s10ss3"></a></p>
+
+<h5>3.10-3 CanonicalBasis</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; CanonicalBasis</code>( <var>U</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Is the canonical basis of the quantized universal enveloping algebra <var>U</var>. When this is constructed nothing is computed. By using <code class="func">PBWElements</code> (<a href="chap3.html#s10ss4"><b>3.10-4</b></a>), <code class="func">MonomialElements</code> (<a href="chap3.html#s10ss5"><b>3.10-5</b></a>), <code class="func">Strings</code> (<a href="chap3.html#s10ss6"><b>3.10-6</b></a>) information about elements of the canonical basis can be obtained.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "F", 4 ) );;
+gap&gt; B:= CanonicalBasis( U );
+&lt;canonical basis of QuantumUEA( &lt;root system of type F4&gt;, Qpar = q ) &gt;
+
+</pre></td></tr></table>
+
+<p><a id="s10ss4" name="s10ss4"></a></p>
+
+<h5>3.10-4 PBWElements</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; PBWElements</code>( <var>B, rt</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>B</var> is the canonical basis of a quantized uea, and <var>rt</var> a list of non-negative integers representing an element of the root lattice (e.g., if the simple roots are alpha, beta and <var>rt = [ 3, 2 ]</var>, then <var>rt</var> represents 3alpha+2beta).</p>
+
+<p>It is possible to add the option <var>lowrank</var>, as follows <var>PBWElements( B, rt :lowrank )</var>. In that case a somewhat different method will be used, that is significantly faster if the underlying root system has rank 2,3. It is about equally fast for ranks 4,5; and slower for ranks greater than 5.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "F", 4 ) );;
+gap&gt; B:= CanonicalBasis( U );;
+gap&gt; PBWElements( B, [1,2,1,0] );
+[ F1*F3^(2)*F9, F1*F3*F7+(q^4)*F1*F3^(2)*F9, (q^4)*F1*F3^(2)*F9+F2*F3*F9,
+  (q^2)*F1*F3*F7+(q^2+q^6)*F1*F3^(2)*F9+(q^2)*F2*F3*F9+F2*F7,
+  (q^4)*F1*F3*F7+(q^8)*F1*F3^(2)*F9+(q^4)*F2*F3*F9+(q^2)*F2*F7+F3*F4 ]
+gap&gt; U:= QuantizedUEA( RootSystem("G",2) );;
+gap&gt; B:= CanonicalBasis( U );;
+gap&gt; PBWElements( B, [2,3] : lowrank );
+[ F1^(2)*F6^(3), F1*F5*F6^(2)+(q^8+q^10)*F1^(2)*F6^(3),
+  (q^2)*F1*F5*F6^(2)+(q^6+q^12)*F1^(2)*F6^(3)+F3*F6^(2),
+  (q^8)*F1*F5*F6^(2)+(q^18)*F1^(2)*F6^(3)+(q^6)*F3*F6^(2)+F5^(2)*F6 ]
+
+</pre></td></tr></table>
+
+<p><a id="s10ss5" name="s10ss5"></a></p>
+
+<h5>3.10-5 MonomialElements</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; MonomialElements</code>( <var>B, rt</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>This does the same as <code class="func">PBWElements</code> (<a href="chap3.html#s10ss4"><b>3.10-4</b></a>), except that the elements are written as linear combinations of monomials in the generators F_alpha, where alpha runs through the simple roots.</p>
+
+<p>We remark that this information is also computed "behind the scenes" when calling <var>PBWElements( B, rt )</var>. However, it is not computed if the option <var>lowrank</var> is present in the call to <var>PBWElements</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "F", 4 ) );;
+gap&gt; B:= CanonicalBasis( U );;
+gap&gt; MonomialElements( B, [1,2,1,0] );
+[ F1*F3^(2)*F9, F1*F3*F9*F3+(-1)*F1*F3^(2)*F9, F3^(2)*F1*F9, F3*F1*F9*F3,
+  F3*F9*F3*F1+(-1)*F3^(2)*F1*F9 ]
+
+</pre></td></tr></table>
+
+<p><a id="s10ss6" name="s10ss6"></a></p>
+
+<h5>3.10-6 Strings</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; Strings</code>( <var>B, rt</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>B</var>, <var>rt</var> are the same as in <code class="func">PBWElements</code> (<a href="chap3.html#s10ss4"><b>3.10-4</b></a>). This returns the list of strings corresponding to the elements of <var>B</var> of weight <var>rt</var> (cf. Section <a href="chap2.html#s6ss0"><b>2.6</b></a>). For example, if on the k-th position of the list returned by this function we have <var>[ 1, 2, 2, 3 ]</var>, then the principal monomial of the k-th element of <var>PBWElements( B, rt )</var> is widetildeF_1^2widetildeF_2^3(1) (where widetildeF_i is the i-th Kashiwara operator).</p>
+
+<p>We remark that this information is also computed "behind the scenes" when calling <var>PBWElements( B, rt )</var>. However, it is not computed if the option <var>lowrank</var> is present in the call to <var>PBWElements</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "F", 4 ) );;
+gap&gt; B:= CanonicalBasis( U );;
+gap&gt; Strings( B, [1,2,1,0] );
+[ [ 1, 1, 2, 2, 3, 1 ], [ 1, 1, 2, 1, 3, 1, 2, 1 ], [ 2, 2, 1, 1, 3, 1 ],
+  [ 2, 1, 1, 1, 3, 1, 2, 1 ], [ 2, 1, 3, 1, 2, 1, 1, 1 ] ]
+gap&gt; Falpha( Falpha( Falpha( Falpha( One(U), 3 ), 1 ), 2 ), 2 );
+F2*F3*F9
+gap&gt; PBWElements( B, [1,2,1,0] )[3];
+(q^4)*F1*F3^(2)*F9+F2*F3*F9
+
+</pre></td></tr></table>
+
+<p><a id="s10ss7" name="s10ss7"></a></p>
+
+<h5>3.10-7 PrincipalMonomial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; PrincipalMonomial</code>( <var>u</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>u</var> is an element of the output of <code class="func">PBWElements</code> (<a href="chap3.html#s10ss4"><b>3.10-4</b></a>). This function returns the unique monomial of <var>u</var> that has coefficient 1.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("G",2) );;
+gap&gt; B:= CanonicalBasis( U );;
+gap&gt; p:= PBWElements( B, [4,4] : lowrank )[4];
+(q^9)*F1^(2)*F3*F6^(3)+F1^(2)*F5^(2)*F6^(2)+(q^9+q^11+q^13)*F1^(3)*F5*F6^(
+3)+(q^20+q^22+2*q^24+q^26+q^28)*F1^(4)*F6^(4)
+gap&gt; PrincipalMonomial( p );
+F1^(2)*F5^(2)*F6^(2)
+
+</pre></td></tr></table>
+
+<p><a id="s10ss8" name="s10ss8"></a></p>
+
+<h5>3.10-8 StringMonomial</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; StringMonomial</code>( <var>u</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>u</var> is a monomial in the negative part of a quantized enveloping algebra, e.g., as output by <code class="func">PrincipalMonomial</code> (<a href="chap3.html#s10ss7"><b>3.10-7</b></a>). This function computes the corresponding "string" (see Section <a href="chap2.html#s6ss0"><b>2.6</b></a>). The strings are output in the same way as in <a href="chap3.html#s10ss6"><b>3.10-6</b></a>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("G",2) );;
+gap&gt; B:= CanonicalBasis( U );;
+gap&gt; p:= PBWElements( B, [1,2] : lowrank )[2];;
+gap&gt; m:=PrincipalMonomial( p );
+F5*F6
+gap&gt; StringMonomial( m );
+[ 2, 2, 1, 1 ]
+gap&gt; Falpha( Falpha( Falpha( One(U), 1 ), 2 ), 2 );
+F5*F6
+
+</pre></td></tr></table>
+
+<p><a id="s10ss9" name="s10ss9"></a></p>
+
+<h5>3.10-9 Falpha</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; Falpha</code>( <var>V, v, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>V</var> is a module over a quantized enveloping algebra, <var>v</var> an element of it, and <var>ind</var> an index between 1 and the rank of the root system. The function returns the result of applying the <var>ind</var>-th Kashiwara operator widetildeF_<var>ind</var> to <var>v</var>. Here the Kashiwara operators are different from the ones described in Section <a href="chap2.html#s6ss0"><b>2.6</b></a>. We refer to <a href="chapBib.html#biBJ96">[J96]</a>, 9.2 for the definition of the operators used here.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("B",2) );;
+gap&gt; V:= HighestWeightModule( U, [1,1] );;
+gap&gt; Falpha( V, Basis(V)[1], 1 );
+F1*v0
+
+</pre></td></tr></table>
+
+<p><a id="s10ss10" name="s10ss10"></a></p>
+
+<h5>3.10-10 Ealpha</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; Ealpha</code>( <var>V, v, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>V</var> is a module over a quantized enveloping algebra, <var>v</var> an element of it, and <var>ind</var> an index between 1 and the rank of the root system. The function returns the result of applying the <var>ind</var>-th Kashiwara operator widetildeE_<var>ind</var> to <var>v</var>. Here the Kashiwara operators are different from the ones described in Section <a href="chap2.html#s6ss0"><b>2.6</b></a>. We refer to <a href="chapBib.html#biBJ96">[J96]</a>, 9.2 for the definition of the operators used here.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("B",2) );;
+gap&gt; V:= HighestWeightModule( U, [1,1] );;
+gap&gt; v:= Falpha( V, Basis(V)[2], 2 );
+(q^2)*F1*F4*v0+F2*v0
+gap&gt; Ealpha( V, v, 2 );
+F1*v0
+
+</pre></td></tr></table>
+
+<p><a id="s10ss11" name="s10ss11"></a></p>
+
+<h5>3.10-11 CrystalBasis</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; CrystalBasis</code>( <var>V</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>V</var> is a finite-dimensional left module over a quantized enveloping algebra. This function returns the canonical, or crystal basis of V (see Section <a href="chap2.html#s6ss0"><b>2.6</b></a>).</p>
+
+<p>This function only works for modules for which <code class="func">WeightsAndVectors</code> (<a href="chap3.html#s8ss14"><b>3.8-14</b></a>) works.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "B", 2 ) );;
+ gap&gt; V:= HighestWeightModule( U, [1,1] );
+ &lt;16-dimensional left-module over QuantumUEA( &lt;root system of type B2&gt;, Qpar
+= q )&gt;
+ gap&gt;  CrystalBasis( V );
+ Basis( &lt;16-dimensional left-module over QuantumUEA( &lt;root system of type B
+ 2&gt;, Qpar = q )&gt;, [ 1*v0, F1*v0, F4*v0, F1*F4*v0, (q^2)*F1*F4*v0+F2*v0, F2*F4*v0,
+(q)*F2*F4*v0+F3*v0, (-q^-4)*F1*F2*v0, (-q^-1)*F1*F3*v0+(-q^-3)*F2^(2)*v0,
+(-q^-2)*F2^(2)*v0, F3*F4*v0, (-q^-4)*F2*F3*v0+(-q^-2)*F2^(2)*F4*v0,
+(-q^-2)*F2*F3*v0, (q^-4)*F2^(3)*v0, (-q^-1)*F3^(2)*v0, (q^-5)*F2^(2)*F3*v0 ] )
+
+</pre></td></tr></table>
+
+<p><a id="s10ss12" name="s10ss12"></a></p>
+
+<h5>3.10-12 CrystalVectors</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; CrystalVectors</code>( <var>V</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>V</var> is a finite-dimensional left module over a quantized enveloping algebra. Let <var>C</var> be the crystal basis of <var>V</var> (i.e., output by <code class="func">CrystalBasis</code> (<a href="chap3.html#s10ss11"><b>3.10-11</b></a>)). This function returns a list of cosets of the basis elements of <var>C</var> modulo qL, where L is the Z[q]-lattice spanned by <var>C</var>.</p>
+
+<p>The coset of a vector <var>v</var> is printed as <var>&lt;v&gt;</var>.</p>
+
+<p>The crystal vectors are used to construct the point set of the crystal graph of <var>V</var> (<code class="func">CrystalGraph:for a module</code> (<b>???</b>)).</p>
+
+<p>This function only works for modules for which <code class="func">WeightsAndVectors</code> (<a href="chap3.html#s8ss14"><b>3.8-14</b></a>) works.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "B", 2 ) );;
+gap&gt; V:= HighestWeightModule( U, [1,1] );
+&lt;16-dimensional left-module over QuantumUEA( &lt;root system of type B
+2&gt;, Qpar = q )&gt;
+gap&gt; CrystalVectors( V );
+[ &lt;1*v0&gt;, &lt;F1*v0&gt;, &lt;F4*v0&gt;, &lt;F2*v0&gt;, &lt;F1*F4*v0&gt;, &lt;F3*v0&gt;,
+  &lt;(-q^-4)*F1*F2*v0&gt;, &lt;F2*F4*v0&gt;, &lt;F1*F3*v0&gt;, &lt;F3*F4*v0&gt;,
+  &lt;(-q^-1)*F1*F3*v0+(-q^-3)*F2^(2)*v0&gt;, &lt;(-q^-4)*F2*F3*v0+(-q^-2)*F2^(2)*F
+    4*v0&gt;, &lt;F2^(2)*F4*v0&gt;, &lt;(q^-4)*F2^(3)*v0&gt;, &lt;(-q^-1)*F3^(2)*v0&gt;,
+  &lt;(q^-5)*F2^(2)*F3*v0&gt; ]
+
+</pre></td></tr></table>
+
+<p><a id="s10ss13" name="s10ss13"></a></p>
+
+<h5>3.10-13 Falpha</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; Falpha</code>( <var>v, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>v</var> is a crystal vector, i.e., an element of <var>CrystalVectors( V )</var>, where <var>V</var> is a left module over a quantized enveloping algebra. This function returns the result of applying the <var>ind</var>-th Kashiwara operator widetildeF_alpha_<var>ind</var>} to v. The result is <var>fail</var> if widetildeF_alpha_<var>ind</var>}<var>(v)=0</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "B", 2 ) );;
+gap&gt; V:= HighestWeightModule( U, [1,1] );;
+gap&gt; c:=CrystalVectors( V );;
+gap&gt; Falpha( c[2], 2 );
+&lt;F2*v0&gt;
+gap&gt; Falpha( c[3], 2 );
+fail
+gap&gt; Falpha( Falpha( Falpha( c[1], 1 ), 2 ), 1 );
+fail
+gap&gt; p:= DominantLSPath( RootSystem( "B", 2 ), [1,1] );
+&lt;LS path of shape [ 1, 1 ] ending in [ 1, 1 ] &gt;
+gap&gt; Falpha( Falpha( Falpha( p, 1 ), 2 ), 1 );
+fail
+
+</pre></td></tr></table>
+
+<p>The last part of this example is an illustration of the fact that the crystal graph of a highest-weight module can be obtained by the path method (see Section <a href="chap2.html#s7ss0"><b>2.7</b></a>).</p>
+
+<p><a id="s10ss14" name="s10ss14"></a></p>
+
+<h5>3.10-14 Ealpha</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; Ealpha</code>( <var>v, ind</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>Here <var>v</var> is a crystal vector, i.e., an element of <var>CrystalVectors( V )</var>, where <var>V</var> is a left module over a quantized enveloping algebra. This function returns the result of applying the <var>ind</var>-th Kashiwara operator widetildeE_alpha_<var>ind</var>} to v. The result is <var>fail</var> if widetildeE_alpha_<var>ind</var>}<var>(v)=0</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem( "B", 2 ) );;
+gap&gt; V:= HighestWeightModule( U, [1,1] );;
+gap&gt; c:=CrystalVectors( V );;
+gap&gt; Ealpha( c[3], 1 );
+fail
+gap&gt; Ealpha( c[3], 2 );
+&lt;1*v0&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s10ss15" name="s10ss15"></a></p>
+
+<h5>3.10-15 CrystalGraph</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; CrystalGraph</code>( <var>V</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<p>Returns the crystal graph of the module <var>V</var>. The points of this graph are the cosets output by <code class="func">CrystalVectors</code> (<a href="chap3.html#s10ss12"><b>3.10-12</b></a>). The edges work in the same way as in <code class="func">CrystalGraph:for root system and weight</code> (<b>???</b>).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; U:= QuantizedUEA( RootSystem("A",2) );;
+gap&gt; V1:= HighestWeightModule( U, [1,0] );;
+gap&gt; V2:= HighestWeightModule( U, [0,1] );;
+gap&gt; W:= TensorProductOfAlgebraModules( V1, V2 );;
+gap&gt; CrystalGraph( W );
+rec(
+  points := [ &lt;1*(1*v0&lt;x&gt;1*v0)&gt;, &lt;1*(F1*v0&lt;x&gt;1*v0)&gt;, &lt;1*(1*v0&lt;x&gt;F3*v0)&gt;,
+      &lt;1*(1*v0&lt;x&gt;F2*v0)+q^-1*(F2*v0&lt;x&gt;1*v0)&gt;,
+      &lt;-q^-1*(1*v0&lt;x&gt;F2*v0)+q^-1*(F1*v0&lt;x&gt;F3*v0)&gt;, &lt;1*(F2*v0&lt;x&gt;F3*v0)&gt;,
+      &lt;-q^-1*(F1*v0&lt;x&gt;F2*v0)&gt;, &lt;-q^-1*(F2*v0&lt;x&gt;F2*v0)&gt;,
+      &lt;-q^-3*(1*v0&lt;x&gt;F2*v0)+-q^-1*(F1*v0&lt;x&gt;F3*v0)+1*(F2*v0&lt;x&gt;1*v0)&gt; ],
+  edges := [ [ [ 1, 2 ], 1 ], [ [ 1, 3 ], 2 ], [ [ 2, 4 ], 2 ],
+      [ [ 3, 5 ], 1 ], [ [ 4, 6 ], 2 ], [ [ 5, 7 ], 1 ], [ [ 6, 8 ], 1 ],
+      [ [ 7, 8 ], 2 ] ] )
+
+</pre></td></tr></table>
+
+<p><a id="s11ss0" name="s11ss0"></a></p>
+
+<h4>3.11  Universal enveloping algebras </h4>
+
+<p>Here we describe functions for connecting a quantized enveloping algebra to the corresponding universal enveloping algebra.</p>
+
+<p><a id="s11ss1" name="s11ss1"></a></p>
+
+<h5>3.11-1 UEA</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; UEA</code>( <var>L</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>This function returns the universal enveloping algebra <var>u</var> of the semisimple Lie algebra <var>L</var>. The generators of <var>u</var> are the generators of a Kostant lattice in the universal enveloping algebra (these generators are obtained from <var>L</var> by <var>LatticeGeneratorsInUEA( L )</var>, see the <strong class="pkg">GAP</strong> reference manual).</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; L:= SimpleLieAlgebra( "B", 2, Rationals );
+&lt;Lie algebra of dimension 10 over Rationals&gt;
+gap&gt; u:= UEA( L );
+&lt;algebra over Rationals, with 10 generators&gt;
+gap&gt; g:= GeneratorsOfAlgebra( u );
+[ y1, y2, y3, y4, x1, x2, x3, x4, ( h9/1 ), ( h10/1 ) ]
+
+</pre></td></tr></table>
+
+<p><a id="s11ss2" name="s11ss2"></a></p>
+
+<h5>3.11-2 UnderlyingLieAlgebra</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; UnderlyingLieAlgebra</code>( <var>u</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>For a universal enveloping algebra <var>u</var> constructed by <code class="func">UEA</code> (<a href="chap3.html#s11ss1"><b>3.11-1</b></a>), this returns the corresponding semisimple Lie algebra</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; L:= SimpleLieAlgebra( "B", 2, Rationals );;
+gap&gt; u:= UEA( L );;
+gap&gt; UnderlyingLieAlgebra( u );
+&lt;Lie algebra of dimension 10 over Rationals&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s11ss3" name="s11ss3"></a></p>
+
+<h5>3.11-3 HighestWeightModule</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; HighestWeightModule</code>( <var>u, hw</var> )</td><td class="tdright">( operation )</td></tr></table></div>
+<p>For a universal enveloping algebra <var>u</var> constructed by <code class="func">UEA</code> (<a href="chap3.html#s11ss1"><b>3.11-1</b></a>), this returns the irreducible highest weight module over <var>u</var> with highest weight <var>hw</var>, which must be dominant. This module is the same as the corresponding highest weight module over the semisimple Lie algebra, but in this case the enveloping algebra <var>u</var> acts.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; L:= SimpleLieAlgebra( "B", 2, Rationals );;
+gap&gt; u:= UEA( L );;
+gap&gt; HighestWeightModule( u, [2,3] );
+&lt;140-dimensional left-module over &lt;algebra over Rationals, with
+10 generators&gt;&gt;
+
+</pre></td></tr></table>
+
+<p><a id="s11ss4" name="s11ss4"></a></p>
+
+<h5>3.11-4 QUEAToUEAMap</h5>
+
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&gt; QUEAToUEAMap</code>( <var>L</var> )</td><td class="tdright">( attribute )</td></tr></table></div>
+<p>Here <var>L</var> is a semisimple Lie algebra. Set <var>u := UEA( L )</var>, and <var>U := QuantizedUEA( L )</var> (so <var>u, U</var> are the universal enveloping algebra, and "generic" quantized enveloping algebra of <var>L</var> respectively). Then <var>QUEAToUEAMap( L )</var> returns the algebra homomorphism from <var>U</var> to <var>u</var> obtained by mapping <var>q</var> to <var>1</var>, a generator <var>Fi</var>, corresponding to a simple root to the generator <var>yi</var> (corresponding to the same simple root), and likewise for <var>Ei</var> and <var>xi</var>. This means that <var>Ki</var> is mapped to one, and <var>[ Ki : s ]</var> to <var>hi</var> choose <var>s</var>.</p>
+
+<p>The canonical basis of <var>U</var> is mapped to the canonical basis of <var>u</var>.</p>
+
+
+<table class="example">
+<tr><td><pre>
+
+gap&gt; L:= SimpleLieAlgebra( "B", 2, Rationals );;
+gap&gt; f:= QUEAToUEAMap( L );
+&lt;mapping: QuantumUEA( &lt;root system of rank
+2&gt;, Qpar = q ) -&gt; Algebra( Rationals, [ y1, y2, y3, y4, x1, x2, x3, x4,
+  ( h9/1 ), ( h10/1 ) ] ) &gt;
+gap&gt; U:= Source( f );
+QuantumUEA( &lt;root system of rank 2&gt;, Qpar = q )
+gap&gt; u:= Range( f );
+&lt;algebra over Rationals, with 10 generators&gt;
+gap&gt; B:= CanonicalBasis( U );;
+gap&gt; p:= PBWElements( B, [1,2] );
+[ F1*F4^(2), (q+q^3)*F1*F4^(2)+F2*F4, (q^4)*F1*F4^(2)+(q)*F2*F4+F3 ]
+gap&gt; pu:= List( p, x -&gt; Image( f, x ) );
+[ y1*y2^(2), 2*y1*y2^(2)+y2*y3-2*y4, y1*y2^(2)+y2*y3-1*y4 ]
+gap&gt; V:= HighestWeightModule( u, [2,1] );
+&lt;40-dimensional left-module over &lt;algebra over Rationals, with
+10 generators&gt;&gt;
+gap&gt; List( pu, x -&gt; x^Basis(V)[1] );
+[ 0*v0, y2*y3*v0+-2*y4*v0, y2*y3*v0+-1*y4*v0 ]
+# Which gives us a piece of the canonical basis of V.
+
+</pre></td></tr></table>
+
+
+<div class="pcenter">
+<table class="chlink"><tr><td><a href="chap0.html">Top of Book</a></td><td><a href="chap2.html">Previous Chapter</a></td><td><a href="chapBib.html">Next Chapter</a></td></tr></table>
+<br />
+
+
+<div class="pcenter"><table class="chlink"><tr><td class="chlink1">Goto Chapter: </td><td><a href="chap0.html">Top</a></td><td><a href="chap1.html">1</a></td><td><a href="chap2.html">2</a></td><td><a href="chap3.html">3</a></td><td><a href="chapBib.html">Bib</a></td><td><a href="chapInd.html">Ind</a></td></tr></table><br /></div>
+
+</div>
+
+<hr />
+<p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

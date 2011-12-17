@@ -1,0 +1,14 @@
+#############################################################################
+##
+#W    init.g             share package `quagroup'           Willem de Graaf
+##
+##    
+##
+
+
+# declare package
+
+DeclareAutoPackage("quagroup","1.1", function() return true; end );
+DeclarePackageDocumentation( "quagroup", "doc" );
+
+

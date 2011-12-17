@@ -1,0 +1,98 @@
+  
+  
+  [1m[4m[31mIndex[0m
+  
+  [1m[34m\*[0m  3.6-9
+  [1m[34m_q[0m  3.1-2
+  [1m[34mAntiAutomorphismTau[0m  3.6-5
+  [1m[34mAntipodeMap[0m  3.7-4
+  [1m[34mApplyWeylElement[0m  3.4-1
+  [1m[34mAutomorphismOmega[0m  3.6-4
+  [1m[34mAutomorphismTalpha[0m  3.6-7
+  [1m[34mBarAutomorphism[0m  3.6-6
+  [1m[34mBilinearFormMatNF[0m  3.3-2
+  [1m[34mCanonicalBasis[0m  3.10-3
+  [1m[34mCanonicalMapping[0m  3.5-5
+  [1m[34mCanonicalMapping[0m  3.8-9
+  [1m[34mComultiplicationMap[0m  3.7-3
+  [1m[34mCounitMap[0m  3.7-5
+  [1m[34mCrystalBasis[0m  3.10-11
+  [1m[34mCrystalGraph[0m (for a module)  3.10-15
+  [1m[34mCrystalGraph[0m (for root system and weight)  3.9-7
+  [1m[34mCrystalVectors[0m  3.10-12
+  [1m[34mDiagramAutomorphism[0m  3.6-8
+  [1m[34mDIYModule[0m  3.8-4
+  [1m[34mDominantLSPath[0m  3.9-1
+  [1m[34mDualAlgebraModule[0m  3.8-12
+  [1m[34mEalpha[0m (for a module element)  3.10-10
+  [1m[34mEalpha[0m (for a crystal vector)  3.10-14
+  [1m[34mEalpha[0m (for a PBW-monomial)  3.10-2
+  [1m[34mEalpha[0m (for an LS-path)  3.9-3
+  [1m[34mEndWeight[0m  3.9-6
+  [1m[34mExchangeElement[0m  3.4-5
+  [1m[34mExtRepOfObj[0m  3.5-3
+  [1m[34mFalpha[0m (for a PBW-monomial)  3.10-1
+  [1m[34mFalpha[0m (for a crystal vector)  3.10-13
+  [1m[34mFalpha[0m (for a module element)  3.10-9
+  [1m[34mFalpha[0m (for an LS-path)  3.9-2
+  [1m[34mGaussianBinomial[0m  3.2-3
+  [1m[34mGaussianFactorial[0m  3.2-2
+  [1m[34mGaussNumber[0m  3.2-1
+  [1m[34mGenericModule[0m  3.8-8
+  [1m[34mGetBraidRelations[0m  3.4-6
+  [1m[34mHighestWeightModule[0m (for a universal env. alg)  3.11-3
+  [1m[34mHighestWeightModule[0m (for a quantized env. alg.)  3.8-1
+  [1m[34mHighestWeightsAndVectors[0m  3.8-15
+  [1m[34mHWModuleByGenerator[0m  3.8-6
+  [1m[34mHWModuleByTensorProduct[0m  3.8-3
+  [1m[34mInducedQEAModule[0m  3.8-7
+  [1m[34mIrreducibleQuotient[0m  3.8-2
+  [1m[34mIsomorphismOfTensorModules[0m  3.8-17
+  [1m[34mLengthOfWeylWord[0m  3.4-2
+  [1m[34mLongestWeylWord[0m  3.4-3
+  [1m[34mLongWords[0m  3.4-7
+  [1m[34mLSSequence[0m  3.9-4
+  [1m[34mMinusculeModule[0m  3.8-11
+  [1m[34mMonomialElements[0m  3.10-5
+  [1m[34mObjByExtRep[0m  3.5-2
+  [1m[34mPBWElements[0m  3.10-4
+  [1m[34mPositiveRootsInConvexOrder[0m  3.3-5
+  [1m[34mPositiveRootsNF[0m  3.3-3
+  [1m[34mPrincipalMonomial[0m  3.10-7
+  [1m[34mQEAAntiAutomorphism[0m  3.6-3
+  [1m[34mQEAAntiAutomorphism[0m  3.6-3
+  [1m[34mQEAAutomorphism[0m  3.6-2
+  [1m[34mQEAAutomorphism[0m  3.6-2
+  [1m[34mQEAHomomorphism[0m  3.6-1
+  [1m[34mQuantizedUEA[0m  3.5-1
+  [1m[34mQuantizedUEA[0m  3.5-1
+  [1m[34mQuantizedUEA[0m  3.5-1
+  [1m[34mQuantizedUEA[0m  3.5-1
+  [1m[34mQuantumField[0m  3.1-1
+  [1m[34mQuantumParameter[0m  3.5-4
+  [1m[34mQUEAToUEAMap[0m  3.11-4
+  [1m[34mReadModuleFromFile[0m  3.8-19
+  [1m[34mReadQEAFromFile[0m  3.5-7
+  [1m[34mReducedWordIterator[0m  3.4-4
+  [1m[34mRMatrix[0m  3.8-16
+  [1m[34mRootSystem[0m  3.3-1
+  [1m[34mRootSystem[0m  3.3-1
+  [1m[34mSimpleRootsAsWeights[0m  3.3-6
+  [1m[34mSimpleSystemNF[0m  3.3-4
+  [1m[34mStringMonomial[0m  3.10-8
+  [1m[34mStrings[0m  3.10-6
+  [1m[34mTensorPower[0m  3.7-1
+  [1m[34mTensorProductOfAlgebraModules[0m  3.8-5
+  [1m[34mTensorProductOfAlgebraModules[0m  3.8-5
+  [1m[34mTrivialAlgebraModule[0m  3.8-13
+  [1m[34mU2Module[0m  3.8-10
+  [1m[34mUEA[0m  3.11-1
+  [1m[34mUnderlyingLieAlgebra[0m  3.11-2
+  [1m[34mUseTwistedHopfStructure[0m  3.7-2
+  [1m[34mWeightsAndVectors[0m  3.8-14
+  [1m[34mWeylWord[0m  3.9-5
+  [1m[34mWriteModuleToFile[0m  3.8-18
+  [1m[34mWriteQEAToFile[0m  3.5-6
+  
+  
+  -------------------------------------------------------

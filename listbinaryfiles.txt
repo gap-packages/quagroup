@@ -1,0 +1,4 @@
+quagroup/changes.log
+quagroup/doc/manual.pdf
+quagroup/doc/manual.ps
+quagroup/doc/manual.dvi

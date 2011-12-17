@@ -1,0 +1,1921 @@
+  
+  [1m[4m[31m3. QuaGroup[0m
+  
+  In this chapter we describe the functionality provided by [1mQuaGroup[0m.
+  
+  
+  [1m[4m[31m3.1 Global constants[0m
+  
+  [1m[4m[31m3.1-1 QuantumField[0m
+  
+  [1m[34m> QuantumField_______________________________________________[0mglobal variable
+  
+  This is the field Q(q) of rational functions in q, over Q.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> QuantumField;[0m
+    [22m[35mQuantumField[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.1-2 _q[0m
+  
+  [1m[34m> _q_________________________________________________________[0mglobal variable
+  
+  This is an indeterminate; [22m[34mQuantumField[0m is the field of rational functions in
+  this  indeterminate. The identifier [22m[34m_q[0m is fixed once the package [1mQuaGroup[0m is
+  loaded.  The  symbol [22m[34m_q[0m is chosen (instead of [22m[34mq[0m) in order to avoid potential
+  name clashes. We note that [22m[34m_q[0m is printed as [22m[34mq[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> _q;[0m
+    [22m[35mq[0m
+    [22m[35mgap> _q in QuantumField;[0m
+    [22m[35mtrue[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  
+  [1m[4m[31m3.2 Gaussian integers[0m
+  
+  [1m[4m[31m3.2-1 GaussNumber[0m
+  
+  [1m[34m> GaussNumber( [0m[22m[34mn, par[0m[1m[34m ) ___________________________________________[0moperation
+  
+  This function computes for the integer [22m[34mn[0m the Gaussian integer [n]_v=[22m[34mpar[0m (cf.
+  Section [1m2.1[0m).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> GaussNumber( 4, _q );[0m
+    [22m[35mq^-3+q^-1+q+q^3[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.2-2 GaussianFactorial[0m
+  
+  [1m[34m> GaussianFactorial( [0m[22m[34mn, par[0m[1m[34m ) _____________________________________[0moperation
+  
+  This function computes for the integer [22m[34mn[0m the Gaussian factorial [n]!_v=[22m[34mpar[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> GaussianFactorial( 3, _q );[0m
+    [22m[35mq^-3+2*q^-1+2*q+q^3[0m
+    [22m[35mgap> GaussianFactorial( 3, _q^2 );[0m
+    [22m[35mq^-6+2*q^-2+2*q^2+q^6[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.2-3 GaussianBinomial[0m
+  
+  [1m[34m> GaussianBinomial( [0m[22m[34mn, k, par[0m[1m[34m ) ___________________________________[0moperation
+  
+  This  function  computes  for  two  integers [22m[34mn[0m and [22m[34mk[0m the Gaussian binomial [22m[34mn[0m
+  choose [22m[34mk[0m, where the parameter v is replaced by [22m[34mpar[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> GaussianBinomial( 5, 2, _q^2 );[0m
+    [22m[35mq^-12+q^-8+2*q^-4+2+2*q^4+q^8+q^12[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  
+  [1m[4m[31m3.3 Roots and root systems[0m
+  
+  In  this  section  we describe some functions for dealing with root systems.
+  These functions supplement the ones already present in the [1mGAP[0m library.
+  
+  [1m[4m[31m3.3-1 RootSystem[0m
+  
+  [1m[34m> RootSystem( [0m[22m[34mtype, rank[0m[1m[34m ) ________________________________________[0moperation
+  [1m[34m> RootSystem( [0m[22m[34mlist[0m[1m[34m ) ______________________________________________[0moperation
+  
+  Here  [22m[34mtype[0m  is  a capital letter between [22m[34m"A"[0m and [22m[34m"G"[0m, and [22m[34mrank[0m is a positive
+  integer (>= 1 if [22m[34mtype="A"[0m, >= 2 if [22m[34mtype="B"[0m, [22m[34m"C"[0m, >= 4 if [22m[34mtype="D"[0m, 6,7,8 if
+  [22m[34mtype="E"[0m,  4 if [22m[34mtype="F"[0m, and 2 if [22m[34mtype="G"[0m). This function returns the root
+  system  of  type  [22m[34mtype[0m  and  rank [22m[34mrank[0m. In the second form [22m[34mlist[0m is a list of
+  types and ranks, e.g., [22m[34m[ "B", 2, "F", 4, "D", 7 ][0m.
+  
+  The  root  system  constructed  by  this  function  comes with he attributes
+  [22m[34mPositiveRoots[0m,  [22m[34mNegativeRoots[0m,  [22m[34mSimpleSystem[0m, [22m[34mCartanMatrix[0m, [22m[34mBilinearFormMat[0m.
+  Here  the  attribute [22m[34mSimpleSystem[0m contains a set of simple roots, written as
+  unit  vectors.  [22m[34mPositiveRoots[0m  is  a  list of the positive roots, written as
+  linear  combinations  of  the  simple roots, and likewise for [22m[34mNegativeRoots[0m.
+  [22m[34mCartanMatrix( R )[0m is the Cartan matrix of the root system [22m[34mR[0m, where the entry
+  on  position ( i, j ) is given by < alpha_i, alpha_j^v> where alpha_i is the
+  i-th  simple  root. [22m[34mBilinearFormMat( R )[0m is the matrix of the bilinear form,
+  where  the  entry on position ( i, j ) is given by ( alpha_i, alpha_j ) (see
+  Section [1m2.2[0m).
+  
+  [22m[34mWeylGroup(  R )[0m returns the Weyl group of the root system [22m[34mR[0m. We refer to the
+  [1mGAP[0m reference manual for an overview of the functions for Weyl groups in the
+  [1mGAP[0m  library.  We  mention  the  functions  [22m[34mConjugateDominantWeight( W, wt )[0m
+  (returns  the  dominant  weight  in  the  [22m[34mW[0m-orbit  of  the  weight  [22m[34mwt[0m), and
+  [22m[34mWeylOrbitIterator(  W,  wt )[0m (returns an iterator for the [22m[34mW[0m-orbit containing
+  the  weight  [22m[34mwt[0m).  We  write  weights  as  integral  linear  combinations of
+  fundamental  weights, so in [1mGAP[0m weights are represented by lists of integers
+  (of length equal to the rank of the root system).
+  
+  Also  we  mention  the function [22m[34mPositiveRootsAsWeights( R )[0m that returns the
+  positive  roots of [22m[34mR[0m written as weights, i.e., as linear combinations of the
+  fundamental weights.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:=RootSystem( [ "B", 2, "F", 4, "E", 6 ] );[0m
+    [22m[35m<root system of type B2 F4 E6>[0m
+    [22m[35mgap> R:= RootSystem( "A", 2 );[0m
+    [22m[35m<root system of type A2>[0m
+    [22m[35mgap> PositiveRoots( R );[0m
+    [22m[35m[ [ 1, 0 ], [ 0, 1 ], [ 1, 1 ] ][0m
+    [22m[35mgap> BilinearFormMat( R );[0m
+    [22m[35m[ [ 2, -1 ], [ -1, 2 ] ][0m
+    [22m[35mgap> W:= WeylGroup( R );[0m
+    [22m[35mGroup([ [ [ -1, 1 ], [ 0, 1 ] ], [ [ 1, 0 ], [ 1, -1 ] ] ])[0m
+    [22m[35mgap> ConjugateDominantWeight( W, [-3,2] );[0m
+    [22m[35m[ 2, 1 ][0m
+    [22m[35mgap> o:= WeylOrbitIterator( W, [-3,2] );[0m
+    [22m[35m<iterator>[0m
+    [22m[35m# Using the iterator we can loop over the orbit:[0m
+    [22m[35mgap> NextIterator( o );[0m
+    [22m[35m[ 2, 1 ][0m
+    [22m[35mgap> NextIterator( o );[0m
+    [22m[35m[ -1, -2 ][0m
+    [22m[35mgap> PositiveRootsAsWeights( R );[0m
+    [22m[35m[ [ 2, -1 ], [ -1, 2 ], [ 1, 1 ] ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.3-2 BilinearFormMatNF[0m
+  
+  [1m[34m> BilinearFormMatNF( [0m[22m[34mR[0m[1m[34m ) __________________________________________[0mattribute
+  
+  This  is  the  matrix of the "normalized" bilinear form. This means that all
+  diagonal  entries  are  even,  and  2  is the minimum value occurring on the
+  diagonal. If [22m[34mR[0m is a root system constructed by [1m[34mRootSystem[0m ([1m3.3-1[0m), then this
+  is equal to [22m[34mBilinearFormMat( R )[0m.
+  
+  [1m[4m[31m3.3-3 PositiveRootsNF[0m
+  
+  [1m[34m> PositiveRootsNF( [0m[22m[34mR[0m[1m[34m ) ____________________________________________[0mattribute
+  
+  This  is  the list of positive roots of the root system [22m[34mR[0m, written as linear
+  combinations  of the simple roots. This means that the simple roots are unit
+  vectors.  If [22m[34mR[0m is a root system constructed by [1m[34mRootSystem[0m ([1m3.3-1[0m), then this
+  is equal to [22m[34mPositiveRoots( R )[0m.
+  
+  One  of  the  reasons  for  writing  the  positive  roots  like  this is the
+  following.  Let  [22m[34ma,  b[0m be two elements of [22m[34mPositiveRootsNF( R )[0m, and let [22m[34mB[0m be
+  the  matrix  of  the bilinear form. Then [22m[34ma*( B*b )[0m is the result of applying
+  the bilinear form to [22m[34ma, b[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( SimpleLieAlgebra( "B", 2, Rationals ) );;[0m
+    [22m[35mgap> PositiveRootsNF( R );[0m
+    [22m[35m[ [ 1, 0 ], [ 0, 1 ], [ 1, 1 ], [ 1, 2 ] ][0m
+    [22m[35m# We note that in this case PositiveRoots( R ) will give the positive roots in[0m
+    [22m[35m# a different format.[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.3-4 SimpleSystemNF[0m
+  
+  [1m[34m> SimpleSystemNF( [0m[22m[34mR[0m[1m[34m ) _____________________________________________[0mattribute
+  
+  This  is  the list of simple roots of [22m[34mR[0m, written as unit vectors (this means
+  that  they  are  elements  of  [22m[34mPositiveRootsNF(  R )[0m). If [22m[34mR[0m is a root system
+  constructed by [1m[34mRootSystem[0m ([1m3.3-1[0m), then this is equal to [22m[34mSimpleSystem( R )[0m.
+  
+  [1m[4m[31m3.3-5 PositiveRootsInConvexOrder[0m
+  
+  [1m[34m> PositiveRootsInConvexOrder( [0m[22m[34mR[0m[1m[34m ) _________________________________[0mattribute
+  
+  This  function  returns  the  positive  roots  of  the root system [22m[34mR[0m, in the
+  "convex"  order. Let w_0=s_1cdots s_t be a reduced expression of the longest
+  element  in  the  Weyl  group. Then the k-th element of the list returned by
+  this function is s_1cdots s_k-1(alpha_k). (Where the reduced expression used
+  is  the one returned by [22m[34mLongestWeylWord( R )[0m.) If alpha, beta and alpha+beta
+  are  positive  roots,  then alpha+beta occurs between alpha and beta (whence
+  the name convex order).
+  
+  In  the  output all roots are written in "normal form", i.e., as elements of
+  [22m[34mPositiveRootsNF( R )[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> PositiveRootsInConvexOrder( R );[0m
+    [22m[35m[ [ 1, 0 ], [ 3, 1 ], [ 2, 1 ], [ 3, 2 ], [ 1, 1 ], [ 0, 1 ] ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.3-6 SimpleRootsAsWeights[0m
+  
+  [1m[34m> SimpleRootsAsWeights( [0m[22m[34mR[0m[1m[34m ) _______________________________________[0mattribute
+  
+  Returns   the  simple  roots  of  the  root  system  [22m[34mR[0m,  written  as  linear
+  combinations of the fundamental weights.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "A", 2 );;[0m
+    [22m[35mgap> SimpleRootsAsWeights( R );[0m
+    [22m[35m[ [ 2, -1 ], [ -1, 2 ] ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  
+  [1m[4m[31m3.4 Weyl groups and their elements[0m
+  
+  Now  we  describe  a  few functions that deal with reduced words in the Weyl
+  group of the root system [22m[34mR[0m. These words are represented as lists of positive
+  integers  i,  denoting  the i-th simple reflection (which corresponds to the
+  i-th element of [22m[34mSimpleSystem( R )[0m). For example [22m[34m[ 3, 2, 1, 3, 1 ][0m represents
+  the expression s_3 s_2 s_1 s_3 s_1.
+  
+  [1m[4m[31m3.4-1 ApplyWeylElement[0m
+  
+  [1m[34m> ApplyWeylElement( [0m[22m[34mW, wt, wd[0m[1m[34m ) ___________________________________[0moperation
+  
+  Here [22m[34mwd[0m is a (not necessarily reduced) word in the Weyl group [22m[34mW[0m, and [22m[34mwt[0m is a
+  weight  (written as integral linear combination of the simple weights). This
+  function returns the result of applying [22m[34mwd[0m to [22m[34mwt[0m. For example, if [22m[34mwt=[0mmu, and
+  [22m[34mwd = [ 1, 2 ][0m then this function returns s_1s_2(mu) (where s_i is the simple
+  reflection corresponding to the i-th simple root).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> W:= WeylGroup( RootSystem( "G", 2 ) ) ;;[0m
+    [22m[35mgap> ApplyWeylElement( W, [ -3, 7 ], [ 1, 1, 2, 1, 2 ] );[0m
+    [22m[35m[ 15, -11 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.4-2 LengthOfWeylWord[0m
+  
+  [1m[34m> LengthOfWeylWord( [0m[22m[34mW, wd[0m[1m[34m ) _______________________________________[0moperation
+  
+  Here  [22m[34mwd[0m  is a word in the Weyl group [22m[34mW[0m. This function returns the length of
+  that word.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> W:= WeylGroup( RootSystem( "F", 4 ) ) ;[0m
+    [22m[35m<matrix group with 4 generators>[0m
+    [22m[35mgap> LengthOfWeylWord( W, [ 1, 3, 2, 4, 2 ] );[0m
+    [22m[35m3[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.4-3 LongestWeylWord[0m
+  
+  [1m[34m> LongestWeylWord( [0m[22m[34mR[0m[1m[34m ) ____________________________________________[0mattribute
+  
+  Here  [22m[34mR[0m  is  a root system. [22m[34mLongestWeylWord( R )[0m returns the longest word in
+  the Weyl group of [22m[34mR[0m.
+  
+  If this function is called for a root system [22m[34mR[0m, a reduced expression for the
+  longest  element  in  the  Weyl  group  is  calculated (the one which is the
+  smallest  in  the  lexicographical  ordering). However, if you would like to
+  work  with  a different reduced expression, then it is possible to set it by
+  [22m[34mSetLongestWeylWord( R, wd )[0m, where [22m[34mwd[0m is a reduced expression of the longest
+  element in the Weyl group. Note that you will have to do this before calling
+  [22m[34mLongestWeylWord[0m,  or  any  function  that may call [22m[34mLongestWeylWord[0m (once the
+  attribute  is set, it will not be possible to change it). Note also that you
+  must  be sure that the word you give is in fact a reduced expression for the
+  longest  element  in  the  Weyl group, as this is not checked (you can check
+  this with [1m[34mLengthOfWeylWord[0m ([1m3.4-2[0m)).
+  
+  We  note  that  virtually  all  algorithms for quantized enveloping algebras
+  depend  on  the  choice of reduced expression for the longest element in the
+  Weyl group (as the PBW-type basis depends on this).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> LongestWeylWord( R );[0m
+    [22m[35m[ 1, 2, 1, 2, 1, 2 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.4-4 ReducedWordIterator[0m
+  
+  [1m[34m> ReducedWordIterator( [0m[22m[34mW, wd[0m[1m[34m ) ____________________________________[0moperation
+  
+  Here  [22m[34mW[0m  is  a  Weyl  group, and [22m[34mwd[0m a reduced word. This function returns an
+  iterator for the set of reduced words that represent the same element as [22m[34mwd[0m.
+  The elements are output in ascending lexicographical order.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "F", 4 );;[0m
+    [22m[35mgap> it:= ReducedWordIterator( WeylGroup(R), LongestWeylWord(R) );[0m
+    [22m[35m<iterator>[0m
+    [22m[35mgap> NextIterator( it );[0m
+    [22m[35m[ 1, 2, 1, 3, 2, 1, 3, 2, 3, 4, 3, 2, 1, 3, 2, 3, 4, 3, 2, 1, 3, 2, 3, 4 ][0m
+    [22m[35mgap> k:= 1;;[0m
+    [22m[35mgap> while not IsDoneIterator( it ) do[0m
+    [22m[35m> k:= k+1; w:= NextIterator( it );[0m
+    [22m[35m> od;[0m
+    [22m[35mgap> k;[0m
+    [22m[35m2144892[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  So there are 2144892 reduced expressions for the longest element in the Weyl
+  group of type F_4.
+  
+  [1m[4m[31m3.4-5 ExchangeElement[0m
+  
+  [1m[34m> ExchangeElement( [0m[22m[34mW, wd, ind[0m[1m[34m ) ___________________________________[0moperation
+  
+  Here  [22m[34mW[0m  is a Weyl group, and [22m[34mwd[0m is a [22m[36mreduced[0m word in [22m[34mW[0m, and [22m[34mind[0m is an index
+  between  1  and  the rank of the root system. Let [22m[34mv[0m denote the word obtained
+  from [22m[34mwd[0m by adding [22m[34mind[0m at the end. This function [22m[36massumes[0m that the length of [22m[34mv[0m
+  is  one  less  than the length of [22m[34mwd[0m, and returns a reduced expression for [22m[34mv[0m
+  that is obtained from [22m[34mwd[0m by deleting one entry. Nothing is guaranteed of the
+  output if the length of [22m[34mv[0m is bigger than the length of [22m[34mwd[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> wd:= LongestWeylWord( R );;[0m
+    [22m[35mgap> ExchangeElement( WeylGroup(R), wd, 1 );[0m
+    [22m[35m[ 2, 1, 2, 1, 2 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.4-6 GetBraidRelations[0m
+  
+  [1m[34m> GetBraidRelations( [0m[22m[34mW, wd1, wd2[0m[1m[34m ) ________________________________[0moperation
+  
+  Here  [22m[34mW[0m is a Weyl group, and [22m[34mwd1[0m, [22m[34mwd2[0m are two reduced words representing the
+  same  element in [22m[34mW[0m. This function returns a list of braid relations that can
+  be  applied  to [22m[34mwd1[0m to obtain [22m[34mwd2[0m. Here a braid relation is represented as a
+  list, with at the odd positions integers that represent positions in a word,
+  and  at  the  even  positions  the indices that are on those positions after
+  applying  the relation. For example, let [22m[34mwd[0m be the word [22m[34m[ 1, 2, 1, 3, 2, 1 ][0m
+  and  let  [22m[34mr = [ 3, 3, 4, 1 ][0m be a relation. Then the result of applying [22m[34mr[0m to
+  [22m[34mwd[0m  is  [22m[34m[  1, 2, 3, 1, 2, 1][0m (i.e., on the third position we put a 3, and on
+  the fourth position a 1).
+  
+  We note that the function does not check first whether [22m[34mwd1[0m and [22m[34mwd2[0m represent
+  the  same  element  in  [22m[34mW[0m. If this is not the case, then an error will occur
+  during the execution of the function, or it will produce wrong output.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "A", 3 );;[0m
+    [22m[35mgap> wd1:= LongestWeylWord( R );[0m
+    [22m[35m[ 1, 2, 1, 3, 2, 1 ][0m
+    [22m[35mgap> wd2:= [ 1, 3, 2, 1, 3, 2 ];;[0m
+    [22m[35mgap> GetBraidRelations( WeylGroup(R), wd1, wd2 );[0m
+    [22m[35m[ [ 3, 3, 4, 1 ], [ 4, 2, 5, 1, 6, 2 ], [ 2, 3, 3, 2, 4, 3 ],[0m
+    [22m[35m  [ 4, 1, 5, 3 ] ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.4-7 LongWords[0m
+  
+  [1m[34m> LongWords( [0m[22m[34mR[0m[1m[34m ) __________________________________________________[0mattribute
+  
+  For  a  root system [22m[34mR[0m this returns a list of triples (of length equal to the
+  rank  of  [22m[34mR[0m).  Let  [22m[34mt[0m  be  the [22m[34mk[0m-th triple occurring in this list. The first
+  element  of  [22m[34mt[0m  is  an expression for the longest element of the Weyl group,
+  starting  with  [22m[34mk[0m.  The  second element is a list of braid relations, moving
+  this expression to the value of [22m[34mLongestWeylWord( R )[0m. The third element is a
+  list of braid relations performing the reverse transformation.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "A", 3 );;[0m
+    [22m[35mgap> LongWords( R )[3];[0m
+    [22m[35m[ [ 3, 1, 2, 1, 3, 2 ],[0m
+    [22m[35m  [ [ 3, 3, 4, 1 ], [ 4, 2, 5, 1, 6, 2 ], [ 2, 3, 3, 2, 4, 3 ],[0m
+    [22m[35m      [ 4, 1, 5, 3 ], [ 1, 3, 2, 1 ] ],[0m
+    [22m[35m  [ [ 4, 3, 5, 1 ], [ 1, 1, 2, 3 ], [ 2, 2, 3, 3, 4, 2 ],[0m
+    [22m[35m      [ 4, 1, 5, 2, 6, 1 ], [ 3, 1, 4, 3 ] ] ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  
+  [1m[4m[31m3.5 Quantized enveloping algebras[0m
+  
+  In  [1mQuaGroup[0m  we  deal with two types of quantized enveloping algebra. First
+  there   are  the  quantized  enveloping  algebras  defined  over  the  field
+  [1m[34mQuantumField[0m  ([1m3.1-1[0m).  We  say  that these algebras are "generic" quantized
+  enveloping  algebras,  in  [1mQuaGroup[0m  they  have  the category [22m[34mIsGenericQUEA[0m.
+  Secondly,  we  deal  with the quantized enveloping algebras that are defined
+  over a different field.
+  
+  [1m[4m[31m3.5-1 QuantizedUEA[0m
+  
+  [1m[34m> QuantizedUEA( [0m[22m[34mR[0m[1m[34m ) _______________________________________________[0mattribute
+  [1m[34m> QuantizedUEA( [0m[22m[34mR, F, v[0m[1m[34m ) _________________________________________[0moperation
+  [1m[34m> QuantizedUEA( [0m[22m[34mL[0m[1m[34m ) _______________________________________________[0mattribute
+  [1m[34m> QuantizedUEA( [0m[22m[34mL, F, v[0m[1m[34m ) _________________________________________[0moperation
+  
+  In  the  first  two  forms  [22m[34mR[0m  is  a  root system. With only [22m[34mR[0m as input, the
+  corresponding  generic  quantized  enveloping  algebra is constructed. It is
+  stored as an attribute of [22m[34mR[0m (so that constructing it twice for the same root
+  system  yields  the  same  object).  Also  the  root system is stored in the
+  quantized enveloping algebra as the attribute [22m[34mRootSystem[0m.
+  
+  The  attribute  [22m[34mGeneratorsOfAlgebra[0m  contains  the  generators of a PBW-type
+  basis  (see  Section  [1m2.4[0m),  that  are  constructed  relative to the reduced
+  expression  for  the  longest element in the Weyl group that is contained in
+  [22m[34mLongestWeylWord(  R  )[0m. We refer to [1m[34mObjByExtRep[0m ([1m3.5-2[0m) for a description of
+  the construction of elements of a quantized enveloping algebra.
+  
+  The  call [22m[34mQuantizedUEA( R, F, v )[0m returns the quantized universal enveloping
+  algebra  with  quantum  parameter  [22m[34mv[0m, which must lie in the field [22m[34mF[0m. In this
+  case the elements of [22m[34mGeneratorsOfAlgebra[0m are the images of the generators of
+  the corresponding generic quantized enveloping algebra. This means that if [22m[34mv[0m
+  is a root of unity, then the generators will not generate the whole algebra,
+  but  rather  a  finite dimensional subalgebra (as for instance E_i^k=0 for k
+  large  enough). It is possible to construct elements that do not lie in this
+  finite dimensional subalgebra using [1m[34mObjByExtRep[0m ([1m3.5-2[0m).
+  
+  In  the last two cases [22m[34mL[0m must be a semisimple Lie algebra. The two calls are
+  short for [22m[34mQuantizedUEA( RootSystem( L ) )[0m and [22m[34mQuantizedUEA( RootSystem( L ),
+  F, v )[0m respectively.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35m# We construct the generic quantized enveloping algebra corresponding[0m
+    [22m[35m# to the root system of type A2+G2:[0m
+    [22m[35mgap> R:= RootSystem( [ "A", 2, "G", 2 ] );;[0m
+    [22m[35mgap> U:= QuantizedUEA( R );[0m
+    [22m[35mQuantumUEA( <root system of type A2 G2>, Qpar = q )[0m
+    [22m[35mgap> RootSystem( U );[0m
+    [22m[35m<root system of type A2 G2>[0m
+    [22m[35mgap> g:= GeneratorsOfAlgebra( U );[0m
+    [22m[35m[ F1, F2, F3, F4, F5, F6, F7, F8, F9, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,[0m
+    [22m[35m  K2+(q^-1-q)*[ K2 ; 1 ], K3, K3+(q^-1-q)*[ K3 ; 1 ], K4,[0m
+    [22m[35m  K4+(q^-3-q^3)*[ K4 ; 1 ], E1, E2, E3, E4, E5, E6, E7, E8, E9 ][0m
+    [22m[35m# These elements generate a PBW-type basis of U; the nine elements Fi,[0m
+    [22m[35m# and the nine elements Ei correspond to the roots listed in convex order:[0m
+    [22m[35mgap> PositiveRootsInConvexOrder( R );[0m
+    [22m[35m[ [ 1, 0, 0, 0 ], [ 1, 1, 0, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 1, 0 ],[0m
+    [22m[35m  [ 0, 0, 3, 1 ], [ 0, 0, 2, 1 ], [ 0, 0, 3, 2 ], [ 0, 0, 1, 1 ],[0m
+    [22m[35m  [ 0, 0, 0, 1 ] ][0m
+    [22m[35m# So, for example, F5 is an element of weight -[ 0, 0, 3, 1 ].[0m
+    [22m[35m# We can also multiply elements; the result is written on the PBW-basis:[0m
+    [22m[35mgap> g[17]*g[4];[0m
+    [22m[35m(q^-6-1)*F4*[ K4 ; 1 ]+(q^-3)*F4*K4[0m
+    [22m[35m# Now we construct a non-generic quantized enveloping algebra:[0m
+    [22m[35mgap> R:= RootSystem( "A", 2 );;[0m
+    [22m[35mgap> U:= QuantizedUEA( R, CF(3), E(3) );;[0m
+    [22m[35mgap> g:= GeneratorsOfAlgebra( U );[0m
+    [22m[35m[ F1, F2, F3, K1, K1+(-E(3)+E(3)^2)*[ K1 ; 1 ], K2,[0m
+    [22m[35m  K2+(-E(3)+E(3)^2)*[ K2 ; 1 ], E1, E2, E3 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  As  can  be  seen  in the example, every element of U is written as a linear
+  combination  of  monomials in the PBW-generators; the generators of U^- come
+  first, then the generators of U^0, and finally the generators of U^+.
+  
+  [1m[4m[31m3.5-2 ObjByExtRep[0m
+  
+  [1m[34m> ObjByExtRep( [0m[22m[34mfam, list[0m[1m[34m ) ________________________________________[0moperation
+  
+  Here  [22m[34mfam[0m  is  the  elements  family  of  a  quantized enveloping algebra [22m[34mU[0m.
+  Secondly,  [22m[34mlist[0m  is  a  list describing an element of [22m[34mU[0m. We explain how this
+  description  works.  First we describe an indexing system for the generators
+  of  [22m[34mU[0m. Let [22m[34mR[0m be the root system of [22m[34mU[0m. Let [22m[34mt[0m be the number of positive roots,
+  and  [22m[34mrank[0m  the  rank of the root system. Then the generators of [22m[34mU[0m are [22m[34mFk[0m, [22m[34mKi[0m
+  (and  its  inverse),  [22m[34mEk[0m,  for [22m[34mk=1...t[0m, [22m[34mi=1..rank[0m. (See Section [1m2.4[0m; for the
+  construction  of the [22m[34mFk[0m, [22m[34mEk[0m, the value of [22m[34mLongestWeylWord( R )[0m is used.) Now
+  the index of [22m[34mFk[0m is [22m[34mk[0m, and the index of [22m[34mEk[0m is [22m[34mt+rank+k[0m. Furthermore, elements
+  of  the  algebra generated by the [22m[34mKi[0m, and its inverse, are written as linear
+  combinations of products of "binomials", as in Section [1m2.5[0m. The element
+  
+  \[
+       K_i^{d}\begin{bmatrix} K_{i} \\ s \end{bmatrix}
+  \]
+  
+  (where  d=0,1), is indexed as [22m[34m[ t+i, d ][0m (what happens to the [22m[34ms[0m is described
+  later). So an index is either an integer, or a list of two integers.
+  
+  A  monomial  is  a list of indices, each followed by an exponent. First come
+  the  indices  of the [22m[34mFk[0m, ([22m[34m1..t[0m), then come the lists of the form [22m[34m[ t+i, d ][0m,
+  and finally the indices of the [22m[34mEk[0m. Each index is followed by an exponent. An
+  index of the form [22m[34m[ t+i, d ][0m is followed by the [22m[34ms[0m in the above formula.
+  
+  The  second  argument  of  [22m[34mObjByExtRep[0m  is  a  list of monomials followed by
+  coefficients. This function returns the element of [22m[34mU[0m described by this list.
+  
+  Finally we remark that the element
+  
+  \[
+       K_i^{d}\begin{bmatrix} K_{i} \\ s \end{bmatrix}
+  \]
+  
+  is printed as [22m[34mKi[ Ki ; s ][0m if [22m[34md=1[0m, and as [22m[34m[ Ki ; s ][0m if [22m[34md=0[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2) );;[0m
+    [22m[35mgap> fam:= ElementsFamily( FamilyObj( U ) );;[0m
+    [22m[35mgap> list:= [ [ 2, 3, [ 4, 0 ], 8, 6, 11 ], _q^2,    # monomial and coefficient[0m
+    [22m[35m> [ 1, 7, 3, 5, [ 5, 1 ], 3, 8, 9 ], _q^-1 + _q^2 ]; # monomial and coefficient[0m
+    [22m[35m[ [ 2, 3, [ 4, 0 ], 8, 6, 11 ], q^2, [ 1, 7, 3, 5, [ 5, 1 ], 3, 8, 9 ],[0m
+    [22m[35m  q^-1+q^2 ][0m
+    [22m[35mgap> ObjByExtRep( fam, list );[0m
+    [22m[35m(q^2)*F2^(3)*[ K1 ; 8 ]*E1^(11)+(q^-1+q^2)*F1^(7)*F3^(5)*K2[ K2 ; 3 ]*E3^(9)[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.5-3 ExtRepOfObj[0m
+  
+  [1m[34m> ExtRepOfObj( [0m[22m[34melm[0m[1m[34m ) ______________________________________________[0moperation
+  
+  For the element [22m[34melm[0m of a quantized enveloping algebra, this function returns
+  the list that defines [22m[34melm[0m (see [1m[34mObjByExtRep[0m ([1m3.5-2[0m)).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2) );;[0m
+    [22m[35mgap> g:= GeneratorsOfAlgebra(U);[0m
+    [22m[35m[ F1, F2, F3, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2, K2+(q^-1-q)*[ K2 ; 1 ], E1,[0m
+    [22m[35m  E2, E3 ][0m
+    [22m[35mgap> ExtRepOfObj( g[5] );[0m
+    [22m[35m[ [ [ 4, 1 ], 0 ], 1, [ [ 4, 0 ], 1 ], q^-1-q ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.5-4 QuantumParameter[0m
+  
+  [1m[34m> QuantumParameter( [0m[22m[34mU[0m[1m[34m ) ___________________________________________[0mattribute
+  
+  Returns the quantum parameter used in the definition of [22m[34mU[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem("A",2);;[0m
+    [22m[35mgap> U0:= QuantizedUEA( R, CF(3), E(3) );;[0m
+    [22m[35mgap> QuantumParameter( U0 );[0m
+    [22m[35mE(3)[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.5-5 CanonicalMapping[0m
+  
+  [1m[34m> CanonicalMapping( [0m[22m[34mU[0m[1m[34m ) ___________________________________________[0mattribute
+  
+  Here  [22m[34mU[0m  is  a quantized enveloping algebra. Let [22m[34mU0[0m denote the corresponding
+  "generic" quantized enveloping algebra. This function returns the mapping [22m[34mU0
+  -->  U[0m  obtained  by mapping [22m[34mq[0m (which is the quantum parameter of [22m[34mU0[0m) to the
+  quantum parameter of [22m[34mU[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem("A", 3 );;[0m
+    [22m[35mgap> U:= QuantizedUEA( R, CF(5), E(5) );;[0m
+    [22m[35mgap> f:= CanonicalMapping( U );[0m
+    [22m[35mMappingByFunction( QuantumUEA( <root system of type A[0m
+    [22m[35m3>, Qpar = q ), QuantumUEA( <root system of type A3>, Qpar =[0m
+    [22m[35mE(5) ), function( u ) ... end )[0m
+    [22m[35mgap> U0:= Source( f );[0m
+    [22m[35mQuantumUEA( <root system of type A3>, Qpar = q )[0m
+    [22m[35mgap> g:= GeneratorsOfAlgebra( U0 );;[0m
+    [22m[35mgap> u:= g[18]*g[9]*g[6];[0m
+    [22m[35m(q^2)*F6*K2*E6+(q)*K2*[ K3 ; 1 ][0m
+    [22m[35mgap> Image( f, u );[0m
+    [22m[35m(E(5)^2)*F6*K2*E6+(E(5))*K2*[ K3 ; 1 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.5-6 WriteQEAToFile[0m
+  
+  [1m[34m> WriteQEAToFile( [0m[22m[34mU, file[0m[1m[34m ) _______________________________________[0moperation
+  
+  Here  [22m[34mU[0m  is  a quantized enveloping algebra, and file is a string containing
+  the  name  of  a  file.  This function writes some data to [22m[34mfile[0m, that allows
+  [1m[34mReadQEAFromFile[0m ([1m3.5-7[0m) to recover it.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",3) );;[0m
+    [22m[35mgap> WriteQEAToFile( U, "/home/wdg/A3" );[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.5-7 ReadQEAFromFile[0m
+  
+  [1m[34m> ReadQEAFromFile( [0m[22m[34mfile[0m[1m[34m ) _________________________________________[0moperation
+  
+  Here  [22m[34mfile[0m  is  a string containing the name of a file, to which a quantized
+  enveloping algebra has been written by [1m[34mWriteQEAToFile[0m ([1m3.5-6[0m). This function
+  recovers the quantized enveloping algebra.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",3) );;[0m
+    [22m[35mgap> WriteQEAToFile( U, "/home/wdg/A3" );[0m
+    [22m[35mgap> U0:= ReadQEAFromFile( "/home/wdg/A3" );[0m
+    [22m[35mQuantumUEA( <root system of type A3>, Qpar = q )[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  
+  [1m[4m[31m3.6 Homomorphisms and automorphisms[0m
+  
+  Here    we    describe    functions    for    creating   homomorphisms   and
+  (anti)-automorphisms of a quantized enveloping algebra.
+  
+  [1m[4m[31m3.6-1 QEAHomomorphism[0m
+  
+  [1m[34m> QEAHomomorphism( [0m[22m[34mU, A, list[0m[1m[34m ) ___________________________________[0moperation
+  
+  Here  [22m[34mU[0m  is  a  generic  quantized  enveloping  algebra  (i.e., with quantum
+  parameter  [22m[34m_q[0m),  [22m[34mA[0m  is  an algebra with one over [22m[34mQuantumField[0m, and [22m[34mlist[0m is a
+  list  of  [22m[34m4*rank[0m elements of [22m[34mA[0m (where [22m[34mrank[0m is the rank of the root system of
+  [22m[34mU[0m).  On  the first rank positions there are the images of the F_alpha (where
+  the  alpha  are  simple  roots,  listed  in the order in which they occur in
+  [22m[34mSimpleSystem(  R  )[0m). On the positions [22m[34mrank+1...2*rank[0m are the images of the
+  K_alpha.   On   the  positions  [22m[34m2*rank+1...3*rank[0m  are  the  images  of  the
+  K_alpha^-1,  and finally on the positions [22m[34m3*rank+1...4*rank[0m occur the images
+  of the E_alpha.
+  
+  This  function returns the homomorphism [22m[34mU -> A[0m, defined by this data. In the
+  example  below  we  construct  a  homomorphism from one quantized enveloping
+  algebra into another. Both are constructed relative to the same root system,
+  but  with  different reduced expressions for the longest element of the Weyl
+  group.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> SetLongestWeylWord( R, [1,2,1,2,1,2] );[0m
+    [22m[35mgap> UR:= QuantizedUEA( R );;[0m
+    [22m[35mgap> S:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> SetLongestWeylWord( S, [2,1,2,1,2,1] );[0m
+    [22m[35mgap> US:= QuantizedUEA( S );;[0m
+    [22m[35mgap> gS:= GeneratorsOfAlgebra( US );[0m
+    [22m[35m[ F1, F2, F3, F4, F5, F6, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,[0m
+    [22m[35m  K2+(q^-3-q^3)*[ K2 ; 1 ], E1, E2, E3, E4, E5, E6 ][0m
+    [22m[35mgap> SimpleSystem( R );[0m
+    [22m[35m[ [ 1, 0 ], [ 0, 1 ] ][0m
+    [22m[35mgap> PositiveRootsInConvexOrder( S );[0m
+    [22m[35m[ [ 0, 1 ], [ 1, 1 ], [ 3, 2 ], [ 2, 1 ], [ 3, 1 ], [ 1, 0 ] ][0m
+    [22m[35m# We see that the simple roots of R occur on positions 6 and 1[0m
+    [22m[35m# in the list PositiveRootsInConvexOrder( S ); This means that we[0m
+    [22m[35m# get the following list of images of the homomorphism:[0m
+    [22m[35mgap> imgs:= [ gS[6], gS[1],      # the images of the F_{\alpha}[0m
+    [22m[35m> gS[7], gS[9],                  # the images of the K_{\alpha}[0m
+    [22m[35m> gS[8], gS[10],                 # the images of the K_{\alpha}^{-1}[0m
+    [22m[35m> gS[16], gS[11] ];              # the images of the E_{\alpha}[0m
+    [22m[35m[ F6, F1, K1, K2, K1+(q^-1-q)*[ K1 ; 1 ], K2+(q^-3-q^3)*[ K2 ; 1 ], E6, E1[0m
+    [22m[35m ][0m
+    [22m[35mgap> h:= QEAHomomorphism( UR, US, imgs );[0m
+    [22m[35m<homomorphism: QuantumUEA( <root system of type G[0m
+    [22m[35m2>, Qpar = q ) -> QuantumUEA( <root system of type G2>, Qpar = q )>[0m
+    [22m[35mgap> Image( h, GeneratorsOfAlgebra( UR )[3] );[0m
+    [22m[35m(1-q^4-q^6+q^10)*F1*F6^(2)+(-q^2+q^6)*F2*F6+(q^4)*F4[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.6-2 QEAAutomorphism[0m
+  
+  [1m[34m> QEAAutomorphism( [0m[22m[34mU, list[0m[1m[34m ) ______________________________________[0moperation
+  [1m[34m> QEAAutomorphism( [0m[22m[34mU, f[0m[1m[34m ) _________________________________________[0moperation
+  
+  In  the  first  form [22m[34mU[0m is a generic quantized enveloping algebra (i.e., with
+  quantum  parameter  [22m[34m_q[0m),  and  [22m[34mlist[0m is a list of [22m[34m4*rank[0m elements of [22m[34mU[0m (where
+  [22m[34mrank[0m  is  the  rank  of  the  corresponding  root system). On the first [22m[34mrank[0m
+  positions  there  are  the images of the F_alpha (where the alpha are simple
+  roots, listed in the order in which they occur in [22m[34mSimpleSystem( R )[0m). On the
+  positions  [22m[34mrank+1...2*rank[0m  are  the images of the K_alpha. On the positions
+  [22m[34m2*rank+1...3*rank[0m  are  the  images  of  the  K_alpha^-1, and finally on the
+  positions [22m[34m3*rank+1...4*rank[0m occur the images of the E_alpha.
+  
+  In the second form [22m[34mU[0m is a non-generic quantized enveloping algebra, and [22m[34mf[0m is
+  an  automorphism  of the corresponding generic quantized enveloping algebra.
+  The  corresponding automorphism of [22m[34mU[0m is constructed. In this case [22m[34mf[0m must not
+  be  the  bar-automorphism  of the corresponding generic quantized enveloping
+  algebra  (cf. [1m[34mBarAutomorphism[0m ([1m3.6-6[0m)), as this automorphism doesn't work in
+  the non-generic case.
+  
+  The image of an element [22m[34mx[0m under an automorphism [22m[34mf[0m is computed by [22m[34mImage( f, x
+  )[0m.  Note  that  there  is no function for calculating pre-images (in general
+  this  seems  to  be  a  very  hard  task).  If  you  want  the inverse of an
+  automorphism, you have to construct it explicitly (e.g., by [22m[34mQEAAutomorphism(
+  U, list )[0m, where [22m[34mlist[0m is a list of pre-images).
+  
+  Below we construct the automorphism omega (cf. Section [1m2.2[0m) of the quantized
+  enveloping  of  type  A_3,  when  the  quantum parameter is [22m[34m_q[0m, and when the
+  quantum parameter is a fifth root of unity.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35m# First we construct the quantized enveloping algebra:[0m
+    [22m[35mgap> R:= RootSystem( "A", 3 );;[0m
+    [22m[35mgap> U0:= QuantizedUEA( R );[0m
+    [22m[35mQuantumUEA( <root system of type A3>, Qpar = q )[0m
+    [22m[35mgap> g:= GeneratorsOfAlgebra( U0 );[0m
+    [22m[35m[ F1, F2, F3, F4, F5, F6, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,[0m
+    [22m[35m  K2+(q^-1-q)*[ K2 ; 1 ], K3, K3+(q^-1-q)*[ K3 ; 1 ], E1, E2, E3, E4, E5, E6 ][0m
+    [22m[35m# Now, for instance, we map F_{\alpha} to E_{\alpha}, where \alpha[0m
+    [22m[35m# is a simple root. In order to find where those F_{\alpha}, E_{\alpha}[0m
+    [22m[35m# are in the list of generators, we look at the list of positive roots[0m
+    [22m[35m# in convex order:[0m
+    [22m[35mgap> PositiveRootsInConvexOrder( R );[0m
+    [22m[35m[ [ 1, 0, 0 ], [ 1, 1, 0 ], [ 0, 1, 0 ], [ 1, 1, 1 ], [ 0, 1, 1 ],[0m
+    [22m[35m  [ 0, 0, 1 ] ][0m
+    [22m[35m# So the simple roots occur on positions 1, 3, 6. This means that we[0m
+    [22m[35m# have the following list of images:[0m
+    [22m[35mgap> imgs:= [ g[13], g[15], g[18], g[8], g[10], g[12], g[7], g[9], g[11],[0m
+    [22m[35m> g[1], g[3], g[6] ];[0m
+    [22m[35m[ E1, E3, E6, K1+(q^-1-q)*[ K1 ; 1 ], K2+(q^-1-q)*[ K2 ; 1 ],[0m
+    [22m[35m  K3+(q^-1-q)*[ K3 ; 1 ], K1, K2, K3, F1, F3, F6 ][0m
+    [22m[35mgap> f:= QEAAutomorphism( U0, imgs );[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type A3>, Qpar = q )>[0m
+    [22m[35mgap> Image( f, g[2] );[0m
+    [22m[35m(-q)*E2[0m
+    [22m[35m# f induces an automorphism of any non-generic quantized enveloping[0m
+    [22m[35m# algebra with the same root system R:[0m
+    [22m[35mgap> U1:= QuantizedUEA( R, CF(5), E(5) );[0m
+    [22m[35mQuantumUEA( <root system of type A3>, Qpar = E(5) )[0m
+    [22m[35mgap> h:= QEAAutomorphism( U1, f );[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type A3>, Qpar = E(5) )>[0m
+    [22m[35mgap> Image( h, GeneratorsOfAlgebra(U1)[7] );[0m
+    [22m[35m(-E(5)+E(5)^4)*[ K1 ; 1 ]+K1[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.6-3 QEAAntiAutomorphism[0m
+  
+  [1m[34m> QEAAntiAutomorphism( [0m[22m[34mU, list[0m[1m[34m ) __________________________________[0moperation
+  [1m[34m> QEAAntiAutomorphism( [0m[22m[34mU, f[0m[1m[34m ) _____________________________________[0moperation
+  
+  These   are  functions  for  constructing  anti-automorphisms  of  quantized
+  enveloping algebras. The same comments apply as for [1m[34mQEAAutomorphism[0m ([1m3.6-2[0m).
+  
+  [1m[4m[31m3.6-4 AutomorphismOmega[0m
+  
+  [1m[34m> AutomorphismOmega( [0m[22m[34mU[0m[1m[34m ) __________________________________________[0mattribute
+  
+  This is the automorphism omega (cf. Section [1m2.2[0m).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "A", 3 );;[0m
+    [22m[35mgap> U:= QuantizedUEA( R, CF(5), E(5) );[0m
+    [22m[35mQuantumUEA( <root system of type A3>, Qpar = E(5) )[0m
+    [22m[35mgap> f:= AutomorphismOmega( U );[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type A3>, Qpar = E(5) )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.6-5 AntiAutomorphismTau[0m
+  
+  [1m[34m> AntiAutomorphismTau( [0m[22m[34m[0m[1m[34m ) _________________________________________[0mattribute
+  
+  This is the anti-automorphism tau (cf. Section [1m2.2[0m).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "A", 3 );;[0m
+    [22m[35mgap> U:= QuantizedUEA( R, CF(5), E(5) );[0m
+    [22m[35mQuantumUEA( <root system of type A3>, Qpar = E(5) )[0m
+    [22m[35mgap> t:= AntiAutomorphismTau( U );[0m
+    [22m[35m<anti-automorphism of QuantumUEA( <root system of type A3>, Qpar = E(5) )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.6-6 BarAutomorphism[0m
+  
+  [1m[34m> BarAutomorphism( [0m[22m[34mU[0m[1m[34m ) ____________________________________________[0mattribute
+  
+  This  is  the  automorphism  bar~  defined  in  Section [1m2.2[0m Here [22m[34mU[0m must be a
+  generic quantized enveloping algebra.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem(["A",2,"B",2]) );;[0m
+    [22m[35mgap> bar:= BarAutomorphism( U );[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type A2 B2>, Qpar = q )>[0m
+    [22m[35mgap> Image( bar, GeneratorsOfAlgebra( U )[5] );[0m
+    [22m[35m(-q^-2+q^2)*F4*F7+F5[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.6-7 AutomorphismTalpha[0m
+  
+  [1m[34m> AutomorphismTalpha( [0m[22m[34mU, ind[0m[1m[34m ) ____________________________________[0moperation
+  
+  This  is  the  automorphism  T_alpha  (cf.  Section [1m2.4[0m), where alpha is the
+  [22m[34mind[0m-th simple root.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "B", 3 ) );;[0m
+    [22m[35mgap> f:=AutomorphismTalpha( U, 1 );[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type B3>, Qpar = q )>[0m
+    [22m[35mgap> a:= GeneratorsOfAlgebra( U )[3];[0m
+    [22m[35mF3[0m
+    [22m[35mgap>  Image( f, a );[0m
+    [22m[35mF2[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.6-8 DiagramAutomorphism[0m
+  
+  [1m[34m> DiagramAutomorphism( [0m[22m[34mU, perm[0m[1m[34m ) __________________________________[0moperation
+  
+  This  is  the  automorphism  of  [22m[34mU[0m  induced by a diagram automorphism of the
+  underlying  root  system.  The  diagram  automorphism  is represented by the
+  permutation  [22m[34mperm[0m, which is the permutation of the simple roots performed by
+  the diagram automorphism.
+  
+  In  the  example  below  we  construct  the diagram automorphism of the root
+  system of type A_3, which is represented by the permutation [22m[34m(1,3)[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "A", 3 );;[0m
+    [22m[35mgap> U:= QuantizedUEA( R );;[0m
+    [22m[35mgap> f:= DiagramAutomorphism( U, (1,3) );[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type A3>, Qpar = q )>[0m
+    [22m[35mgap> g:= GeneratorsOfAlgebra( U );[0m
+    [22m[35m[ F1, F2, F3, F4, F5, F6, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,[0m
+    [22m[35m  K2+(q^-1-q)*[ K2 ; 1 ], K3, K3+(q^-1-q)*[ K3 ; 1 ], E1, E2, E3, E4, E5, E6[0m
+    [22m[35m ][0m
+    [22m[35mgap> Image( f, g[1] );[0m
+    [22m[35mF6[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.6-9 \*[0m
+  
+  [1m[34m> \*( [0m[22m[34mf, h[0m[1m[34m ) ______________________________________________________[0moperation
+  
+  We  can  compose  automorphisms  and  anti-automorphisms  using  the infix [22m[34m*[0m
+  operator.  The result of composing two automorphisms is an automorphism. The
+  result   of  composing  an  automorphism  and  an  anti-automorphism  is  an
+  anti-automorphism.  The  result  of  composing  two anti-automorphisms is an
+  automorphism.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "B", 3 ) );;[0m
+    [22m[35mgap> f:=AutomorphismTalpha( U, 1 );[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type B3>, Qpar = q )>[0m
+    [22m[35mgap> h:= AutomorphismOmega( U );[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type B3>, Qpar = q )>[0m
+    [22m[35mgap> f*h;[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type B3>, Qpar = q )>[0m
+    [22m[35mgap> t:= AntiAutomorphismTau( U );;[0m
+    [22m[35mgap> T:= AutomorphismTalpha( U, 2 );;[0m
+    [22m[35mgap> Tinv:= t*T*t;[0m
+    [22m[35m<automorphism of QuantumUEA( <root system of type B3>, Qpar = q )>[0m
+    [22m[35m# (The last call may take a little while.)[0m
+    [22m[35mgap> x:= Image( T, GeneratorsOfAlgebra( U )[1] );[0m
+    [22m[35m(1-q^4)*F1*F3+(-q^2)*F2[0m
+    [22m[35mgap> Image( Tinv, x );[0m
+    [22m[35mF1[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  According  to  [J96],  8.14(10), tau circ T_alpha circ tau is the inverse of
+  T_alpha.
+  
+  
+  [1m[4m[31m3.7 Hopf algebra structure[0m
+  
+  Here  we describe functions for dealing with the Hopf algebra structure of a
+  quantized  enveloping algebra. This structure enables us to construct tensor
+  products,  and  dual modules of modules over a quantized enveloping algebra.
+  We  refer  to the next section (Section [1m3.8[0m) for some functions for creating
+  modules.
+  
+  [1m[4m[31m3.7-1 TensorPower[0m
+  
+  [1m[34m> TensorPower( [0m[22m[34mU, d[0m[1m[34m ) _____________________________________________[0moperation
+  
+  Here  [22m[34mU[0m  is  a  quantized universal enveloping algebra, and [22m[34md[0m a non-negative
+  integer.  This  function  returns  the  associative  algebra with underlying
+  vector  space  the  [22m[34md[0m-fold  tensor  product of [22m[34mU[0m with itself. The product is
+  defined component wise.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( [ "B", 2 ] ) );;[0m
+    [22m[35mgap> T:= TensorPower( U, 3 );[0m
+    [22m[35m<algebra over QuantumField, with 36 generators>[0m
+    [22m[35mgap> g:= GeneratorsOfAlgebra( T );;[0m
+    [22m[35mgap> x:= g[1];[0m
+    [22m[35m1*(1<x>1<x>F1)[0m
+    [22m[35mgap> y:= g[30];[0m
+    [22m[35m1*(E2<x>1<x>1)[0m
+    [22m[35mgap> x*y;[0m
+    [22m[35m1*(E2<x>1<x>F1)[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.7-2 UseTwistedHopfStructure[0m
+  
+  [1m[34m> UseTwistedHopfStructure( [0m[22m[34mU, f, finv[0m[1m[34m ) ___________________________[0moperation
+  
+  Here  [22m[34mU[0m  is  a  quantized  enveloping  algebra,  and  [22m[34mf[0m,  [22m[34mfinv[0m  two  (anti-)
+  automorphisms  of  [22m[34mU[0m,  where  [22m[34mfinv[0m  is  the inverse of [22m[34mf[0m. After calling this
+  function  the Hopf structure on [22m[34mU[0m is used that is obtained from the "normal"
+  Hopf structure (see Section [1m2.3[0m) by twisting it with [22m[34mf[0m.
+  
+  A  call to this function sets the attribute [22m[34mHopfStructureTwist[0m, which is the
+  list [22m[34m[ f, finv ][0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2), CF(5), E(5) );;[0m
+    [22m[35mgap> t:= AntiAutomorphismTau( U );;[0m
+    [22m[35mgap> UseTwistedHopfStructure( U, t, t );[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.7-3 ComultiplicationMap[0m
+  
+  [1m[34m> ComultiplicationMap( [0m[22m[34mU, d[0m[1m[34m ) _____________________________________[0moperation
+  
+  This is a homomorphism from the quantized enveloping algebra [22m[34mU[0m to the [22m[34md[0m-fold
+  tensor  power  of [22m[34mU[0m with itself. It is obtained by a repeated application of
+  the comultiplication of [22m[34mU[0m. So for [22m[34md=2[0m we get the comultiplication of [22m[34mU[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2), CF(5), E(5) );;[0m
+    [22m[35mgap> D:= ComultiplicationMap( U, 3 );[0m
+    [22m[35m<Comultiplication of QuantumUEA( <root system of type A2>, Qpar =[0m
+    [22m[35mE(5) ), degree 3>[0m
+    [22m[35mgap> Image( D, GeneratorsOfAlgebra(U)[4] );[0m
+    [22m[35m1*(K1<x>K1<x>K1)[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.7-4 AntipodeMap[0m
+  
+  [1m[34m> AntipodeMap( [0m[22m[34mU[0m[1m[34m ) ________________________________________________[0mattribute
+  
+  This  is  the  antipode  map of the quantized enveloping algebra [22m[34mU[0m, which is
+  constructed as an anti-automorphism of [22m[34mU[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2), CF(5), E(5) );;[0m
+    [22m[35mgap> a:= AntipodeMap( U );[0m
+    [22m[35m<anti-automorphism of QuantumUEA( <root system of type A2>, Qpar = E(5) )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.7-5 CounitMap[0m
+  
+  [1m[34m> CounitMap( [0m[22m[34mU[0m[1m[34m ) __________________________________________________[0mattribute
+  
+  This  is  the  counit  map  of  the quantized enveloping algebra [22m[34mU[0m, which is
+  constructed as a function from [22m[34mU[0m to the ground field.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2), CF(5), E(5) );;[0m
+    [22m[35mgap> co:= CounitMap( U );[0m
+    [22m[35mfunction( u ) ... end[0m
+    [22m[35mgap> x:= GeneratorsOfAlgebra( U )[4];[0m
+    [22m[35mK1[0m
+    [22m[35mgap> co( x );[0m
+    [22m[35m1[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  
+  [1m[4m[31m3.8 Modules[0m
+  
+  Here we describe some functions for constructing left modules over quantized
+  enveloping algebras. We refer to the [1mGAP[0m reference manual for an overview of
+  basic  functions  for  algebra  modules,  which  are  also applicable to the
+  modules  constructed  by the functions described in this section. We mention
+  [22m[34mMatrixOfAction[0m,  [22m[34mDirectSumOfAlgebraModules[0m.  The action of an element of the
+  algebra on an element of the module is calculated by the infix operator [22m[34m^[0m.
+  
+  [1m[4m[31m3.8-1 HighestWeightModule[0m
+  
+  [1m[34m> HighestWeightModule( [0m[22m[34mU, wt[0m[1m[34m ) ____________________________________[0moperation
+  
+  Here [22m[34mU[0m is a quantized universal enveloping algebra, and [22m[34mwt[0m a dominant weight
+  (i.e.,  a list of length equal to the rank of the root system, consisting of
+  non-negative   integers).   This   function   returns  a  finite-dimensional
+  highest-weight module of highest weight [22m[34mwt[0m over [22m[34mU[0m. If [22m[34mU[0m is generic then this
+  is  the unique irreducible highest-weight module over [22m[34mU[0m. Otherwise it is the
+  Weyl  module,  cf.  Section  [1m2.5[0m.  In  this  last  case  the  module  is not
+  necessarily irreducible.
+  
+  Let  [22m[34mV[0m  denote the module returned by this function. The first basis element
+  of  the  attribute  [22m[34mBasis(  V )[0m is a highest-weight vector; it is written as
+  [22m[34m1*v0[0m.  Other  basis  elements  are  written as, for example, [22m[34mF2*F9*v0[0m, which
+  means  that  this vector is the result of letting the PBW-monomial [22m[34mF2*F9[0m act
+  on the highest-weight vector.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( [ "A", 2, "G", 2 ] ) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [ 0, 1, 0, 2 ] );[0m
+    [22m[35m<231-dimensional left-module over QuantumUEA( <root system of type A2 G[0m
+    [22m[35m2>, Qpar = q )>[0m
+    [22m[35mgap> Basis( V )[1];[0m
+    [22m[35m1*v0[0m
+    [22m[35mgap> Basis(V)[23]+(_q^2+_q^-2)*Basis(V)[137];[0m
+    [22m[35mF3*F5*v0+(q^-2+q^2)*F8^(6)*v0[0m
+    [22m[35m# We compute the action of an element on a vector:[0m
+    [22m[35mgap> gg:= GeneratorsOfAlgebra( U );;[0m
+    [22m[35mgap> x:= gg[21]*gg[5];[0m
+    [22m[35mF5*E4+(-q^-1)*F6*K3[0m
+    [22m[35mgap> x^Basis(V)[1];[0m
+    [22m[35m(-q^-1)*F6*v0[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-2 IrreducibleQuotient[0m
+  
+  [1m[34m> IrreducibleQuotient( [0m[22m[34mV[0m[1m[34m ) ________________________________________[0mattribute
+  
+  Here  [22m[34mV[0m  is  a highest-weight module over a non-generic quantized enveloping
+  algebra.  This  function  returns the quotient of [22m[34mV[0m by the maximal submodule
+  not containing the highest weight vector. This is not necessarily equal to [22m[34mV[0m
+  if the quantum parameter is a root of 1.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "A", 2 );;[0m
+    [22m[35mgap> U:= QuantizedUEA( R, CF(3), E(3) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1] );[0m
+    [22m[35m<8-dimensional left-module over QuantumUEA( <root system of type A2>, Qpar =[0m
+    [22m[35mE(3) )>[0m
+    [22m[35mgap> IrreducibleQuotient( V );[0m
+    [22m[35m<7-dimensional left-module over QuantumUEA( <root system of type A2>, Qpar =[0m
+    [22m[35mE(3) )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-3 HWModuleByTensorProduct[0m
+  
+  [1m[34m> HWModuleByTensorProduct( [0m[22m[34mU, wt[0m[1m[34m ) ________________________________[0moperation
+  
+  Here  [22m[34mU[0m  must  be  a [22m[36mgeneric[0m quantized enveloping algebra, and [22m[34mwt[0m a dominant
+  weight.  This  function  returns  the irreducible highest-weight module with
+  highest  weight [22m[34mwt[0m. The algorithm uses tensor products (whence the name). On
+  some   inputs   this   algorithm   is   faster   than   the   one   use  for
+  [1m[34mHighestWeightModule:for  a quantized env. alg.[0m ([1m???HighestWeightModule:for a
+  quantized env. alg.???[0m), on some inputs it is slower. I do not know any good
+  heuristics.
+  
+  The basis supplied with the module returned is the canonical basis.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("G",2) );;[0m
+    [22m[35mgap> V:= HWModuleByTensorProduct( U, [2,1] );[0m
+    [22m[35m<189-dimensional left-module over QuantumUEA( <root system of type G[0m
+    [22m[35m2>, Qpar = q )>[0m
+    [22m[35m# (This is a case where this algorithm is a lot faster.)[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-4 DIYModule[0m
+  
+  [1m[34m> DIYModule( [0m[22m[34mU, V, acts[0m[1m[34m ) _________________________________________[0moperation
+  
+  Here  [22m[34mU[0m  is  a generic quantized enveloping algebra, and [22m[34mV[0m is a vector space
+  over  the field [22m[34mQuantumField[0m. [22m[34mU[0m acts on [22m[34mV[0m and the action is described by the
+  data  in  the  list [22m[34macts[0m. [22m[34macts[0m is a list of lists, of length [22m[34m4*l[0m, where [22m[34ml[0m is
+  the  rank  of  the root system. [22m[34macts[0m describes the actions of the generators
+  [F_1,...,F_l,K_1,...,K_l,K_1^-1,...,K_l^-1,  E_1,...,E_l ]. (Here F_k is the
+  generator F_alpha_k, where alpha_k is the k-th simple root, and likewise for
+  E_k.)  The  action of each generator is described by a list of length [22m[34mdim V[0m,
+  giving  the  images  of the basis elements of [22m[34mV[0m. If an image is zero then it
+  may  be  omitted:  in that case there is a "hole" in the list. This function
+  returns the [22m[34mU[0m-module defined by the input.
+  
+  Let  [22m[34mR[0m  be  a  root  system  of  type A_1, and [22m[34mU[0m the corresponding quantized
+  enveloping  algebra  (generated  by  F, K, K^-1, E). In the example below we
+  construct  the  2-dimensional  U-module  with  basis  vectors  v_1,v_2,  and
+  [22m[34mU[0m-action  given  by  Fv_1  = v_2, Fv_2=0, Kv_1 = qv_1, Kv_2=q^-1v_2, Ev_1=0,
+  Ev_2=v_1.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",1) );[0m
+    [22m[35mQuantumUEA( <root system of type A1>, Qpar = q )[0m
+    [22m[35mgap> V:= QuantumField^2;[0m
+    [22m[35m( QuantumField^2 )[0m
+    [22m[35mgap> v:= BasisVectors( Basis(V) );[0m
+    [22m[35m[ [ 1, 0 ], [ 0, 1 ] ][0m
+    [22m[35mgap> acts:= [ [ v[2], 0*v[1] ], [ _q*v[1], _q^-1*v[2] ],[0m
+    [22m[35m> [ _q^-1*v[1], _q*v[2] ], [ 0*v[1], v[1] ] ];;[0m
+    [22m[35mgap> M:= DIYModule( U, V, acts );[0m
+    [22m[35m<2-dimensional left-module over QuantumUEA( <root system of type A[0m
+    [22m[35m1>, Qpar = q )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-5 TensorProductOfAlgebraModules[0m
+  
+  [1m[34m> TensorProductOfAlgebraModules( [0m[22m[34mV, W[0m[1m[34m ) ___________________________[0moperation
+  [1m[34m> TensorProductOfAlgebraModules( [0m[22m[34mV, W[0m[1m[34m ) ___________________________[0moperation
+  
+  Here  [22m[34mV[0m  and [22m[34mW[0m are two modules over the same quantized enveloping algebra [22m[34mU[0m.
+  This  function constructs the tensor product of [22m[34mV[0m and [22m[34mW[0m (as a [22m[34mU[0m-module). For
+  this  the  comultiplication  map  of  [22m[34mU[0m  is  used  (see  [1m[34mComultiplicationMap[0m
+  ([1m3.7-3[0m)).
+  
+  In  the  second  form list is a list of [22m[34mU[0m-modules. In that case the iterated
+  tensor product is constructed.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( [ "A", 2 ] ) );;[0m
+    [22m[35mgap> V1:= HighestWeightModule( U, [ 1, 0 ] );;[0m
+    [22m[35mgap> V2:= HighestWeightModule( U, [ 0, 1 ] );;[0m
+    [22m[35mgap> TensorProductOfAlgebraModules( V1, V2 );[0m
+    [22m[35m<9-dimensional left-module over QuantumUEA( <root system of type A2>, Qpar = q )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-6 HWModuleByGenerator[0m
+  
+  [1m[34m> HWModuleByGenerator( [0m[22m[34mV, v, hw[0m[1m[34m ) _________________________________[0moperation
+  
+  Here  [22m[34mV[0m  is  a  module over a generic quantized enveloping algebra [22m[34mU[0m, [22m[34mv[0m is a
+  highest-weight  vector  (i.e.,  all E_alpha[22m[34mv=0[0m), of weight [22m[34mhw[0m, which must be
+  dominant. This function returns a highest-weight module over [22m[34mU[0m isomorphic to
+  the submodule of [22m[34mV[0m generated by [22m[34mv[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("B",2) );;[0m
+    [22m[35mgap> W1:= HighestWeightModule( U, [1,0] );;[0m
+    [22m[35mgap> W2:= HighestWeightModule( U, [0,1] );;[0m
+    [22m[35mgap> T:= TensorProductOfAlgebraModules( W1, W2 );[0m
+    [22m[35m<20-dimensional left-module over QuantumUEA( <root system of type B[0m
+    [22m[35m2>, Qpar = q )>[0m
+    [22m[35mgap> HWModuleByGenerator( T, Basis(T)[1], [1,1] );[0m
+    [22m[35m<16-dimensional left-module over QuantumUEA( <root system of type B[0m
+    [22m[35m2>, Qpar = q )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-7 InducedQEAModule[0m
+  
+  [1m[34m> InducedQEAModule( [0m[22m[34mU, V[0m[1m[34m ) ________________________________________[0moperation
+  
+  Here  [22m[34mU[0m  is  a non-generic quantized enveloping algebra, and [22m[34mV[0m a module over
+  the  corresponding  generic  quantized  enveloping  algebra.  This  function
+  returns  the  [22m[34mU[0m-module  obtained  from  [22m[34mV[0m by setting [22m[34m_q[0m equal to the quantum
+  parameter of [22m[34mU[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem("B",2);;[0m
+    [22m[35mgap> U:= QuantizedUEA( R );;[0m
+    [22m[35mgap> U0:= QuantizedUEA( R, CF(3), E(3) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1] );;[0m
+    [22m[35mgap> W:= InducedQEAModule( U0, V );[0m
+    [22m[35m<16-dimensional left-module over QuantumUEA( <root system of type B[0m
+    [22m[35m2>, Qpar = E(3) )>[0m
+    [22m[35m# This module is isomorphic to the one obtained by[0m
+    [22m[35m# HighestWeightModule( U0, [1,1] );[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-8 GenericModule[0m
+  
+  [1m[34m> GenericModule( [0m[22m[34mW[0m[1m[34m ) ______________________________________________[0mattribute
+  
+  For  an  induced module (see [1m[34mInducedQEAModule[0m ([1m3.8-7[0m)) this function returns
+  the corresponding module over the generic quantized enveloping algebra.
+  
+  [1m[4m[31m3.8-9 CanonicalMapping[0m
+  
+  [1m[34m> CanonicalMapping( [0m[22m[34mW[0m[1m[34m ) ___________________________________________[0mattribute
+  
+  Here  [22m[34mW[0m  is  an  induced  module.  Let [22m[34mV[0m be the corresponding generic module
+  ([1m[34mGenericModule[0m ([1m3.8-8[0m)). This function returns the map [22m[34mV --> W[0m, that sets [22m[34m_q[0m
+  equal to the quantum parameter of the acting algebra of [22m[34mW[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem("B",2);;[0m
+    [22m[35mgap> U:= QuantizedUEA( R );;[0m
+    [22m[35mgap> U0:= QuantizedUEA( R, CF(3), E(3) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1] );;[0m
+    [22m[35mgap> W:= InducedQEAModule( U0, V );;[0m
+    [22m[35mgap> f:= CanonicalMapping( W );[0m
+    [22m[35mMappingByFunction( <[0m
+    [22m[35m16-dimensional left-module over QuantumUEA( <root system of type B[0m
+    [22m[35m2>, Qpar = q )>, <[0m
+    [22m[35m16-dimensional left-module over QuantumUEA( <root system of type B[0m
+    [22m[35m2>, Qpar = E(3) )>, function( v ) ... end )[0m
+    [22m[35mgap> Image( f, _q^2*Basis(V)[3] );[0m
+    [22m[35m(E(3)^2)*e.3[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-10 U2Module[0m
+  
+  [1m[34m> U2Module( [0m[22m[34mU, hw[0m[1m[34m ) _______________________________________________[0moperation
+  
+  Here  [22m[34mU[0m  must  be  a quantized enveloping algebra of type A_2. This function
+  returns the highest-weight module over [22m[34mU[0m of highest-weight [22m[34mhw[0m (which must be
+  dominant).    This    function    is    generally    a   lot   faster   than
+  [1m[34mHighestWeightModule:for  a quantized env. alg.[0m ([1m???HighestWeightModule:for a
+  quantized env. alg.???[0m).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2) );;[0m
+    [22m[35mgap> A2Module( U, [4,7] );[0m
+    [22m[35m<260-dimensional left-module over QuantumUEA( <root system of type A[0m
+    [22m[35m2>, Qpar = q )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-11 MinusculeModule[0m
+  
+  [1m[34m> MinusculeModule( [0m[22m[34mU, hw[0m[1m[34m ) ________________________________________[0moperation
+  
+  Here  [22m[34mU[0m  must  be a generic quantized enveloping algebra, and [22m[34mhw[0m a minuscule
+  dominant  weight.  This function returns the highest-weight module over [22m[34mU[0m of
+  highest-weight   [22m[34mhw[0m.   This  function  is  generally  somewhat  faster  than
+  [1m[34mHighestWeightModule:for  a quantized env. alg.[0m ([1m???HighestWeightModule:for a
+  quantized env. alg.???[0m).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",5) );;[0m
+    [22m[35mgap> MinusculeModule( U, [0,0,1,0,0] );[0m
+    [22m[35m<20-dimensional left-module over QuantumUEA( <root system of type A[0m
+    [22m[35m5>, Qpar = q )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-12 DualAlgebraModule[0m
+  
+  [1m[34m> DualAlgebraModule( [0m[22m[34mV[0m[1m[34m ) __________________________________________[0mattribute
+  
+  Here  [22m[34mV[0m  is  a  finite-dimensional  left  module over a quantized enveloping
+  algebra  [22m[34mU[0m.  This function returns the dual space of [22m[34mV[0m as an algebra module.
+  For this the antipode map of [22m[34mU[0m is used (see [1m[34mAntipodeMap[0m ([1m3.7-4[0m)).
+  
+  Let  [22m[34mM[0m  denote the module returned by this function. Then [22m[34mM[0m has as basis the
+  dual  basis  with respect to [22m[34mBasis( V )[0m. An element of this basis is printed
+  as  [22m[34mF@v[0m,  where  [22m[34mv[0m  is  an element of [22m[34mBasis( V )[0m. This is the function which
+  takes  the value [22m[34m1[0m on [22m[34mv[0m and [22m[34m0[0m on all other basis elements. A general element
+  of [22m[34mM[0m is a linear combination of these basis elements.
+  
+  The  elements of [22m[34mM[0m can be viewed as functions which take arguments. However,
+  internally  the  elements  of [22m[34mM[0m are represented as wrapped up functions. The
+  function  corresponding to an element [22m[34mm[0m of [22m[34mM[0m is obtained by [22m[34mExtRepOfObj( m )[0m
+  (the  result  of  which is printed in the same way as [22m[34mm[0m, but is not equal to
+  it).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1] );;[0m
+    [22m[35mgap> M:= DualAlgebraModule( V );[0m
+    [22m[35m<8-dimensional left-module over QuantumUEA( <root system of type A[0m
+    [22m[35m2>, Qpar = q )>[0m
+    [22m[35mgap> u:= GeneratorsOfAlgebra( U )[2];[0m
+    [22m[35mF2[0m
+    [22m[35mgap> vv:= BasisVectors( Basis( M ) );[0m
+    [22m[35m[ (1)*F@1*v0, (1)*F@F1*v0, (1)*F@F3*v0, (1)*F@F1*F3*v0, (1)*F@F2*v0,[0m
+    [22m[35m  (1)*F@F1*F2*v0, (1)*F@F2*F3*v0, (1)*F@F2^(2)*v0 ][0m
+    [22m[35mgap> u^vv[3];[0m
+    [22m[35m<zero function>[0m
+    [22m[35m# (The zero of the dual space is printed as <zero function>).[0m
+    [22m[35mgap> u^vv[4];[0m
+    [22m[35m(q^3-q^5)*F@1*v0[0m
+    [22m[35m# We get the function corresponding to a vector in M by using ExtRepOfObj:[0m
+    [22m[35mgap> f:= ExtRepOfObj( vv[1] );[0m
+    [22m[35m(1)*F@1*v0[0m
+    [22m[35m# We can calculate images of this function:[0m
+    [22m[35mgap> List( Basis(V), v -> Image( f, v ) );[0m
+    [22m[35m[ 1, 0, 0, 0, 0, 0, 0, 0 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-13 TrivialAlgebraModule[0m
+  
+  [1m[34m> TrivialAlgebraModule( [0m[22m[34mU[0m[1m[34m ) _______________________________________[0mattribute
+  
+  Returns the trivial module over the quantized enveloping algebra [22m[34mU[0m. For this
+  the counit map of [22m[34mU[0m is used.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2) );;[0m
+    [22m[35mgap> V:= TrivialAlgebraModule( U );[0m
+    [22m[35m<left-module over QuantumUEA( <root system of type A2>, Qpar = q )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-14 WeightsAndVectors[0m
+  
+  [1m[34m> WeightsAndVectors( [0m[22m[34mV[0m[1m[34m ) __________________________________________[0moperation
+  
+  Here   [22m[34mV[0m   is   a   left   module   over  a  quantized  enveloping  algebra.
+  [22m[34mWeightsAndVectors(  V )[0m is a list of two lists; the first of these is a list
+  of  the  weights  of  [22m[34mV[0m,  the second a list of corresponding weight vectors.
+  These are again grouped in lists: if the multiplicity of a weight is [22m[34mm[0m, then
+  there  are  [22m[34mm[0m  weight  vectors,  forming a basis of the corresponding weight
+  space.
+  
+  Modules   constructed  by  [1m[34mHighestWeightModule:for  a  quantized  env.  alg.[0m
+  ([1m???HighestWeightModule:for   a  quantized  env.  alg.???[0m)  come  with  this
+  attribute  set. There is a method installed for computing [22m[34mWeightsAndVectors(
+  V  )[0m,  for  modules [22m[34mV[0m over a generic quantized enveloping algebra, such that
+  all basis vectors (i.e., all elements of [22m[34mBasis( V )[0m) are weight vectors.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "A", 2 ) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [ 1, 1 ] );;[0m
+    [22m[35mgap> WeightsAndVectors( V );[0m
+    [22m[35m[ [ [ 1, 1 ], [ -1, 2 ], [ 2, -1 ], [ 0, 0 ], [ -2, 1 ], [ 1, -2 ],[0m
+    [22m[35m      [ -1, -1 ] ],[0m
+    [22m[35m  [ [ 1*v0 ], [ F1*v0 ], [ F3*v0 ], [ F1*F3*v0, F2*v0 ], [ F1*F2*v0 ],[0m
+    [22m[35m      [ F2*F3*v0 ], [ F2^(2)*v0 ] ] ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-15 HighestWeightsAndVectors[0m
+  
+  [1m[34m> HighestWeightsAndVectors( [0m[22m[34mV[0m[1m[34m ) ___________________________________[0mattribute
+  
+  Is analogous to [1m[34mWeightsAndVectors[0m ([1m3.8-14[0m); now only the highest weights are
+  listed along with the corresponding highest-weight vectors.
+  
+  There is a method installed for this using [1m[34mWeightsAndVectors[0m ([1m3.8-14[0m); which
+  means that it works if and only if [22m[34mWeightsAndVectors( V )[0m works.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( [ "A", 2 ] ) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [ 1, 1 ] );;[0m
+    [22m[35mgap> HighestWeightsAndVectors( V );[0m
+    [22m[35m[ [ [ 1, 1 ] ], [ [ 1*v0 ] ] ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-16 RMatrix[0m
+  
+  [1m[34m> RMatrix( [0m[22m[34mV[0m[1m[34m ) ____________________________________________________[0mattribute
+  
+  Here  [22m[34mV[0m is a module over the a quantized enveloping algebra [22m[34mU[0m. This function
+  returns  the matrix of a linear map theta : Votimes V -> Votimes V that is a
+  solution to the quantum Yang-Baxter equation. We have that thetacirc P is an
+  isomorphism  of  [22m[34mU[0m-modules, where P :Votimes V-> Votimes V is the linear map
+  such  that  P(votimes  w)=wotimes  v.  For  more  details we refer to [J96],
+  Chapter 7.
+  
+  This function works for modules for which [1m[34mWeightsAndVectors[0m ([1m3.8-14[0m) works.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",1) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1] );;[0m
+    [22m[35mgap> RMatrix( V );[0m
+    [22m[35m[ [ 1, 0, 0, 0 ], [ 0, q, 1-q^2, 0 ], [ 0, 0, q, 0 ], [ 0, 0, 0, 1 ] ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-17 IsomorphismOfTensorModules[0m
+  
+  [1m[34m> IsomorphismOfTensorModules( [0m[22m[34mV, W[0m[1m[34m ) ______________________________[0moperation
+  
+  Here [22m[34mV[0m, [22m[34mW[0m are two modules over the same quantized enveloping algebra [22m[34mU[0m. This
+  function  returns  a  linear  map  theta  : Votimes W-> Wotimes V that is an
+  isomorphism of U-modules.
+  
+  This  function  is  only  guaranteed  to  work correctly if the Hopf algebra
+  structure is non-twisted (see [1m[34mUseTwistedHopfStructure[0m ([1m3.7-2[0m)).
+  
+  This function works for modules for which [1m[34mWeightsAndVectors[0m ([1m3.8-14[0m) works.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("B",2) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,0] );;[0m
+    [22m[35mgap> W:= HighestWeightModule( U, [0,1] );;[0m
+    [22m[35mgap> h:= IsomorphismOfTensorModules( V, W );;[0m
+    [22m[35mgap> VW:= Source( h );[0m
+    [22m[35m<20-dimensional left-module over QuantumUEA( <root system of type B[0m
+    [22m[35m2>, Qpar = q )>[0m
+    [22m[35mgap> Image( h, Basis(VW)[13] );[0m
+    [22m[35mq*(1*v0<x>F3*v0)+1-q^2*(F4*v0<x>F2*v0)+q^-1-q^3*(F3*v0<x>1*v0)[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.8-18 WriteModuleToFile[0m
+  
+  [1m[34m> WriteModuleToFile( [0m[22m[34mV, file[0m[1m[34m ) ____________________________________[0moperation
+  
+  Here [22m[34mV[0m is a module over a quantized enveloping algebra, and [22m[34mfile[0m is a string
+  containing  the name of a file. This function writes some data to [22m[34mfile[0m, that
+  allows [1m[34mReadModuleFromFile[0m ([1m3.8-19[0m) to recover it.
+  
+  We  remark  that  this  function  currently  is only implemented for generic
+  quantized enveloping algebras.
+  
+  [1m[4m[31m3.8-19 ReadModuleFromFile[0m
+  
+  [1m[34m> ReadModuleFromFile( [0m[22m[34mfile[0m[1m[34m ) ______________________________________[0moperation
+  
+  Here  [22m[34mfile[0m is a string containing the name of a file, to which a module over
+  a  quantized  enveloping  algebra  has  been  written  by  [1m[34mWriteModuleToFile[0m
+  ([1m3.8-18[0m). This function recovers the module. More precisely: a new module is
+  constructed  that  is  isomorphic to the old one. In the process the algebra
+  acting  on  the  module is constructed anew (from data written to the file).
+  This algebra can be accessed by [22m[34mLeftActingAlgebra( V )[0m.
+  
+  We  remark  that  this  function  currently  is only implemented for generic
+  quantized enveloping algebras.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",3) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1,1] );;[0m
+    [22m[35mgap> WriteModuleToFile( V, "/home/wdg/A3mod" );[0m
+    [22m[35mgap> W:= ReadModuleFromFile( "/home/wdg/A3mod" );[0m
+    [22m[35m<64-dimensional left-module over QuantumUEA( <root system of type A[0m
+    [22m[35m3>, Qpar = q )>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  
+  [1m[4m[31m3.9 The path model[0m
+  
+  In  this  section  we describe functions for dealing with the path model. We
+  work only with LS-paths, which are represented by two lists, one of weights,
+  and one of rationals (see Section [1m2.7[0m).
+  
+  [1m[4m[31m3.9-1 DominantLSPath[0m
+  
+  [1m[34m> DominantLSPath( [0m[22m[34mR, wt[0m[1m[34m ) _________________________________________[0moperation
+  
+  Here  [22m[34mR[0m  is a root system, and [22m[34mwt[0m a dominant weight in the weight lattice of
+  [22m[34mR[0m. This function returns the LS-path that is the line from the origin to [22m[34mwt[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> DominantLSPath( R, [1,3] );[0m
+    [22m[35m<LS path of shape [ 1, 3 ] ending in [ 1, 3 ] >[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.9-2 Falpha[0m
+  
+  [1m[34m> Falpha( [0m[22m[34mpath, ind[0m[1m[34m ) _____________________________________________[0moperation
+  
+  Is the result of applying the path operator f_alpha_[22m[34mind[0m} to the LS-path [22m[34mpath[0m
+  (where alpha_[22m[34mind[0m is the [22m[34mind[0m-th simple root).
+  
+  The result is [22m[34mfail[0m if f_alpha_[22m[34mind[0m}[22m[34m(path)=0[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> p:=DominantLSPath( R, [1,3] );;[0m
+    [22m[35mgap> p1:=Falpha( p, 1 );[0m
+    [22m[35m<LS path of shape [ 1, 3 ] ending in [ -1, 4 ] >[0m
+    [22m[35mgap> Falpha( p1, 1 );[0m
+    [22m[35mfail[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.9-3 Ealpha[0m
+  
+  [1m[34m> Ealpha( [0m[22m[34mpath, ind[0m[1m[34m ) _____________________________________________[0moperation
+  
+  Is the result of applying the path operator e_alpha_[22m[34mind[0m} to the LS-path [22m[34mpath[0m
+  (where alpha_[22m[34mind[0m is the [22m[34mind[0m-th simple root).
+  
+  The result is [22m[34mfail[0m if e_alpha_[22m[34mind[0m}[22m[34m(path)=0[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> p:=DominantLSPath( R, [1,3] );;[0m
+    [22m[35mgap> Ealpha( p, 2 );[0m
+    [22m[35mfail[0m
+    [22m[35mgap> p1:=Falpha( p, 1 );;[0m
+    [22m[35mgap> Ealpha( p1, 1 );[0m
+    [22m[35m<LS path of shape [ 1, 3 ] ending in [ 1, 3 ] >[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.9-4 LSSequence[0m
+  
+  [1m[34m> LSSequence( [0m[22m[34mpath[0m[1m[34m ) ______________________________________________[0mattribute
+  
+  returns  the two sequences (of weights and rational numbers) that define the
+  LS-path path.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> p:=DominantLSPath( R, [1,3] );;[0m
+    [22m[35mgap> p1:= Falpha( Falpha( p, 1 ), 2 );;[0m
+    [22m[35mgap> LSSequence( p1 );[0m
+    [22m[35m[ [ [ 11, -4 ], [ -1, 4 ] ], [ 0, 1/4, 1 ] ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.9-5 WeylWord[0m
+  
+  [1m[34m> WeylWord( [0m[22m[34mpath[0m[1m[34m ) ________________________________________________[0mattribute
+  
+  Here  [22m[34mpath[0m  is  an  LS-path  in  the  orbit  (under the root operators) of a
+  dominant  LS-path  ending in the dominant weight lambda. This means that the
+  first  direction  of  path  is  of the form w(lambda) for some w in the Weyl
+  group.  This  function returns a list [i_1,..., i_m ] such that w=s_i_1cdots
+  s_i_m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> p:=DominantLSPath( R, [1,3] );;[0m
+    [22m[35mgap> p1:= Falpha( Falpha( Falpha( p, 1 ), 2 ), 1 );;[0m
+    [22m[35mgap> WeylWord( p1 );[0m
+    [22m[35m[ 1, 2, 1 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.9-6 EndWeight[0m
+  
+  [1m[34m> EndWeight( [0m[22m[34mpath[0m[1m[34m ) _______________________________________________[0mattribute
+  
+  Here  [22m[34mpath[0m  is  an  LS-path;  this  function  returns the weight that is the
+  endpoint of path
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "G", 2 );;[0m
+    [22m[35mgap> p:=DominantLSPath( R, [1,3] );;[0m
+    [22m[35mgap> p1:= Falpha( Falpha( Falpha( p, 1 ), 2 ), 1 );;[0m
+    [22m[35mgap> EndWeight( p1 );[0m
+    [22m[35m[ 0, 3 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.9-7 CrystalGraph[0m
+  
+  [1m[34m> CrystalGraph( [0m[22m[34mR, wt[0m[1m[34m ) ____________________________________________[0mfunction
+  
+  This  function  returns  a  record  describing  the  crystal  graph  of  the
+  highest-weight  module with highest weight [22m[34mwt[0m, over the quantized enveloping
+  algebra  corresponding  to [22m[34mR[0m. It is computed using the path model. Therefore
+  the points in the graph are LS-paths.
+  
+  Denote  the  output  by [22m[34mr[0m; then [22m[34mr.points[0m is the list of points of the graph.
+  Furthermore,  [22m[34mr.edges[0m  is  a  list  of edges of the graph; this is a list of
+  elements of the form [22m[34m[ [ i, j ], u ][0m. This means that there is an arrow from
+  point  [22m[34mi[0m  (i.e., the point on position [22m[34mi[0m in [22m[34mr.points[0m) to point [22m[34mj[0m, with label
+  [22m[34mu[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> R:= RootSystem( "A", 2 );;[0m
+    [22m[35mgap> CrystalGraph( R, [1,1] );[0m
+    [22m[35mrec([0m
+    [22m[35m  points := [ <LS path of shape [ 1, 1 ] ending in [ 1, 1 ] >, <LS path of sha\[0m
+    [22m[35mpe [ 1, 1 ] ending in [ -1, 2 ] >, <LS path of shape [ 1, 1 ] ending in[0m
+    [22m[35m        [ 2, -1 ] >, <LS path of shape [ 1, 1 ] ending in [ 0, 0 ] >,[0m
+    [22m[35m      <LS path of shape [ 1, 1 ] ending in [ 0, 0 ] >,[0m
+    [22m[35m      <LS path of shape [ 1, 1 ] ending in [ 1, -2 ] >,[0m
+    [22m[35m      <LS path of shape [ 1, 1 ] ending in [ -2, 1 ] >,[0m
+    [22m[35m      <LS path of shape [ 1, 1 ] ending in [ -1, -1 ] > ],[0m
+    [22m[35m  edges := [ [ [ 1, 2 ], 1 ], [ [ 1, 3 ], 2 ], [ [ 2, 4 ], 2 ],[0m
+    [22m[35m      [ [ 3, 5 ], 1 ], [ [ 4, 6 ], 2 ], [ [ 5, 7 ], 1 ], [ [ 6, 8 ], 1 ],[0m
+    [22m[35m      [ [ 7, 8 ], 2 ] ] )[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  
+  [1m[4m[31m3.10 Canonical bases[0m
+  
+  Here we describe functions for computing the canonical basis of the negative
+  part of a quantized enveloping algebra, and of a module.
+  
+  [1m[4m[31m3.10-1 Falpha[0m
+  
+  [1m[34m> Falpha( [0m[22m[34mx, ind[0m[1m[34m ) ________________________________________________[0moperation
+  
+  Here  [22m[34mx[0m  is  a  PBW-monomial  in U^- (i.e., a monomial in the F_alpha, where
+  alpha  runs  over  the  positive roots). This function returns the result of
+  applying  the  [22m[34mind[0m-th  Kashiwara  operator  widetildeF_alpha_[22m[34mind[0m}  to x (cf.
+  Section [1m2.6[0m).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "F", 4 ) );;[0m
+    [22m[35mgap> x:= One( U );[0m
+    [22m[35m1[0m
+    [22m[35mgap> Falpha( Falpha( x, 3 ), 2 );[0m
+    [22m[35mF3*F9[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-2 Ealpha[0m
+  
+  [1m[34m> Ealpha( [0m[22m[34mx, ind[0m[1m[34m ) ________________________________________________[0moperation
+  
+  Here  [22m[34mx[0m  is  a  PBW-monomial  in U^- (i.e., a monomial in the F_alpha, where
+  alpha  runs  over  the  positive roots). This function returns the result of
+  applying  the  [22m[34mind[0m-th  Kashiwara  operator  widetildeE_alpha_[22m[34mind[0m}  to x (cf.
+  Section [1m2.6[0m). The result is [22m[34mfail[0m if widetildeE_alpha_[22m[34mind[0m}[22m[34m(x)=0[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "F", 4 ) );;[0m
+    [22m[35mgap> Ealpha( One( U ), 2 );[0m
+    [22m[35mfail[0m
+    [22m[35mgap> g:= GeneratorsOfAlgebra( U );;[0m
+    [22m[35mgap> x:= g[1]*g[4]*g[7]*g[17];[0m
+    [22m[35mF1*F4*F7*F17[0m
+    [22m[35mgap> Ealpha( x, 3 );[0m
+    [22m[35mF1*F2*F7*F17[0m
+    [22m[35m[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-3 CanonicalBasis[0m
+  
+  [1m[34m> CanonicalBasis( [0m[22m[34mU[0m[1m[34m ) _____________________________________________[0mattribute
+  
+  Is the canonical basis of the quantized universal enveloping algebra [22m[34mU[0m. When
+  this  is  constructed  nothing  is  computed. By using [1m[34mPBWElements[0m ([1m3.10-4[0m),
+  [1m[34mMonomialElements[0m  ([1m3.10-5[0m),  [1m[34mStrings[0m  ([1m3.10-6[0m) information about elements of
+  the canonical basis can be obtained.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "F", 4 ) );;[0m
+    [22m[35mgap> B:= CanonicalBasis( U );[0m
+    [22m[35m<canonical basis of QuantumUEA( <root system of type F4>, Qpar = q ) >[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-4 PBWElements[0m
+  
+  [1m[34m> PBWElements( [0m[22m[34mB, rt[0m[1m[34m ) ____________________________________________[0moperation
+  
+  Here  [22m[34mB[0m  is  the  canonical  basis  of  a  quantized  uea,  and [22m[34mrt[0m a list of
+  non-negative  integers representing an element of the root lattice (e.g., if
+  the  simple  roots  are  alpha,  beta  and [22m[34mrt = [ 3, 2 ][0m, then [22m[34mrt[0m represents
+  3alpha+2beta).
+  
+  It  is  possible  to  add  the option [22m[34mlowrank[0m, as follows [22m[34mPBWElements( B, rt
+  :lowrank  )[0m.  In that case a somewhat different method will be used, that is
+  significantly faster if the underlying root system has rank 2,3. It is about
+  equally fast for ranks 4,5; and slower for ranks greater than 5.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "F", 4 ) );;[0m
+    [22m[35mgap> B:= CanonicalBasis( U );;[0m
+    [22m[35mgap> PBWElements( B, [1,2,1,0] );[0m
+    [22m[35m[ F1*F3^(2)*F9, F1*F3*F7+(q^4)*F1*F3^(2)*F9, (q^4)*F1*F3^(2)*F9+F2*F3*F9,[0m
+    [22m[35m  (q^2)*F1*F3*F7+(q^2+q^6)*F1*F3^(2)*F9+(q^2)*F2*F3*F9+F2*F7,[0m
+    [22m[35m  (q^4)*F1*F3*F7+(q^8)*F1*F3^(2)*F9+(q^4)*F2*F3*F9+(q^2)*F2*F7+F3*F4 ][0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("G",2) );;[0m
+    [22m[35mgap> B:= CanonicalBasis( U );;[0m
+    [22m[35mgap> PBWElements( B, [2,3] : lowrank );[0m
+    [22m[35m[ F1^(2)*F6^(3), F1*F5*F6^(2)+(q^8+q^10)*F1^(2)*F6^(3),[0m
+    [22m[35m  (q^2)*F1*F5*F6^(2)+(q^6+q^12)*F1^(2)*F6^(3)+F3*F6^(2),[0m
+    [22m[35m  (q^8)*F1*F5*F6^(2)+(q^18)*F1^(2)*F6^(3)+(q^6)*F3*F6^(2)+F5^(2)*F6 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-5 MonomialElements[0m
+  
+  [1m[34m> MonomialElements( [0m[22m[34mB, rt[0m[1m[34m ) _______________________________________[0moperation
+  
+  This  does  the  same  as [1m[34mPBWElements[0m ([1m3.10-4[0m), except that the elements are
+  written as linear combinations of monomials in the generators F_alpha, where
+  alpha runs through the simple roots.
+  
+  We  remark  that  this information is also computed "behind the scenes" when
+  calling  [22m[34mPBWElements(  B,  rt  )[0m.  However, it is not computed if the option
+  [22m[34mlowrank[0m is present in the call to [22m[34mPBWElements[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "F", 4 ) );;[0m
+    [22m[35mgap> B:= CanonicalBasis( U );;[0m
+    [22m[35mgap> MonomialElements( B, [1,2,1,0] );[0m
+    [22m[35m[ F1*F3^(2)*F9, F1*F3*F9*F3+(-1)*F1*F3^(2)*F9, F3^(2)*F1*F9, F3*F1*F9*F3,[0m
+    [22m[35m  F3*F9*F3*F1+(-1)*F3^(2)*F1*F9 ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-6 Strings[0m
+  
+  [1m[34m> Strings( [0m[22m[34mB, rt[0m[1m[34m ) ________________________________________________[0moperation
+  
+  Here [22m[34mB[0m, [22m[34mrt[0m are the same as in [1m[34mPBWElements[0m ([1m3.10-4[0m). This returns the list of
+  strings  corresponding  to the elements of [22m[34mB[0m of weight [22m[34mrt[0m (cf. Section [1m2.6[0m).
+  For  example,  if on the k-th position of the list returned by this function
+  we  have  [22m[34m[ 1, 2, 2, 3 ][0m, then the principal monomial of the k-th element of
+  [22m[34mPBWElements(  B, rt )[0m is widetildeF_1^2widetildeF_2^3(1) (where widetildeF_i
+  is the i-th Kashiwara operator).
+  
+  We  remark  that  this information is also computed "behind the scenes" when
+  calling  [22m[34mPBWElements(  B,  rt  )[0m.  However, it is not computed if the option
+  [22m[34mlowrank[0m is present in the call to [22m[34mPBWElements[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "F", 4 ) );;[0m
+    [22m[35mgap> B:= CanonicalBasis( U );;[0m
+    [22m[35mgap> Strings( B, [1,2,1,0] );[0m
+    [22m[35m[ [ 1, 1, 2, 2, 3, 1 ], [ 1, 1, 2, 1, 3, 1, 2, 1 ], [ 2, 2, 1, 1, 3, 1 ],[0m
+    [22m[35m  [ 2, 1, 1, 1, 3, 1, 2, 1 ], [ 2, 1, 3, 1, 2, 1, 1, 1 ] ][0m
+    [22m[35mgap> Falpha( Falpha( Falpha( Falpha( One(U), 3 ), 1 ), 2 ), 2 );[0m
+    [22m[35mF2*F3*F9[0m
+    [22m[35mgap> PBWElements( B, [1,2,1,0] )[3];[0m
+    [22m[35m(q^4)*F1*F3^(2)*F9+F2*F3*F9[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-7 PrincipalMonomial[0m
+  
+  [1m[34m> PrincipalMonomial( [0m[22m[34mu[0m[1m[34m ) __________________________________________[0moperation
+  
+  Here  [22m[34mu[0m  is  an element of the output of [1m[34mPBWElements[0m ([1m3.10-4[0m). This function
+  returns the unique monomial of [22m[34mu[0m that has coefficient 1.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("G",2) );;[0m
+    [22m[35mgap> B:= CanonicalBasis( U );;[0m
+    [22m[35mgap> p:= PBWElements( B, [4,4] : lowrank )[4];[0m
+    [22m[35m(q^9)*F1^(2)*F3*F6^(3)+F1^(2)*F5^(2)*F6^(2)+(q^9+q^11+q^13)*F1^(3)*F5*F6^([0m
+    [22m[35m3)+(q^20+q^22+2*q^24+q^26+q^28)*F1^(4)*F6^(4)[0m
+    [22m[35mgap> PrincipalMonomial( p );[0m
+    [22m[35mF1^(2)*F5^(2)*F6^(2)[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-8 StringMonomial[0m
+  
+  [1m[34m> StringMonomial( [0m[22m[34mu[0m[1m[34m ) _____________________________________________[0moperation
+  
+  Here [22m[34mu[0m is a monomial in the negative part of a quantized enveloping algebra,
+  e.g.,  as  output  by [1m[34mPrincipalMonomial[0m ([1m3.10-7[0m). This function computes the
+  corresponding "string" (see Section [1m2.6[0m). The strings are output in the same
+  way as in [1m3.10-6[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("G",2) );;[0m
+    [22m[35mgap> B:= CanonicalBasis( U );;[0m
+    [22m[35mgap> p:= PBWElements( B, [1,2] : lowrank )[2];;[0m
+    [22m[35mgap> m:=PrincipalMonomial( p );[0m
+    [22m[35mF5*F6[0m
+    [22m[35mgap> StringMonomial( m );[0m
+    [22m[35m[ 2, 2, 1, 1 ][0m
+    [22m[35mgap> Falpha( Falpha( Falpha( One(U), 1 ), 2 ), 2 );[0m
+    [22m[35mF5*F6[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-9 Falpha[0m
+  
+  [1m[34m> Falpha( [0m[22m[34mV, v, ind[0m[1m[34m ) _____________________________________________[0moperation
+  
+  Here  [22m[34mV[0m is a module over a quantized enveloping algebra, [22m[34mv[0m an element of it,
+  and  [22m[34mind[0m  an  index  between 1 and the rank of the root system. The function
+  returns  the result of applying the [22m[34mind[0m-th Kashiwara operator widetildeF_[22m[34mind[0m
+  to  [22m[34mv[0m. Here the Kashiwara operators are different from the ones described in
+  Section [1m2.6[0m. We refer to [J96], 9.2 for the definition of the operators used
+  here.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("B",2) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1] );;[0m
+    [22m[35mgap> Falpha( V, Basis(V)[1], 1 );[0m
+    [22m[35mF1*v0[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-10 Ealpha[0m
+  
+  [1m[34m> Ealpha( [0m[22m[34mV, v, ind[0m[1m[34m ) _____________________________________________[0moperation
+  
+  Here  [22m[34mV[0m is a module over a quantized enveloping algebra, [22m[34mv[0m an element of it,
+  and  [22m[34mind[0m  an  index  between 1 and the rank of the root system. The function
+  returns  the result of applying the [22m[34mind[0m-th Kashiwara operator widetildeE_[22m[34mind[0m
+  to  [22m[34mv[0m. Here the Kashiwara operators are different from the ones described in
+  Section [1m2.6[0m. We refer to [J96], 9.2 for the definition of the operators used
+  here.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("B",2) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1] );;[0m
+    [22m[35mgap> v:= Falpha( V, Basis(V)[2], 2 );[0m
+    [22m[35m(q^2)*F1*F4*v0+F2*v0[0m
+    [22m[35mgap> Ealpha( V, v, 2 );[0m
+    [22m[35mF1*v0[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-11 CrystalBasis[0m
+  
+  [1m[34m> CrystalBasis( [0m[22m[34mV[0m[1m[34m ) _______________________________________________[0mattribute
+  
+  Here  [22m[34mV[0m  is  a  finite-dimensional  left  module over a quantized enveloping
+  algebra.  This  function  returns  the canonical, or crystal basis of V (see
+  Section [1m2.6[0m).
+  
+  This  function  only  works for modules for which [1m[34mWeightsAndVectors[0m ([1m3.8-14[0m)
+  works.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "B", 2 ) );;[0m
+    [22m[35m gap> V:= HighestWeightModule( U, [1,1] );[0m
+    [22m[35m <16-dimensional left-module over QuantumUEA( <root system of type B2>, Qpar[0m
+    [22m[35m= q )>[0m
+    [22m[35m gap>  CrystalBasis( V );[0m
+    [22m[35m Basis( <16-dimensional left-module over QuantumUEA( <root system of type B[0m
+    [22m[35m 2>, Qpar = q )>, [ 1*v0, F1*v0, F4*v0, F1*F4*v0, (q^2)*F1*F4*v0+F2*v0, F2*F4*v0,[0m
+    [22m[35m(q)*F2*F4*v0+F3*v0, (-q^-4)*F1*F2*v0, (-q^-1)*F1*F3*v0+(-q^-3)*F2^(2)*v0,[0m
+    [22m[35m(-q^-2)*F2^(2)*v0, F3*F4*v0, (-q^-4)*F2*F3*v0+(-q^-2)*F2^(2)*F4*v0,[0m
+    [22m[35m(-q^-2)*F2*F3*v0, (q^-4)*F2^(3)*v0, (-q^-1)*F3^(2)*v0, (q^-5)*F2^(2)*F3*v0 ] )[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-12 CrystalVectors[0m
+  
+  [1m[34m> CrystalVectors( [0m[22m[34mV[0m[1m[34m ) _____________________________________________[0mattribute
+  
+  Here  [22m[34mV[0m  is  a  finite-dimensional  left  module over a quantized enveloping
+  algebra.  Let  [22m[34mC[0m  be  the  crystal  basis of [22m[34mV[0m (i.e., output by [1m[34mCrystalBasis[0m
+  ([1m3.10-11[0m)).  This function returns a list of cosets of the basis elements of
+  [22m[34mC[0m modulo qL, where L is the Z[q]-lattice spanned by [22m[34mC[0m.
+  
+  The coset of a vector [22m[34mv[0m is printed as [22m[34m<v>[0m.
+  
+  The crystal vectors are used to construct the point set of the crystal graph
+  of [22m[34mV[0m ([1m[34mCrystalGraph:for a module[0m ([1m???CrystalGraph:for a module???[0m)).
+  
+  This  function  only  works for modules for which [1m[34mWeightsAndVectors[0m ([1m3.8-14[0m)
+  works.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "B", 2 ) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1] );[0m
+    [22m[35m<16-dimensional left-module over QuantumUEA( <root system of type B[0m
+    [22m[35m2>, Qpar = q )>[0m
+    [22m[35mgap> CrystalVectors( V );[0m
+    [22m[35m[ <1*v0>, <F1*v0>, <F4*v0>, <F2*v0>, <F1*F4*v0>, <F3*v0>,[0m
+    [22m[35m  <(-q^-4)*F1*F2*v0>, <F2*F4*v0>, <F1*F3*v0>, <F3*F4*v0>,[0m
+    [22m[35m  <(-q^-1)*F1*F3*v0+(-q^-3)*F2^(2)*v0>, <(-q^-4)*F2*F3*v0+(-q^-2)*F2^(2)*F[0m
+    [22m[35m    4*v0>, <F2^(2)*F4*v0>, <(q^-4)*F2^(3)*v0>, <(-q^-1)*F3^(2)*v0>,[0m
+    [22m[35m  <(q^-5)*F2^(2)*F3*v0> ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-13 Falpha[0m
+  
+  [1m[34m> Falpha( [0m[22m[34mv, ind[0m[1m[34m ) ________________________________________________[0moperation
+  
+  Here [22m[34mv[0m is a crystal vector, i.e., an element of [22m[34mCrystalVectors( V )[0m, where [22m[34mV[0m
+  is  a left module over a quantized enveloping algebra. This function returns
+  the  result  of applying the [22m[34mind[0m-th Kashiwara operator widetildeF_alpha_[22m[34mind[0m}
+  to v. The result is [22m[34mfail[0m if widetildeF_alpha_[22m[34mind[0m}[22m[34m(v)=0[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "B", 2 ) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1] );;[0m
+    [22m[35mgap> c:=CrystalVectors( V );;[0m
+    [22m[35mgap> Falpha( c[2], 2 );[0m
+    [22m[35m<F2*v0>[0m
+    [22m[35mgap> Falpha( c[3], 2 );[0m
+    [22m[35mfail[0m
+    [22m[35mgap> Falpha( Falpha( Falpha( c[1], 1 ), 2 ), 1 );[0m
+    [22m[35mfail[0m
+    [22m[35mgap> p:= DominantLSPath( RootSystem( "B", 2 ), [1,1] );[0m
+    [22m[35m<LS path of shape [ 1, 1 ] ending in [ 1, 1 ] >[0m
+    [22m[35mgap> Falpha( Falpha( Falpha( p, 1 ), 2 ), 1 );[0m
+    [22m[35mfail[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  The  last  part  of  this  example  is  an illustration of the fact that the
+  crystal  graph of a highest-weight module can be obtained by the path method
+  (see Section [1m2.7[0m).
+  
+  [1m[4m[31m3.10-14 Ealpha[0m
+  
+  [1m[34m> Ealpha( [0m[22m[34mv, ind[0m[1m[34m ) ________________________________________________[0moperation
+  
+  Here [22m[34mv[0m is a crystal vector, i.e., an element of [22m[34mCrystalVectors( V )[0m, where [22m[34mV[0m
+  is  a left module over a quantized enveloping algebra. This function returns
+  the  result  of applying the [22m[34mind[0m-th Kashiwara operator widetildeE_alpha_[22m[34mind[0m}
+  to v. The result is [22m[34mfail[0m if widetildeE_alpha_[22m[34mind[0m}[22m[34m(v)=0[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem( "B", 2 ) );;[0m
+    [22m[35mgap> V:= HighestWeightModule( U, [1,1] );;[0m
+    [22m[35mgap> c:=CrystalVectors( V );;[0m
+    [22m[35mgap> Ealpha( c[3], 1 );[0m
+    [22m[35mfail[0m
+    [22m[35mgap> Ealpha( c[3], 2 );[0m
+    [22m[35m<1*v0>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.10-15 CrystalGraph[0m
+  
+  [1m[34m> CrystalGraph( [0m[22m[34mV[0m[1m[34m ) ________________________________________________[0mfunction
+  
+  Returns  the crystal graph of the module [22m[34mV[0m. The points of this graph are the
+  cosets output by [1m[34mCrystalVectors[0m ([1m3.10-12[0m). The edges work in the same way as
+  in  [1m[34mCrystalGraph:for root system and weight[0m ([1m???CrystalGraph:for root system
+  and weight???[0m).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> U:= QuantizedUEA( RootSystem("A",2) );;[0m
+    [22m[35mgap> V1:= HighestWeightModule( U, [1,0] );;[0m
+    [22m[35mgap> V2:= HighestWeightModule( U, [0,1] );;[0m
+    [22m[35mgap> W:= TensorProductOfAlgebraModules( V1, V2 );;[0m
+    [22m[35mgap> CrystalGraph( W );[0m
+    [22m[35mrec([0m
+    [22m[35m  points := [ <1*(1*v0<x>1*v0)>, <1*(F1*v0<x>1*v0)>, <1*(1*v0<x>F3*v0)>,[0m
+    [22m[35m      <1*(1*v0<x>F2*v0)+q^-1*(F2*v0<x>1*v0)>,[0m
+    [22m[35m      <-q^-1*(1*v0<x>F2*v0)+q^-1*(F1*v0<x>F3*v0)>, <1*(F2*v0<x>F3*v0)>,[0m
+    [22m[35m      <-q^-1*(F1*v0<x>F2*v0)>, <-q^-1*(F2*v0<x>F2*v0)>,[0m
+    [22m[35m      <-q^-3*(1*v0<x>F2*v0)+-q^-1*(F1*v0<x>F3*v0)+1*(F2*v0<x>1*v0)> ],[0m
+    [22m[35m  edges := [ [ [ 1, 2 ], 1 ], [ [ 1, 3 ], 2 ], [ [ 2, 4 ], 2 ],[0m
+    [22m[35m      [ [ 3, 5 ], 1 ], [ [ 4, 6 ], 2 ], [ [ 5, 7 ], 1 ], [ [ 6, 8 ], 1 ],[0m
+    [22m[35m      [ [ 7, 8 ], 2 ] ] )[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  
+  [1m[4m[31m3.11 Universal enveloping algebras[0m
+  
+  Here  we describe functions for connecting a quantized enveloping algebra to
+  the corresponding universal enveloping algebra.
+  
+  [1m[4m[31m3.11-1 UEA[0m
+  
+  [1m[34m> UEA( [0m[22m[34mL[0m[1m[34m ) ________________________________________________________[0mattribute
+  
+  This  function  returns the universal enveloping algebra [22m[34mu[0m of the semisimple
+  Lie  algebra  [22m[34mL[0m. The generators of [22m[34mu[0m are the generators of a Kostant lattice
+  in the universal enveloping algebra (these generators are obtained from [22m[34mL[0m by
+  [22m[34mLatticeGeneratorsInUEA( L )[0m, see the [1mGAP[0m reference manual).
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> L:= SimpleLieAlgebra( "B", 2, Rationals );[0m
+    [22m[35m<Lie algebra of dimension 10 over Rationals>[0m
+    [22m[35mgap> u:= UEA( L );[0m
+    [22m[35m<algebra over Rationals, with 10 generators>[0m
+    [22m[35mgap> g:= GeneratorsOfAlgebra( u );[0m
+    [22m[35m[ y1, y2, y3, y4, x1, x2, x3, x4, ( h9/1 ), ( h10/1 ) ][0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.11-2 UnderlyingLieAlgebra[0m
+  
+  [1m[34m> UnderlyingLieAlgebra( [0m[22m[34mu[0m[1m[34m ) _______________________________________[0mattribute
+  
+  For  a  universal  enveloping  algebra  [22m[34mu[0m  constructed by [1m[34mUEA[0m ([1m3.11-1[0m), this
+  returns the corresponding semisimple Lie algebra
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> L:= SimpleLieAlgebra( "B", 2, Rationals );;[0m
+    [22m[35mgap> u:= UEA( L );;[0m
+    [22m[35mgap> UnderlyingLieAlgebra( u );[0m
+    [22m[35m<Lie algebra of dimension 10 over Rationals>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.11-3 HighestWeightModule[0m
+  
+  [1m[34m> HighestWeightModule( [0m[22m[34mu, hw[0m[1m[34m ) ____________________________________[0moperation
+  
+  For  a  universal  enveloping  algebra  [22m[34mu[0m  constructed by [1m[34mUEA[0m ([1m3.11-1[0m), this
+  returns the irreducible highest weight module over [22m[34mu[0m with highest weight [22m[34mhw[0m,
+  which must be dominant. This module is the same as the corresponding highest
+  weight  module  over  the  semisimple  Lie  algebra,  but  in  this case the
+  enveloping algebra [22m[34mu[0m acts.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> L:= SimpleLieAlgebra( "B", 2, Rationals );;[0m
+    [22m[35mgap> u:= UEA( L );;[0m
+    [22m[35mgap> HighestWeightModule( u, [2,3] );[0m
+    [22m[35m<140-dimensional left-module over <algebra over Rationals, with[0m
+    [22m[35m10 generators>>[0m
+  [22m[35m------------------------------------------------------------------[0m
+  
+  [1m[4m[31m3.11-4 QUEAToUEAMap[0m
+  
+  [1m[34m> QUEAToUEAMap( [0m[22m[34mL[0m[1m[34m ) _______________________________________________[0mattribute
+  
+  Here  [22m[34mL[0m  is  a  semisimple  Lie  algebra.  Set  [22m[34mu  :=  UEA(  L  )[0m,  and [22m[34mU :=
+  QuantizedUEA(  L  )[0m  (so  [22m[34mu,  U[0m  are  the  universal enveloping algebra, and
+  "generic"   quantized   enveloping   algebra   of   [22m[34mL[0m   respectively).  Then
+  [22m[34mQUEAToUEAMap(  L  )[0m returns the algebra homomorphism from [22m[34mU[0m to [22m[34mu[0m obtained by
+  mapping  [22m[34mq[0m  to  [22m[34m1[0m,  a  generator  [22m[34mFi[0m,  corresponding to a simple root to the
+  generator  [22m[34myi[0m  (corresponding  to the same simple root), and likewise for [22m[34mEi[0m
+  and [22m[34mxi[0m. This means that [22m[34mKi[0m is mapped to one, and [22m[34m[ Ki : s ][0m to [22m[34mhi[0m choose [22m[34ms[0m.
+  
+  The canonical basis of [22m[34mU[0m is mapped to the canonical basis of [22m[34mu[0m.
+  
+  [22m[35m---------------------------  Example  ----------------------------[0m
+    [22m[35mgap> L:= SimpleLieAlgebra( "B", 2, Rationals );;[0m
+    [22m[35mgap> f:= QUEAToUEAMap( L );[0m
+    [22m[35m<mapping: QuantumUEA( <root system of rank[0m
+    [22m[35m2>, Qpar = q ) -> Algebra( Rationals, [ y1, y2, y3, y4, x1, x2, x3, x4,[0m
+    [22m[35m  ( h9/1 ), ( h10/1 ) ] ) >[0m
+    [22m[35mgap> U:= Source( f );[0m
+    [22m[35mQuantumUEA( <root system of rank 2>, Qpar = q )[0m
+    [22m[35mgap> u:= Range( f );[0m
+    [22m[35m<algebra over Rationals, with 10 generators>[0m
+    [22m[35mgap> B:= CanonicalBasis( U );;[0m
+    [22m[35mgap> p:= PBWElements( B, [1,2] );[0m
+    [22m[35m[ F1*F4^(2), (q+q^3)*F1*F4^(2)+F2*F4, (q^4)*F1*F4^(2)+(q)*F2*F4+F3 ][0m
+    [22m[35mgap> pu:= List( p, x -> Image( f, x ) );[0m
+    [22m[35m[ y1*y2^(2), 2*y1*y2^(2)+y2*y3-2*y4, y1*y2^(2)+y2*y3-1*y4 ][0m
+    [22m[35mgap> V:= HighestWeightModule( u, [2,1] );[0m
+    [22m[35m<40-dimensional left-module over <algebra over Rationals, with[0m
+    [22m[35m10 generators>>[0m
+    [22m[35mgap> List( pu, x -> x^Basis(V)[1] );[0m
+    [22m[35m[ 0*v0, y2*y3*v0+-2*y4*v0, y2*y3*v0+-1*y4*v0 ][0m
+    [22m[35m# Which gives us a piece of the canonical basis of V.[0m
+  [22m[35m------------------------------------------------------------------[0m
+  

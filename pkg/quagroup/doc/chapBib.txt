@@ -1,0 +1,63 @@
+  
+  
+  [1m[4m[31mReferences[0m
+  
+  [33m[C98]  [0m[1m[31mCarter,  R.  W.  [0m, [34mRepresentations of simple Lie algebras: modern
+  variations   on  a  classical  theme[0m,  in  [34mAlgebraic  groups  and  their
+  representations (Cambridge, 1997)[0m, Kluwer Acad. Publ., Dordrecht (1998),
+  151--173
+  
+  [33m[G01]  [0m[1m[31mGraaf,  W.  A. d. [0m, [34mComputing with quantized enveloping algebras:
+  PBW-type   bases,  highest-weight  modules,  $R$-matrices[0m,  J.  Symbolic
+  Comput., [34m32[0m (5) (2001), 475--490
+  
+  [33m[G02]  [0m[1m[31mGraaf,  W.  A.  d.  [0m,  [34mConstructing  canonical bases of quantized
+  enveloping algebras[0m, Experimental Mathematics, [34m11[0m (2) (2002), 161--170
+  
+  [33m[H90] [0m[1m[31mHumphreys, J. E. [0m, [34mReflection groups and Coxeter groups[0m, Cambridge
+  University Press, Cambridge (1990)
+  
+  [33m[J96] [0m[1m[31mJantzen, J. C. [0m, [34mLectures on Quantum Groups[0m, American Mathematical
+  Society, Graduate Studies in Mathematics, [34m6[0m (1996)
+  
+  [33m[K96]  [0m[1m[31mKashiwara,  M. [0m, [34mSimilarity of crystal bases[0m, in [34mLie algebras and
+  their  representations  (Seoul,  1995)[0m, Amer. Math. Soc., Providence, RI
+  (1996), 177--186
+  
+  [33m[L94]  [0m[1m[31mLittelmann,  P.  [0m, [34mA Littlewood-Richardson rule for symmetrizable
+  Kac-Moody algebras[0m, Invent. Math., [34m116[0m (1-3) (1994), 329--346
+  
+  [33m[L95]  [0m[1m[31mLittelmann,  P.  [0m,  [34mPaths  and  root  operators in representation
+  theory[0m, Ann. of Math. (2), [34m142[0m (3) (1995), 499--525
+  
+  [33m[L98] [0m[1m[31mLittelmann, P. [0m, [34mCones, crystals, and patterns[0m, Transform. Groups,
+  [34m3[0m (2) (1998), 145--179
+  
+  [33m[LN01]  [0m[1m[31mL\"ubeck,  F. and Neunh\"offer, M. [0m, [34mGAPDoc, a GAP documentation
+  meta-package[0m (2001)
+  
+  [33m[L90]  [0m[1m[31mLusztig,  G. [0m, [34mQuantum groups at roots of $1$[0m, Geom. Dedicata, [34m35[0m
+  (1-3) (1990), 89--113
+  
+  [33m[L92]  [0m[1m[31mLusztig,  G.  [0m, [34mIntroduction to quantized enveloping algebras[0m, in
+  [34mNew developments in Lie theory and their applications (C\'ordoba, 1989)[0m,
+  Birkh\"auser Boston, Boston, MA (1992), 49--65
+  
+  [33m[L93]  [0m[1m[31mLusztig, G. [0m, [34mIntroduction to quantum groups[0m, Birkh\"auser Boston
+  Inc., Boston, MA (1993)
+  
+  [33m[L96]  [0m[1m[31mLusztig, G. [0m, [34mBraid group action and canonical bases[0m, Adv. Math.,
+  [34m122[0m (2) (1996), 237--261
+  
+  [33m[R91] [0m[1m[31mRosso, M. [0m, [34mRepr\'esentations des groupes quantiques[0m, Ast\'erisque
+  (201-203)   (1991),   Exp.\  No.\  744,  443--483  (1992),  (S\'eminaire
+  Bourbaki, Vol.\ 1990/91)
+  
+  [33m[S01] [0m[1m[31mStembridge, J. R. [0m, [34mComputational aspects of root systems, Coxeter
+  groups,  and  Weyl  characters[0m,  in  [34mInteraction  of  combinatorics  and
+  representation  theory[0m,  Math.  Soc.  Japan, MSJ Mem., [34m11[0m, Tokyo (2001),
+  1--38
+  
+  
+  
+  -------------------------------------------------------
