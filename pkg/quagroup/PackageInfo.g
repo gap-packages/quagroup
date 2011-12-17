@@ -6,9 +6,9 @@
 SetPackageInfo( rec(
 PackageName := "QuaGroup",
 Subtitle := "a package for doing computations with quantum groups",        
-Version := "1.1",
-Date := "01/04/2003",
-ArchiveURL := "http://www-circa.mcs.st-and.ac.uk/~wdg/quagroup-1.1",
+Version := "1.2",
+Date := "01/04/2005",
+ArchiveURL := "http://www.science.unitn.it/~degraaf/quagroup-1.2",
 ArchiveFormats := ".tar.gz",
 Persons := [
   rec(
@@ -16,27 +16,27 @@ Persons := [
   FirstNames := "Willem Adriaan",
   IsAuthor := true,
   IsMaintainer := true,
-  Email := "quagroup@hetnet.nl",
-  WWWHome := "http://www-circa.mcs.st-and.ac.uk/~wdg",
-  Place := "Utrecht",
-  Institution := ""
+  Email := "degraaf@science.unitn.it",
+  WWWHome := "http://www.science.unitn.it/~degraaf",
+  Place := "Trento",
+  Institution := "Dipartimento di Matematica"
   )
 ],
 Status := "accepted",
 CommunicatedBy := "Gerhard Hiss",
 AcceptDate := "10/2003",
 README_URL := 
-  "http://www-circa.mcs.st-and.ac.uk/~wdg/README.quagroup",
+  "http://www.science.unitn.it/~degraaf/README.quagroup",
 PackageInfoURL := 
-  "http://www-circa.mcs.st-and.ac.uk/~wdg/PackageInfo.g",
+  "http://www.science.unitn.it/~degraaf/PackageInfo.g",
 AbstractHTML := "The package <span class=\"pkgname\">QuaGroup</span> contains \
-                 functinality for working with quantized enveloping algebras\
+                 functionality for working with quantized enveloping algebras\
                  of finite-dimensional semisimple Lie algebras.",
-PackageWWWHome := "http://www-circa.mcs.st-and.ac.uk/~wdg/quagroup.html",
+PackageWWWHome := "http://www.science.unitn.it/~degraaf/quagroup.html",
 PackageDoc := [rec(
   BookName := "QuaGroup",
   Archive := 
-      "http://www-circa.mcs.st-and.ac.uk/~wdg/quadoc.tar.gz",                 
+      "http://www.science.unitn.it/~degraaf/quadoc.tar.gz",                 
   HTMLStart := "doc/chap0.html",
   PDFFile := "doc/manual.pdf",
   SixFile := "doc/manual.six",
@@ -55,12 +55,12 @@ Autoload := false,
 # the banner
 BannerString := Concatenation(
 "     |                                                                 \n",
-"     |          QuaGroup      Version 1.1                              \n",
+"     |          QuaGroup      Version 1.2                              \n",
 "     |                                                                 \n",
 "-----------     A package for dealing with quantized enveloping algebras\n",
 "     |                                                                 \n",
 "     |          Willem de Graaf                                        \n",
-"     |          quagroup@hetnet.nl                                     \n\n"
+"     |          degraaf@science.unitn.it                               \n\n"
 ),
 Keywords := ["quantum groups"]
 ));

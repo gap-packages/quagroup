@@ -3,7 +3,7 @@
                                     [1m[4m[31m[1mQuaGroup[1m[4m[31m[0m
   
   
-                                  Version 1.0
+                                  Version 1.2
   
   
                                Willem A. de Graaf
@@ -11,8 +11,8 @@
   
   
   Willem A. de Graaf
-      Email:    [34mmailto: quagroup@hetnet.nl[0m
-      Homepage: [34mhttp://www-circa.mcs.st-and.ac.uk/~wdg[0m
+      Email:    [34mmailto: degraaf@science.unitn.it[0m
+      Homepage: [34mhttp://www.science.unitn.it/~degraaf[0m
   
   -------------------------------------------------------
   [1m[4m[31mCopyright[0m
