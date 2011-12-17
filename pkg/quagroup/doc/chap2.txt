@@ -182,33 +182,35 @@
   [1m[4m[31m2.6 The canonical basis[0m
   
   As  in  Section  [1m2.4[0m  we  let $U^-$ be the subalgebra of $U_q(\mathfrak{g})$
-  generated  by  the $F_{\alpha}$ for $\alpha\in\Delta$. Kashiwara and Lusztig
-  have  (independently) given constructions of a basis of $U^-$ with very nice
-  properties,  called  the  {\em canonical basis}. \par Let $w_0=s_{i_1}\cdots
-  s_{i_t}$,  and  the  elements  $F_k$ be as in Section [1m2.4[0m. Then, in order to
-  stress   the   dependency   of   the   monomial  \begin{equation}\label{eq0}
-  F_1^{(n_1)}\cdots  F_t^{(n_t)}  \end{equation}  on  the  choice  of  reduced
-  expression  for  the  longest  element  in  $W(\Phi)$  we  say  that it is a
-  $w_0$-monomial.\par  Now we let $\overline{\phantom{a}}$ be the automorphism
-  of  $U^-$  defined  in  Section  [1m2.2[0m.  Elements  that  are  invariant  under
-  $\overline{\phantom{a}}$  are  said  to be bar-invariant. \par By results of
-  Lusztig  ([L93]  Theorem 42.1.10, [L96], Proposition 8.2), there is a unique
-  basis  ${\bf  B}$  of  $U^-$  with  the  following  properties. Firstly, all
-  elements of ${\bf B}$ are bar-invariant. Secondly, for any choice of reduced
-  expression  $w_0$ for the longest element in the Weyl group, and any element
-  $X\in{\bf  B}$  we  have  that  $X = x +\sum \zeta_i x_i$, where $x,x_i$ are
-  $w_0$-monomials,  $x\neq  x_i$ for all $i$, and $\zeta_i\in q\mathbb{Z}[q]$.
-  The  basis  ${\bf B}$ is called the canonical basis. If we work with a fixed
-  reduced expression for the longest element in $W(\Phi)$, and write $X\in{\bf
-  B}$  as  above,  then  we  say  that  $x$ is the {\em principal monomial} of
-  $X$.\par  Let  $\mathcal{L}$ be the $\mathbb{Z}[q]$-lattice in $U^-$ spanned
-  by {\bf B}. Then $\mathcal{L}$ is also spanned by all $w_0$-monomials (where
-  $w_0$  is  a fixed reduced expression for the longest element in $W(\Phi)$).
-  Now  let  $\widetilde{w}_0$  be  a second reduced expression for the longest
-  element  in  $W(\Phi)$.  Let  $x$  be  a  $w_0$-monomial, and let $X$ be the
-  element  of  {\bf  B}  with  principal  monomial  $x$. Write $X$ as a linear
-  combination  of  $\widetilde{w}_0$-monomials, and let $\widetilde{x}$ be the
-  principal  monomial  of  that  expression.  Then  we  write $\widetilde{x} =
+  generated  by  the  $F_{\alpha}$  for  $\alpha\in\Delta$.  In  [L0a] Lusztig
+  introduced  a  basis  of  $U^-$  with  very nice properties, called the {\em
+  canonical basis}. (Later this basis was also constructed by Kashiwara, using
+  a  different  method. For a brief overview on the history of canonical bases
+  we  refer  to [C06].) \par Let $w_0=s_{i_1}\cdots s_{i_t}$, and the elements
+  $F_k$  be  as in Section [1m2.4[0m. Then, in order to stress the dependency of the
+  monomial     \begin{equation}\label{eq0}    F_1^{(n_1)}\cdots    F_t^{(n_t)}
+  \end{equation}  on  the choice of reduced expression for the longest element
+  in   $W(\Phi)$   we  say  that  it  is  a  $w_0$-monomial.\par  Now  we  let
+  $\overline{\phantom{a}}$  be  the  automorphism  of $U^-$ defined in Section
+  [1m2.2[0m.  Elements that are invariant under $\overline{\phantom{a}}$ are said to
+  be  bar-invariant. \par By results of Lusztig ([L93] Theorem 42.1.10, [L96],
+  Proposition  8.2),  there  is  a  unique  basis  ${\bf B}$ of $U^-$ with the
+  following  properties. Firstly, all elements of ${\bf B}$ are bar-invariant.
+  Secondly, for any choice of reduced expression $w_0$ for the longest element
+  in  the  Weyl group, and any element $X\in{\bf B}$ we have that $X = x +\sum
+  \zeta_i  x_i$,  where  $x,x_i$ are $w_0$-monomials, $x\neq x_i$ for all $i$,
+  and $\zeta_i\in q\mathbb{Z}[q]$. The basis ${\bf B}$ is called the canonical
+  basis. If we work with a fixed reduced expression for the longest element in
+  $W(\Phi)$,  and  write  $X\in{\bf  B}$ as above, then we say that $x$ is the
+  {\em   principal   monomial}   of   $X$.\par   Let   $\mathcal{L}$   be  the
+  $\mathbb{Z}[q]$-lattice  in  $U^-$ spanned by {\bf B}. Then $\mathcal{L}$ is
+  also  spanned  by  all  $w_0$-monomials  (where  $w_0$  is  a  fixed reduced
+  expression  for the longest element in $W(\Phi)$). Now let $\widetilde{w}_0$
+  be a second reduced expression for the longest element in $W(\Phi)$. Let $x$
+  be  a  $w_0$-monomial,  and let $X$ be the element of {\bf B} with principal
+  monomial     $x$.     Write    $X$    as    a    linear    combination    of
+  $\widetilde{w}_0$-monomials,   and  let  $\widetilde{x}$  be  the  principal
+  monomial    of   that   expression.   Then   we   write   $\widetilde{x}   =
   R_{w_0}^{\tilde{w}_0}(x)$. Note that $x = \widetilde{x} \bmod q\mathcal{L}$.
   \par  Now  let  $\mathcal{B}$  be  the  set  of  all  $w_0$-monomials $\bmod
   q\mathcal{L}$.  Then  $\mathcal{B}$  is  a  basis of the $\mathbb{Z}$-module

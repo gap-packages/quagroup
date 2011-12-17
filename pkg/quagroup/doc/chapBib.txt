@@ -7,6 +7,10 @@
   representations (Cambridge, 1997)[0m, Kluwer Acad. Publ., Dordrecht (1998),
   151--173
   
+  [33m[C06]  [0m[1m[31mCommittee,  E.  [0m,  [34mA note on the paper: ``A survey of the work of
+  George Lusztig'' by R. W. Carter [Nagoya Math. J. \bf 182 (2006), 1--45;
+  \refcno 2235338][0m, Nagoya Math. J., [34m183[0m (2006), i--ii
+  
   [33m[G01]  [0m[1m[31mGraaf,  W.  A. d. [0m, [34mComputing with quantized enveloping algebras:
   PBW-type   bases,  highest-weight  modules,  $R$-matrices[0m,  J.  Symbolic
   Comput., [34m32[0m (5) (2001), 475--490
@@ -38,6 +42,9 @@
   
   [33m[L90]  [0m[1m[31mLusztig,  G. [0m, [34mQuantum groups at roots of $1$[0m, Geom. Dedicata, [34m35[0m
   (1-3) (1990), 89--113
+  
+  [33m[L0a]  [0m[1m[31mLusztig,  G.  [0m, [34mCanonical bases arising from quantized enveloping
+  algebras[0m, J. Amer. Math. Soc., [34m3[0m (2) (1990a), 447--498
   
   [33m[L92]  [0m[1m[31mLusztig,  G.  [0m, [34mIntroduction to quantized enveloping algebras[0m, in
   [34mNew developments in Lie theory and their applications (C\'ordoba, 1989)[0m,

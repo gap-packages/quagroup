@@ -6,9 +6,9 @@
 SetPackageInfo( rec(
 PackageName := "QuaGroup",
 Subtitle := "a package for doing computations with quantum groups",        
-Version := "1.2",
-Date := "01/04/2005",
-ArchiveURL := "http://www.science.unitn.it/~degraaf/quagroup-1.2",
+Version := "1.3",
+Date := "17/10/2007",
+ArchiveURL := "http://www.science.unitn.it/~degraaf/quagroup-1.3",
 ArchiveFormats := ".tar.gz",
 Persons := [
   rec(
@@ -23,7 +23,7 @@ Persons := [
   )
 ],
 Status := "accepted",
-CommunicatedBy := "Gerhard Hiss",
+CommunicatedBy := "Gerhard Hiss (Aachen)",
 AcceptDate := "10/2003",
 README_URL := 
   "http://www.science.unitn.it/~degraaf/README.quagroup",
@@ -55,7 +55,7 @@ Autoload := false,
 # the banner
 BannerString := Concatenation(
 "     |                                                                 \n",
-"     |          QuaGroup      Version 1.2                              \n",
+"     |          QuaGroup      Version 1.3                              \n",
 "     |                                                                 \n",
 "-----------     A package for dealing with quantized enveloping algebras\n",
 "     |                                                                 \n",
