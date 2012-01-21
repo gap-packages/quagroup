@@ -200,7 +200,7 @@ InstallMethod( PrintObj,
         Print( "0*v0" );
     else
         for k in [1,3..Length(e)-1] do
-            if k>1 then
+            if k>1 and not (IsRat(e[k+1]) and e[k+1]<0) then
                 Print("+" );
             fi;
             Print( e[k+1]*e[k][2], "*v0" );
