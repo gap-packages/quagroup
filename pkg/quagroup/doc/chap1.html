@@ -1,39 +1,42 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-                      "DTD/xhtml1-strict.dtd">
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <title>GAP (quagroup) - Chapter 1: Introduction</title>
-<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="generator" content="GAPDoc2HTML" />
 <link rel="stylesheet" type="text/css" href="manual.css" />
 </head>
 <body>
 
 
-<div class="pcenter"><table class="chlink"><tr><td class="chlink1">Goto Chapter: </td><td><a href="chap0.html">Top</a></td><td><a href="chap1.html">1</a></td><td><a href="chap2.html">2</a></td><td><a href="chap3.html">3</a></td><td><a href="chapBib.html">Bib</a></td><td><a href="chapInd.html">Ind</a></td></tr></table><br /></div>
-<p><a id="s0ss0" name="s0ss0"></a></p>
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
-<h3>1. Introduction</h3>
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">Top of Book</a>&nbsp;  &nbsp;<a href="chap0.html">Previous Chapter</a>&nbsp;  &nbsp;<a href="chap2.html">Next Chapter</a>&nbsp;  </div>
+
+<p><a id="X7DFB63A97E67C0A1" name="X7DFB63A97E67C0A1"></a></p>
+<div class="ChapSects"><a href="chap1.html#X7DFB63A97E67C0A1">1 <span class="Heading">Introduction</span></a>
+</div>
+
+<h3>1 <span class="Heading">Introduction</span></h3>
 
 <p>This is the manual for the <strong class="pkg">GAP</strong> package <strong class="pkg">QuaGroup</strong>, for doing computations with quantized enveloping algebras of semisimple Lie algebras.</p>
 
-<p>Apart from the chapter you are currently reading, this document consists of two chapters. In Chapter <a href="chap2.html#s0ss0"><b>2.</b></a> we give a short summary of parts of the theory of quantized enveloping algebras. This fixes the notations and definitions that we use. Then in Chapter <a href="chap3.html#s0ss0"><b>3.</b></a> we describe the functions that constitute the package.</p>
+<p>Apart from the chapter you are currently reading, this document consists of two chapters. In Chapter <a href="chap2.html#X84AF2F1D7D4E7284"><b>2</b></a> we give a short summary of parts of the theory of quantized enveloping algebras. This fixes the notations and definitions that we use. Then in Chapter <a href="chap3.html#X80C9BD6584865157"><b>3</b></a> we describe the functions that constitute the package.</p>
 
-<p>The package can be obtained from <a href="http://www.math.uu.nl/people/graaf/quagroup.html">http://www.math.uu.nl/people/graaf/quagroup.html</a> The directory <code class="file">quagroup/doc</code> contains the manual of the package in <code class="file">dvi</code>, <code class="file">ps</code>, <code class="file">pdf</code> and <code class="file">html</code> format. The manual was built with the <strong class="pkg">GAP</strong> share package <strong class="pkg">GAPDoc</strong>, <a href="chapBib.html#biBLN01">[LN01]</a>. This means that, in order to be able to use the on-line help of <strong class="pkg">QuaGroup</strong>, you have to install <strong class="pkg">GAPDoc</strong> before calling <var>LoadPackage("quagroup");</var>.</p>
+<p>The package can be obtained from <span class="URL"><a href="http://www.math.uu.nl/people/graaf/quagroup.html">http://www.math.uu.nl/people/graaf/quagroup.html</a></span> The directory <code class="file">quagroup/doc</code> contains the manual of the package in <code class="file">dvi</code>, <code class="file">ps</code>, <code class="file">pdf</code> and <code class="file">html</code> format. The manual was built with the <strong class="pkg">GAP</strong> share package <strong class="pkg">GAPDoc</strong>, <a href="chapBib.html#biBLN01">[LN01]</a>. This means that, in order to be able to use the on-line help of <strong class="pkg">QuaGroup</strong>, you have to install <strong class="pkg">GAPDoc</strong> before calling <var class="Arg">LoadPackage("quagroup");</var>.</p>
 
 <p>The main algorithm of the package (on which virtually the whole functionality relies) is a method for computing with so-called PBW-type bases, analogous to Poincar\'{e}-Birkhoff-Witt bases in universal enveloping algebras. In both cases commutation relations between the generators are used. However, in the latter case all commutation relations are of the form yx=xy+z, where x,y are generators, and z is a linear combination of generators. In the case of quantized enveloping algebras the situation is generally much more complicated. For example, in the quantized enveloping algebra of type E_7 we have the following relation:</p>
 
 
 <table class="example">
 <tr><td><pre>
-
 F62*F26 = (q)*F26*F62+(1-q^2)*F28*F61+(-q+q^3)*F30*F60+(q^2-q^4)*F31*F59+
           (q^2-q^4)*F33*F58+(-q^3+q^5)*F34*F57+(q^4-q^6)*F35*F56+
           (q^-1-q-q^5+q^7)*F36*F55+(q^6)*F54
-
 </pre></td></tr></table>
 
 <p>Due to the complexity of these commutation relations, some computations (even with rather small input) may take quite some time.</p>
@@ -45,7 +48,6 @@ F62*F26 = (q)*F26*F62+(1-q^2)*F28*F61+(-q+q^3)*F30*F60+(q^2-q^4)*F31*F59+
 
 <table class="example">
 <tr><td><pre>
-
 # We define a root system by giving its type:
 gap&gt; R:= RootSystem( "B", 2 );
 &lt;root system of type B2&gt;
@@ -90,18 +92,13 @@ gap&gt; Image( t, p[1] );
 (q^4)*F3*F9*F23+(q^6)*F3*F9^(2)*F24+(q^3)*F7*F9*F24+(q^2)*F7*F23+(q^2)*F8*F
 24+F9*F21
 # (This is the sixth element of p.)
-
 </pre></td></tr></table>
 
 
-<div class="pcenter">
-<table class="chlink"><tr><td><a href="chap0.html">Top of Book</a></td><td><a href="chap0.html">Previous Chapter</a></td><td><a href="chap2.html">Next Chapter</a></td></tr></table>
-<br />
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">Top of Book</a>&nbsp;  &nbsp;<a href="chap0.html">Previous Chapter</a>&nbsp;  &nbsp;<a href="chap2.html">Next Chapter</a>&nbsp;  </div>
 
 
-<div class="pcenter"><table class="chlink"><tr><td class="chlink1">Goto Chapter: </td><td><a href="chap0.html">Top</a></td><td><a href="chap1.html">1</a></td><td><a href="chap2.html">2</a></td><td><a href="chap3.html">3</a></td><td><a href="chapBib.html">Bib</a></td><td><a href="chapInd.html">Ind</a></td></tr></table><br /></div>
-
-</div>
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chapBib.html">Bib</a>  <a href="chapInd.html">Ind</a>  </div>
 
 <hr />
 <p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
