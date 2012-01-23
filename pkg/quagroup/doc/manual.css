@@ -1,0 +1,35 @@
+/* gapdoc.css        Frank Lübeck */
+/* $Id: manual.css,v 1.2 2001/01/24 14:05:11 gap Exp $  */
+
+body { background:#fffbd7; color:#000000; margin-top:15px; margin-bottom:15px; }
+
+p,h1,h2,h3,h4,ul,ol,li,div,td,th,address,blockquote,nobr,b,i,code,var
+                { font-family:Helvetica,Lucida,Times; font-size:12pt; }
+
+h1 { font-size:22pt; }
+h2 { font-size:18pt; }
+h3 { font-size:18pt; }
+h4 { font-size:14pt; }
+h5 { font-size:12pt; }
+
+p.func {background-color:#efef00; margin: 0pt 1cm; }
+table.func { cellpadding:0pt; cellspacing:0pt; line-height:10pt; width:"100%"; }
+
+table.example {background-color:#efefd7; border-style:none; border-width:thin; width:"100%"}
+
+table.chlink {background-color:#dddddd; border-style:none; border-width:thin;   width:"100%"; }
+
+pre { font-family:"Courier New",Courier; font-size:10pt; color:#284d49; }
+tt,code { font-family:"Courier New",Courier; font-size:12pt; color:#284d49; }
+var {color:#cf0000;}
+
+pre.normal {color:#000000}
+
+code.func {color:#006500}
+code.keyw {color:#ff0000}
+code.file {color:#8e4510}
+
+a:link { color:#00008e; text-decoration:none; }
+a:visited { color:#00008e; text-decoration:none; }
+a:active { color:#000000; text-decoration:none; }
+

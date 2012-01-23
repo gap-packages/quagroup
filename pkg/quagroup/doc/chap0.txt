@@ -3,7 +3,7 @@
                                    [1X [5XQuaGroup[0m[1X [0m
   
   
-                                  Version 1.4
+                                  Version 1.5
   
   
                                Willem A. de Graaf

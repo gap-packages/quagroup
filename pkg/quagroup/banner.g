@@ -1,7 +1,7 @@
 if not QUIET and BANNER then
 Print(     
 "     |                                                                 \n",
-"     |          QuaGroup      Version 1.3                              \n",
+"     |          QuaGroup                                               \n",
 "     |                                                                 \n",
 "-----------     A package for dealing with quantized enveloping algebras\n",
 "     |                                                                 \n",
