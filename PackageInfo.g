@@ -6,9 +6,10 @@
 SetPackageInfo( rec(
 PackageName := "QuaGroup",
 Subtitle := "a package for doing computations with quantum groups",        
-Version := "1.5",
-Date := "23/01/2012",
-ArchiveURL := "http://www.science.unitn.it/~degraaf/quagroup-1.5",
+Version := "1.6",
+Date := "13/02/2012",
+ArchiveURL := Concatenation("http://www.science.unitn.it/~degraaf/quagroup-",
+                            ~.Version),
 ArchiveFormats := ".tar.gz",
 Persons := [
   rec(
@@ -35,8 +36,7 @@ AbstractHTML := "The package <span class=\"pkgname\">QuaGroup</span> contains \
 PackageWWWHome := "http://www.science.unitn.it/~degraaf/quagroup.html",
 PackageDoc := [rec(
   BookName := "QuaGroup",
-  Archive := 
-      "http://www.science.unitn.it/~degraaf/quadoc.tar.gz",                 
+  ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0.html",
   PDFFile := "doc/manual.pdf",
   SixFile := "doc/manual.six",
