@@ -34,10 +34,8 @@ In GAP issue
 The manual of QuaGroup is contained in /pkg/quagroup/doc. There are the
 following files (among others):
 
-         * manual.dvi       dvi version of the manual
          * manual.pdf       pdf version of the manual
-         * manual.ps        ps version of the manual
-         * manual.html      the manual in html
+         * chap0.html       the manual in html
 
 REMARKS.
 
