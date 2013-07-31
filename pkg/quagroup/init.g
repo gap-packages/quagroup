@@ -1,14 +1,30 @@
 #############################################################################
 ##
-#W    init.g             share package `quagroup'           Willem de Graaf
+#W    init.g             share package quagroup           Willem de Graaf
 ##
 ##    
 ##
 
+if not IsBound( ReadPackage ) then
+    ReadPackage:= ReadPkg;
+fi;
 
-# declare package
 
-DeclareAutoPackage("quagroup","1.3", function() return true; end );
-DeclarePackageDocumentation( "quagroup", "doc" );
+ReadPackage( "quagroup", "gap/basic.gd");
+ReadPackage( "quagroup", "gap/roots.gd");
+ReadPackage( "quagroup", "gap/qea.gd");
+ReadPackage( "quagroup", "gap/tensor.gd");
+ReadPackage( "quagroup", "gap/rmat.gd");
+ReadPackage( "quagroup", "gap/paths.gd");
+ReadPackage( "quagroup", "gap/canbas.gd");
+ReadPackage( "quagroup", "gap/diymod.gd");
+ReadPackage( "quagroup", "gap/uea.gd");
+ReadPackage( "quagroup", "gap/isom.gd");
+ReadPackage( "quagroup", "gap/fastmod.gd");
+ReadPackage( "quagroup", "gap/fileacc.gd" );
+
+
+
+
 
 

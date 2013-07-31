@@ -1,70 +1,54 @@
   
   
-  [1XReferences[0X
+  [1XReferences[101X
   
-  [[20XCar98[15X]  [16XCarter,  R.  W.[15X, [17XRepresentations of simple Lie algebras: modern
-  variations   on  a  classical  theme[15X,  in  Algebraic  groups  and  their
-  representations (Cambridge, 1997), Kluwer Acad. Publ., Dordrecht (1998),
-  151--173.
+  [[20XCar98[120X]  [16XCarter,  R.  W.[116X,  [17XRepresentations  of  simple Lie algebras: modern variations on a classical theme[117X, in Algebraic
+  groups and their representations (Cambridge, 1997), Kluwer Acad. Publ., Dordrecht (1998), 151--173.
   
-  [[20XCom06[15X]  [16XCommittee,  E.[15X,  [17XA note on the paper: ``A survey of the work of
-  George Lusztig'' by R. W. Carter [Nagoya Math. J. \bf 182 (2006), 1--45;
-  \refcno 2235338][15X, [18XNagoya Math. J.[15X, [19X183[15X (2006), i--ii.
+  [[20XCom06[120X]  [16XCommittee,  E.[116X, [17XA note on the paper: ``A survey of the work of George Lusztig'' by R. W. Carter [Nagoya Math. J.
+  \bf 182 (2006), 1--45; \refcno 2235338][117X, [18XNagoya Math. J.[118X, [19X183[119X (2006), i--ii.
   
-  [[20XGra01[15X]  [16XGraaf,  W. A. d.[15X, [17XComputing with quantized enveloping algebras:
-  PBW-type bases, highest-weight modules, R-matrices[15X, [18XJ. Symbolic Comput.[15X,
-  [19X32[15X, 5 (2001), 475--490.
+  [[20XGra01[120X]  [16XGraaf,  W.  A.  d.[116X,  [17XComputing  with  quantized  enveloping  algebras:  PBW-type  bases, highest-weight modules,
+  R-matrices[117X, [18XJ. Symbolic Comput.[118X, [19X32[119X, 5 (2001), 475--490.
   
-  [[20XGra02[15X]  [16XGraaf,  W.  A.  d.[15X,  [17XConstructing  canonical bases of quantized
-  enveloping algebras[15X, [18XExperimental Mathematics[15X, [19X11[15X, 2 (2002), 161--170.
+  [[20XGra02[120X]  [16XGraaf,  W. A. d.[116X, [17XConstructing canonical bases of quantized enveloping algebras[117X, [18XExperimental Mathematics[118X, [19X11[119X, 2
+  (2002), 161--170.
   
-  [[20XHum90[15X]   [16XHumphreys,  J.  E.[15X,  [17XReflection  groups  and  Coxeter  groups[15X,
-  Cambridge University Press, Cambridge (1990).
+  [[20XHum90[120X] [16XHumphreys, J. E.[116X, [17XReflection groups and Coxeter groups[117X, Cambridge University Press, Cambridge (1990).
   
-  [[20XJan96[15X]   [16XJantzen,   J.   C.[15X,   [17XLectures  on  Quantum  Groups[15X,  American
-  Mathematical Society, Graduate Studies in Mathematics, [19X6[15X (1996).
+  [[20XJan96[120X]  [16XJantzen,  J.  C.[116X,  [17XLectures on Quantum Groups[117X, American Mathematical Society, Graduate Studies in Mathematics, [19X6[119X
+  (1996).
   
-  [[20XKas96[15X]  [16XKashiwara, M.[15X, [17XSimilarity of crystal bases[15X, in Lie algebras and
-  their  representations  (Seoul,  1995), Amer. Math. Soc., Providence, RI
-  (1996), 177--186.
+  [[20XKas96[120X]  [16XKashiwara, M.[116X, [17XSimilarity of crystal bases[117X, in Lie algebras and their representations (Seoul, 1995), Amer. Math.
+  Soc., Providence, RI (1996), 177--186.
   
-  [[20XLN01[15X]   [16XL\"{u}beck,   F.   and   Neunh\"{o}ffer,   M.[15X,  [17XGAPDoc,  a  GAP
-  documentation meta-package[15X (2001).
+  [[20XLN01[120X] [16XL\"{u}beck, F. and Neunh\"{o}ffer, M.[116X, [17XGAPDoc, a GAP documentation meta-package[117X (2001).
   
-  [[20XLit94[15X]  [16XLittelmann,  P.[15X, [17XA Littlewood-Richardson rule for symmetrizable
-  Kac-Moody algebras[15X, [18XInvent. Math.[15X, [19X116[15X, 1-3 (1994), 329--346.
+  [[20XLit94[120X]  [16XLittelmann,  P.[116X,  [17XA  Littlewood-Richardson  rule  for  symmetrizable Kac-Moody algebras[117X, [18XInvent. Math.[118X, [19X116[119X, 1-3
+  (1994), 329--346.
   
-  [[20XLit95[15X]  [16XLittelmann,  P.[15X,  [17XPaths  and  root  operators in representation
-  theory[15X, [18XAnn. of Math. (2)[15X, [19X142[15X, 3 (1995), 499--525.
+  [[20XLit95[120X] [16XLittelmann, P.[116X, [17XPaths and root operators in representation theory[117X, [18XAnn. of Math. (2)[118X, [19X142[119X, 3 (1995), 499--525.
   
-  [[20XLit98[15X]  [16XLittelmann,  P.[15X,  [17XCones,  crystals,  and  patterns[15X,  [18XTransform.
-  Groups[15X, [19X3[15X, 2 (1998), 145--179.
+  [[20XLit98[120X] [16XLittelmann, P.[116X, [17XCones, crystals, and patterns[117X, [18XTransform. Groups[118X, [19X3[119X, 2 (1998), 145--179.
   
-  [[20XLus90[15X]  [16XLusztig,  G.[15X, [17XQuantum groups at roots of 1[15X, [18XGeom. Dedicata[15X, [19X35[15X,
-  1-3 (1990), 89--113.
+  [[20XLus90[120X] [16XLusztig, G.[116X, [17XQuantum groups at roots of 1[117X, [18XGeom. Dedicata[118X, [19X35[119X, 1-3 (1990), 89--113.
   
-  [[20XLus0a[15X]  [16XLusztig,  G.[15X, [17XCanonical bases arising from quantized enveloping
-  algebras[15X, [18XJ. Amer. Math. Soc.[15X, [19X3[15X, 2 (1990a), 447--498.
+  [[20XLus0a[120X]  [16XLusztig,  G.[116X,  [17XCanonical  bases  arising  from quantized enveloping algebras[117X, [18XJ. Amer. Math. Soc.[118X, [19X3[119X, 2 (1990a),
+  447--498.
   
-  [[20XLus92[15X]  [16XLusztig,  G.[15X, [17XIntroduction to quantized enveloping algebras[15X, in
-  New developments in Lie theory and their applications (C\'ordoba, 1989),
-  Birkh\"auser Boston, Boston, MA (1992), 49--65.
+  [[20XLus92[120X]  [16XLusztig,  G.[116X,  [17XIntroduction  to  quantized  enveloping  algebras[117X,  in  New  developments in Lie theory and their
+  applications (C\'ordoba, 1989), Birkh\"auser Boston, Boston, MA (1992), 49--65.
   
-  [[20XLus93[15X] [16XLusztig, G.[15X, [17XIntroduction to quantum groups[15X, Birkh\"auser Boston
-  Inc., Boston, MA (1993).
+  [[20XLus93[120X] [16XLusztig, G.[116X, [17XIntroduction to quantum groups[117X, Birkh\"auser Boston Inc., Boston, MA (1993).
   
-  [[20XLus96[15X] [16XLusztig, G.[15X, [17XBraid group action and canonical bases[15X, [18XAdv. Math.[15X,
-  [19X122[15X, 2 (1996), 237--261.
+  [[20XLus96[120X] [16XLusztig, G.[116X, [17XBraid group action and canonical bases[117X, [18XAdv. Math.[118X, [19X122[119X, 2 (1996), 237--261.
   
-  [[20XRos91[15X]   [16XRosso,   M.[15X,   [17XRepr\'esentations   des   groupes   quantiques[15X,
-  [18XAst\'erisque[15X,   201-203   (1991),   Exp.\  No.\  744,  443--483  (1992),
-  ((S\'eminaire Bourbaki, Vol.\ 1990/91)).
+  [[20XRos91[120X]  [16XRosso,  M.[116X,  [17XRepr\'esentations  des  groupes  quantiques[117X, [18XAst\'erisque[118X, 201-203 (1991), Exp.\ No.\ 744, 443--483
+  (1992), ((S\'eminaire Bourbaki, Vol.\ 1990/91)).
   
-  [[20XSte01[15X]  [16XStembridge,  J.  R.[15X,  [17XComputational  aspects  of  root systems,
-  Coxeter groups, and Weyl characters[15X, in Interaction of combinatorics and
-  representation  theory,  Math.  Soc.  Japan, MSJ Mem., [19X11[15X, Tokyo (2001),
-  1--38.
+  [[20XSte01[120X]  [16XStembridge, J. R.[116X, [17XComputational aspects of root systems, Coxeter groups, and Weyl characters[117X, in Interaction of
+  combinatorics and representation theory, Math. Soc. Japan, MSJ Mem., [19X11[119X, Tokyo (2001), 1--38.
   
   
   
-  -------------------------------------------------------
+  [32X

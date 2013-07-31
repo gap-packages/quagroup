@@ -1,93 +1,93 @@
   
-  [1X1 Introduction[0X
+  [1X1 [33X[0;0YIntroduction[133X[101X
   
-  This is the manual for the [5XGAP[0m package [5XQuaGroup[0m, for doing computations with
-  quantized enveloping algebras of semisimple Lie algebras.
+  [33X[0;0YThis is the manual for the [5XGAP[105X package [5XQuaGroup[105X, for doing computations with
+  quantized enveloping algebras of semisimple Lie algebras.[133X
   
-  Apart  from the chapter you are currently reading, this document consists of
-  two chapters. In Chapter [14X2[0m we give a short summary of parts of the theory of
+  [33X[0;0YApart  from the chapter you are currently reading, this document consists of
+  two chapters. In Chapter [14X2[114X we give a short summary of parts of the theory of
   quantized enveloping algebras. This fixes the notations and definitions that
-  we  use.  Then  in  Chapter  [14X3[0m we describe the functions that constitute the
-  package.
+  we  use.  Then  in  Chapter  [14X3[114X we describe the functions that constitute the
+  package.[133X
   
-  The          package          can          be          obtained         from
-  [7Xhttp://www.math.uu.nl/people/graaf/quagroup.html[0m  The directory [11Xquagroup/doc[0m
-  contains  the  manual  of  the  package in [11Xdvi[0m, [11Xps[0m, [11Xpdf[0m and [11Xhtml[0m format. The
-  manual was built with the [5XGAP[0m share package [5XGAPDoc[0m, [LN01]. This means that,
-  in order to be able to use the on-line help of [5XQuaGroup[0m, you have to install
-  [5XGAPDoc[0m before calling [3XLoadPackage("quagroup");[0m.
+  [33X[0;0YThe          package          can          be          obtained         from
+  [7Xhttp://www.math.uu.nl/people/graaf/quagroup.html[107X  The directory [11Xquagroup/doc[111X
+  contains  the  manual  of  the  package in [11Xdvi[111X, [11Xps[111X, [11Xpdf[111X and [11Xhtml[111X format. The
+  manual was built with the [5XGAP[105X share package [5XGAPDoc[105X, [LN01]. This means that,
+  in order to be able to use the on-line help of [5XQuaGroup[105X, you have to install
+  [5XGAPDoc[105X before calling [3XLoadPackage("quagroup");[103X.[133X
   
-  The   main   algorithm   of  the  package  (on  which  virtually  the  whole
+  [33X[0;0YThe   main   algorithm   of  the  package  (on  which  virtually  the  whole
   functionality  relies)  is  a  method  for computing with so-called PBW-type
   bases, analogous to Poincar\'{e}-Birkhoff-Witt bases in universal enveloping
   algebras.  In  both  cases  commutation relations between the generators are
   used.  However, in the latter case all commutation relations are of the form
-  yx=xy+z,  where  x,y  are  generators,  and  z  is  a  linear combination of
+  [22Xyx=xy+z[122X,  where  [22Xx,y[122X  are  generators,  and  [22Xz[122X  is  a  linear combination of
   generators.  In  the  case of quantized enveloping algebras the situation is
   generally  much  more  complicated. For example, in the quantized enveloping
-  algebra of type E_7 we have the following relation:
+  algebra of type [22XE_7[122X we have the following relation:[133X
   
-  [4X---------------------------  Example  ----------------------------[0X
-    [4XF62*F26 = (q)*F26*F62+(1-q^2)*F28*F61+(-q+q^3)*F30*F60+(q^2-q^4)*F31*F59+[0X
-    [4X          (q^2-q^4)*F33*F58+(-q^3+q^5)*F34*F57+(q^4-q^6)*F35*F56+[0X
-    [4X          (q^-1-q-q^5+q^7)*F36*F55+(q^6)*F54[0X
-  [4X------------------------------------------------------------------[0X
+  [4X[32X  Example  [32X[104X
+    [4X[28XF62*F26 = (q)*F26*F62+(1-q^2)*F28*F61+(-q+q^3)*F30*F60+(q^2-q^4)*F31*F59+[128X[104X
+    [4X[28X          (q^2-q^4)*F33*F58+(-q^3+q^5)*F34*F57+(q^4-q^6)*F35*F56+[128X[104X
+    [4X[28X          (q^-1-q-q^5+q^7)*F36*F55+(q^6)*F54[128X[104X
+  [4X[32X[104X
   
-  Due  to  the  complexity  of  these commutation relations, some computations
-  (even with rather small input) may take quite some time.
+  [33X[0;0YDue  to  the  complexity  of  these commutation relations, some computations
+  (even with rather small input) may take quite some time.[133X
   
-  Remark:   The   package   can   deal   with  quantized  enveloping  algebras
-  corresponding  to  root systems of rank at least up to eight, except E_8. In
+  [33X[0;0YRemark:   The   package   can   deal   with  quantized  enveloping  algebras
+  corresponding  to  root systems of rank at least up to eight, except [22XE_8[122X. In
   that  case  the computation of the necessary commutation relations took more
   than  2  GB. I wish to thank Steve Linton for trying this computation on the
-  machines in St Andrews.
+  machines in St Andrews.[133X
   
-  The following example illustrates some of the features of the package.
+  [33X[0;0YThe following example illustrates some of the features of the package.[133X
   
-  [4X---------------------------  Example  ----------------------------[0X
-    [4X# We define a root system by giving its type:[0X
-    [4Xgap> R:= RootSystem( "B", 2 );[0X
-    [4X<root system of type B2>[0X
-    [4X# Corresponding to the root system we define a quantized enveloping algebra:[0X
-    [4Xgap> U:= QuantizedUEA( R );[0X
-    [4XQuantumUEA( <root system of type B2>, Qpar = q )[0X
-    [4X# It is generated by the generators of a so-called PBW-type basis:[0X
-    [4Xgap> GeneratorsOfAlgebra( U );[0X
-    [4X[ F1, F2, F3, F4, K1, K1+(q^-2-q^2)*[ K1 ; 1 ], K2, K2+(q^-1-q)*[ K2 ; 1 ],[0X
-    [4X  E1, E2, E3, E4 ][0X
-    [4X# We can construct highest-weight modules:[0X
-    [4Xgap> V:= HighestWeightModule( U, [1,1] );[0X
-    [4X<16-dimensional left-module over QuantumUEA( <root system of type B[0X
-    [4X2>, Qpar = q )>[0X
-    [4X# For modules of small dimension we can compute the corresponding[0X
-    [4X# R-matrix:[0X
-    [4Xgap> U:= QuantizedUEA( RootSystem("A",2) );;[0X
-    [4Xgap> V:= HighestWeightModule( U, [1,0] );;[0X
-    [4Xgap> RMatrix( V );[0X
-    [4X[ [ q^2, 0, 0, 0, 0, 0, 0, 0, 0 ], [ 0, q^3, 0, q^2-q^4, 0, 0, 0, 0, 0 ], [0X
-    [4X  [ 0, 0, q^3, 0, 0, 0, q^2-q^4, 0, 0 ], [ 0, 0, 0, q^3, 0, 0, 0, 0, 0 ], [0X
-    [4X  [ 0, 0, 0, 0, q^2, 0, 0, 0, 0 ], [ 0, 0, 0, 0, 0, q^3, 0, q^2-q^4, 0 ], [0X
-    [4X  [ 0, 0, 0, 0, 0, 0, q^3, 0, 0 ], [ 0, 0, 0, 0, 0, 0, 0, q^3, 0 ], [0X
-    [4X  [ 0, 0, 0, 0, 0, 0, 0, 0, q^2 ] ][0X
-    [4X# We can compute elements of the canonical basis of the "negative" part[0X
-    [4X# of a quantized enveloping algebra:[0X
-    [4Xgap> U:= QuantizedUEA( RootSystem("F",4) );;[0X
-    [4Xgap> B:= CanonicalBasis( U );[0X
-    [4X<canonical basis of QuantumUEA( <root system of type F4>, Qpar = q ) >[0X
-    [4Xgap> p:= PBWElements( B, [0,1,2,1] ); [0X
-    [4X[ F3*F9^(2)*F24, F3*F9*F23+(q^2)*F3*F9^(2)*F24, [0X
-    [4X  (q+q^3)*F3*F9^(2)*F24+F7*F9*F24, (q^2)*F3*F9*F23+(q^2+q^4)*F3*F9^(2)*F[0X
-    [4X    24+(q)*F7*F9*F24+F7*F23, (q^4)*F3*F9^(2)*F24+(q)*F7*F9*F24+F8*F24, [0X
-    [4X  (q^4)*F3*F9*F23+(q^6)*F3*F9^(2)*F24+(q^3)*F7*F9*F24+(q^2)*F7*F23+(q^2)*F[0X
-    [4X    8*F24+F9*F21, (q+q^3)*F3*F9*F23+(q^3+q^5)*F3*F9^(2)*F24+(q^2)*F7*F9*F[0X
-    [4X    24+(q)*F7*F23+(q)*F9*F21+F16 ][0X
-    [4X# We can construct (anti-) automorphisms of quantized enveloping[0X
-    [4X# algebras:[0X
-    [4Xgap> t:= AntiAutomorphismTau( U );[0X
-    [4X<anti-automorphism of QuantumUEA( <root system of type F4>, Qpar = q )>[0X
-    [4Xgap> Image( t, p[1] );[0X
-    [4X(q^4)*F3*F9*F23+(q^6)*F3*F9^(2)*F24+(q^3)*F7*F9*F24+(q^2)*F7*F23+(q^2)*F8*F[0X
-    [4X24+F9*F21[0X
-    [4X# (This is the sixth element of p.)[0X
-  [4X------------------------------------------------------------------[0X
+  [4X[32X  Example  [32X[104X
+    [4X[28X# We define a root system by giving its type:[128X[104X
+    [4X[25Xgap>[125X [27XR:= RootSystem( "B", 2 );[127X[104X
+    [4X[28X<root system of type B2>[128X[104X
+    [4X[28X# Corresponding to the root system we define a quantized enveloping algebra:[128X[104X
+    [4X[25Xgap>[125X [27XU:= QuantizedUEA( R );[127X[104X
+    [4X[28XQuantumUEA( <root system of type B2>, Qpar = q )[128X[104X
+    [4X[28X# It is generated by the generators of a so-called PBW-type basis:[128X[104X
+    [4X[25Xgap>[125X [27XGeneratorsOfAlgebra( U );[127X[104X
+    [4X[28X[ F1, F2, F3, F4, K1, K1+(q^-2-q^2)*[ K1 ; 1 ], K2, K2+(q^-1-q)*[ K2 ; 1 ],[128X[104X
+    [4X[28X  E1, E2, E3, E4 ][128X[104X
+    [4X[28X# We can construct highest-weight modules:[128X[104X
+    [4X[25Xgap>[125X [27XV:= HighestWeightModule( U, [1,1] );[127X[104X
+    [4X[28X<16-dimensional left-module over QuantumUEA( <root system of type B[128X[104X
+    [4X[28X2>, Qpar = q )>[128X[104X
+    [4X[28X# For modules of small dimension we can compute the corresponding[128X[104X
+    [4X[28X# R-matrix:[128X[104X
+    [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("A",2) );;[127X[104X
+    [4X[25Xgap>[125X [27XV:= HighestWeightModule( U, [1,0] );;[127X[104X
+    [4X[25Xgap>[125X [27XRMatrix( V );[127X[104X
+    [4X[28X[ [ q^2, 0, 0, 0, 0, 0, 0, 0, 0 ], [ 0, q^3, 0, q^2-q^4, 0, 0, 0, 0, 0 ], [128X[104X
+    [4X[28X  [ 0, 0, q^3, 0, 0, 0, q^2-q^4, 0, 0 ], [ 0, 0, 0, q^3, 0, 0, 0, 0, 0 ], [128X[104X
+    [4X[28X  [ 0, 0, 0, 0, q^2, 0, 0, 0, 0 ], [ 0, 0, 0, 0, 0, q^3, 0, q^2-q^4, 0 ], [128X[104X
+    [4X[28X  [ 0, 0, 0, 0, 0, 0, q^3, 0, 0 ], [ 0, 0, 0, 0, 0, 0, 0, q^3, 0 ], [128X[104X
+    [4X[28X  [ 0, 0, 0, 0, 0, 0, 0, 0, q^2 ] ][128X[104X
+    [4X[28X# We can compute elements of the canonical basis of the "negative" part[128X[104X
+    [4X[28X# of a quantized enveloping algebra:[128X[104X
+    [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("F",4) );;[127X[104X
+    [4X[25Xgap>[125X [27XB:= CanonicalBasis( U );[127X[104X
+    [4X[28X<canonical basis of QuantumUEA( <root system of type F4>, Qpar = q ) >[128X[104X
+    [4X[25Xgap>[125X [27Xp:= PBWElements( B, [0,1,2,1] ); [127X[104X
+    [4X[28X[ F3*F9^(2)*F24, F3*F9*F23+(q^2)*F3*F9^(2)*F24, [128X[104X
+    [4X[28X  (q+q^3)*F3*F9^(2)*F24+F7*F9*F24, (q^2)*F3*F9*F23+(q^2+q^4)*F3*F9^(2)*F[128X[104X
+    [4X[28X    24+(q)*F7*F9*F24+F7*F23, (q^4)*F3*F9^(2)*F24+(q)*F7*F9*F24+F8*F24, [128X[104X
+    [4X[28X  (q^4)*F3*F9*F23+(q^6)*F3*F9^(2)*F24+(q^3)*F7*F9*F24+(q^2)*F7*F23+(q^2)*F[128X[104X
+    [4X[28X    8*F24+F9*F21, (q+q^3)*F3*F9*F23+(q^3+q^5)*F3*F9^(2)*F24+(q^2)*F7*F9*F[128X[104X
+    [4X[28X    24+(q)*F7*F23+(q)*F9*F21+F16 ][128X[104X
+    [4X[28X# We can construct (anti-) automorphisms of quantized enveloping[128X[104X
+    [4X[28X# algebras:[128X[104X
+    [4X[25Xgap>[125X [27Xt:= AntiAutomorphismTau( U );[127X[104X
+    [4X[28X<anti-automorphism of QuantumUEA( <root system of type F4>, Qpar = q )>[128X[104X
+    [4X[25Xgap>[125X [27XImage( t, p[1] );[127X[104X
+    [4X[28X(q^4)*F3*F9*F23+(q^6)*F3*F9^(2)*F24+(q^3)*F7*F9*F24+(q^2)*F7*F23+(q^2)*F8*F[128X[104X
+    [4X[28X24+F9*F21[128X[104X
+    [4X[28X# (This is the sixth element of p.)[128X[104X
+  [4X[32X[104X
   

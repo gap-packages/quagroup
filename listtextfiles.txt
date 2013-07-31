@@ -38,7 +38,6 @@ quagroup/doc/chap1.txt
 quagroup/doc/manual.css
 quagroup/doc/chap2.txt
 quagroup/doc/chapInd.txt
-quagroup/doc/manual.six
 quagroup/doc/chap1.html
 quagroup/doc/chap0.html
 quagroup/doc/chap3.txt

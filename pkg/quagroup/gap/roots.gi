@@ -624,9 +624,10 @@ InstallMethod( PositiveRootsNF,
         true, [ IsRootSystem ], 0,
         function( R )
 
-    local b;
+    local b, st;
 
-    b:= Basis( VectorSpace( Rationals, SimpleSystem(R) ), SimpleSystem(R) );
+    st:= SimpleSystem(R);
+    b:= Basis( VectorSpace( DefaultFieldOfMatrix(st), st ), st );
     return List( PositiveRoots(R), x -> Coefficients( b, x ) );
 end );
 

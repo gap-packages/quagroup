@@ -1,3 +1,4 @@
 quagroup/changes.log
+quagroup/copying
 quagroup/doc/manual.pdf
-quagroup/doc/manual.ps
+quagroup/doc/manual.six
