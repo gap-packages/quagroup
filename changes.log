@@ -8,4 +8,8 @@ Changes 1.0 -- 1.1
 
    * Calculation of the comultiplication map when the Hopf structure
      is twisted is a lot faster now.
+
+Version 1.7, 1.8:
+
+   * manual now also uses MathJax.
    
