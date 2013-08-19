@@ -19,6 +19,7 @@
 
 <div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
 
+<p id="mathjaxlink" class="pcenter"><a href="chap2_mj.html">[MathJax on]</a></p>
 <p><a id="X84AF2F1D7D4E7284" name="X84AF2F1D7D4E7284"></a></p>
 <div class="ChapSects"><a href="chap2.html#X84AF2F1D7D4E7284">2 <span class="Heading">Background</span></a>
 <div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7AAC838B7CEB5E54">2.1 <span class="Heading">Gaussian Binomials</span></a>
@@ -49,7 +50,7 @@
 
 <h3>2 <span class="Heading">Background</span></h3>
 
-<p>In this chapter we summarize some of the theoretical concepts with which <strong class="pkg">QuaGroup</strong> operates. Due to the rather mathematical nature of this chapter everything has been written in LaTeX. Therefore, it will be almost unreadable in the html version.</p>
+<p>In this chapter we summarize some of the theoretical concepts with which <strong class="pkg">QuaGroup</strong> operates.</p>
 
 <p><a id="X7AAC838B7CEB5E54" name="X7AAC838B7CEB5E54"></a></p>
 
@@ -140,9 +141,9 @@ F_{\beta} F_{\alpha}^k =0 &amp;.
 
 <p>The twisted antipode by</p>
 
-<p class="pcenter"> S^f = \begin{cases} f\circ S\circ f^{-1} \text{ ~~~~if }f\text{ is an 
-automorphism}\\ f\circ S^{-1}\circ f^{-1} 
-\text{ ~if }f\text{ is an anti-automorphism.}\end{cases}</p>
+<p class="pcenter"> S^f = \begin{cases} f\circ S\circ f^{-1} &amp; \text{ if }f\text{ is an
+automorphism}\\ f\circ S^{-1}\circ f^{-1}
+&amp; \text{ if }f\text{ is an anti-automorphism.}\end{cases}</p>
 
 <p>And the twisted counit by <span class="Math">\varepsilon^f = \varepsilon\circ f^{-1}</span> (see <a href="chapBib.html#biBJ96">[Jan96]</a>, 3.8).</p>
 
@@ -232,7 +233,7 @@ F_1^{(n_1)}\cdots F_t^{(n_t)}
 
 <p>In this section we recall some basic facts on Littelmann's path model.</p>
 
-<p>From Section <a href="chap2.html#X81394E207F6AA6CF"><span class="RefLink">2.2</span></a> we recall that <span class="Math">P</span> denotes the weight lattice. Let <span class="Math">P_{\mathbb{R}}</span> be the vector space over <span class="Math">\mathbb{R}</span> spanned by <span class="Math">P</span>. Let <span class="Math">\Pi</span> be the set of all piecewise linear paths <span class="Math">\xi : [0,1]\to P_{\mathbb{R} </span>, such that <span class="Math">\xi(0)=0</span>. For <span class="Math">\alpha\in\Delta</span> Littelmann defined operators <span class="Math">f_{\alpha}, e_{\alpha} : \Pi \to \Pi\cup \{0\}</span>. Let <span class="Math">\lambda</span> be a dominant weight and let <span class="Math">\xi_{\lambda}</span> be the path joining <span class="Math">\lambda</span> and the origin by a straight line. Let <span class="Math">\Pi_{\lambda}</span> be the set of all nonzero <span class="Math">f_{\alpha_{i_1}}\cdots f_{\alpha_{i_m}}(\xi_{\lambda})</span> for <span class="Math">m\geq 0</span>. Then <span class="Math">\xi(1)\in P</span> for all <span class="Math">\xi\in \Pi_{\lambda}</span>. Let <span class="Math">\mu\in P</span> be a weight, and let <span class="Math">V(\lambda)</span> be the highest-weight module over <span class="Math">U_q(\mathfrak{g})</span> of highest weight <span class="Math">\lambda</span>. A theorem of Littelmann states that the number of paths <span class="Math">\xi\in \Pi_{\lambda}</span> such that <span class="Math">\xi(1)=\mu</span> is equal to the dimension of the weight space of weight <span class="Math">\mu</span> in <span class="Math">V(\lambda)</span> (<a href="chapBib.html#biBL95">[Lit95]</a>, Theorem 9.1).</p>
+<p>From Section <a href="chap2.html#X81394E207F6AA6CF"><span class="RefLink">2.2</span></a> we recall that <span class="Math">P</span> denotes the weight lattice. Let <span class="Math">P_{\mathbb{R}}</span> be the vector space over <span class="Math">\mathbb{R}</span> spanned by <span class="Math">P</span>. Let <span class="Math">\Pi</span> be the set of all piecewise linear paths <span class="Math">\xi : [0,1]\to P_{\mathbb{R}} </span>, such that <span class="Math">\xi(0)=0</span>. For <span class="Math">\alpha\in\Delta</span> Littelmann defined operators <span class="Math">f_{\alpha}, e_{\alpha} : \Pi \to \Pi\cup \{0\}</span>. Let <span class="Math">\lambda</span> be a dominant weight and let <span class="Math">\xi_{\lambda}</span> be the path joining <span class="Math">\lambda</span> and the origin by a straight line. Let <span class="Math">\Pi_{\lambda}</span> be the set of all nonzero <span class="Math">f_{\alpha_{i_1}}\cdots f_{\alpha_{i_m}}(\xi_{\lambda})</span> for <span class="Math">m\geq 0</span>. Then <span class="Math">\xi(1)\in P</span> for all <span class="Math">\xi\in \Pi_{\lambda}</span>. Let <span class="Math">\mu\in P</span> be a weight, and let <span class="Math">V(\lambda)</span> be the highest-weight module over <span class="Math">U_q(\mathfrak{g})</span> of highest weight <span class="Math">\lambda</span>. A theorem of Littelmann states that the number of paths <span class="Math">\xi\in \Pi_{\lambda}</span> such that <span class="Math">\xi(1)=\mu</span> is equal to the dimension of the weight space of weight <span class="Math">\mu</span> in <span class="Math">V(\lambda)</span> (<a href="chapBib.html#biBL95">[Lit95]</a>, Theorem 9.1).</p>
 
 <p>All paths appearing in <span class="Math">\Pi_{\lambda}</span> are so-called Lakshmibai-Seshadri paths (LS-paths for short). They are defined as follows. Let <span class="Math">\leq</span> denote the Bruhat order on <span class="Math">W(\Phi)</span>. For <span class="Math">\mu,\nu\in W(\Phi)\cdot \lambda</span> (the orbit of <span class="Math">\lambda</span> under the action of <span class="Math">W(\Phi)</span>), write <span class="Math">\mu\leq \nu</span> if <span class="Math">\tau\leq\sigma</span>, where <span class="Math">\tau,\sigma\in W(\Phi)</span> are the unique elements of minimal length such that <span class="Math">\tau(\lambda)=\mu</span>, <span class="Math">\sigma(\lambda)= \nu</span>. Now a rational path of shape <span class="Math">\lambda</span> is a pair <span class="Math">\pi=(\nu,a)</span>, where <span class="Math">\nu=(\nu_1,\ldots, \nu_s)</span> is a sequence of elements of <span class="Math">W(\Phi)\cdot \lambda</span>, such that <span class="Math">\nu_i&gt; \nu_{i+1}</span> and <span class="Math">a=(a_0=0, a_1, \cdots ,a_s=1)</span> is a sequence of rationals such that <span class="Math">a_i &lt;a_{i+1}</span>. The path <span class="Math">\pi</span> corresponding to these sequences is given by</p>
 

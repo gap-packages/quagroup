@@ -8,23 +8,23 @@ entries :=
   [ "Table of Contents", ".-2", [ 0, 0, 2 ], 23, 3, "table of contents", "X8537FEB07AF2BEC8" ], 
   [ "\033[1X\033[33X\033[0;-2YIntroduction\033[133X\033[101X", "1", [ 1, 0, 0 ], 1, 4, "introduction", "X7DFB63A97E67C0A1" 
      ], [ "\033[1X\033[33X\033[0;-2YBackground\033[133X\033[101X", "2", [ 2, 0, 0 ], 1, 6, "background", 
-      "X84AF2F1D7D4E7284" ], [ "\033[1X\033[33X\033[0;-2YGaussian Binomials\033[133X\033[101X", "2.1", [ 2, 1, 0 ], 9, 6, 
+      "X84AF2F1D7D4E7284" ], [ "\033[1X\033[33X\033[0;-2YGaussian Binomials\033[133X\033[101X", "2.1", [ 2, 1, 0 ], 7, 6, 
       "gaussian binomials", "X7AAC838B7CEB5E54" ], 
-  [ "\033[1X\033[33X\033[0;-2YQuantized enveloping algebras\033[133X\033[101X", "2.2", [ 2, 2, 0 ], 31, 6, 
+  [ "\033[1X\033[33X\033[0;-2YQuantized enveloping algebras\033[133X\033[101X", "2.2", [ 2, 2, 0 ], 29, 6, 
       "quantized enveloping algebras", "X81394E207F6AA6CF" ], 
   [ 
       "\033[1X\033[33X\033[0;-2YRepresentations of \033[23XU_q(\\mathfrak{g})\033[123X\033[101X\027\033[1X\027\033[133X\033[10\
-1X", "2.3", [ 2, 3, 0 ], 104, 7, "representations of u_q mathfrak{g} \027\027", "X7ECB8D257A89472F" ], 
-  [ "\033[1X\033[33X\033[0;-2YPBW-type bases\033[133X\033[101X", "2.4", [ 2, 4, 0 ], 158, 8, "pbw-type bases", 
+1X", "2.3", [ 2, 3, 0 ], 102, 7, "representations of u_q mathfrak{g} \027\027", "X7ECB8D257A89472F" ], 
+  [ "\033[1X\033[33X\033[0;-2YPBW-type bases\033[133X\033[101X", "2.4", [ 2, 4, 0 ], 156, 8, "pbw-type bases", 
       "X83E7F39F7D16793B" ], 
   [ 
       "\033[1X\033[33X\033[0;-2YThe \033[23X{\\mathbb Z}\033[123X\033[101X\027\033[1X\027-form of \033[23XU_q(\\mathfrak{g})\\
-033[123X\033[101X\027\033[1X\027\033[133X\033[101X", "2.5", [ 2, 5, 0 ], 211, 9, 
+033[123X\033[101X\027\033[1X\027\033[133X\033[101X", "2.5", [ 2, 5, 0 ], 209, 9, 
       "the {mathbb z}\027\027-form of u_q mathfrak{g} \027\027", "X7B2B15B07C9996F3" ], 
-  [ "\033[1X\033[33X\033[0;-2YThe canonical basis\033[133X\033[101X", "2.6", [ 2, 6, 0 ], 251, 9, "the canonical basis", 
-      "X78BE3EB980F0A295" ], [ "\033[1X\033[33X\033[0;-2YThe path model\033[133X\033[101X", "2.7", [ 2, 7, 0 ], 357, 10, 
+  [ "\033[1X\033[33X\033[0;-2YThe canonical basis\033[133X\033[101X", "2.6", [ 2, 6, 0 ], 249, 9, "the canonical basis", 
+      "X78BE3EB980F0A295" ], [ "\033[1X\033[33X\033[0;-2YThe path model\033[133X\033[101X", "2.7", [ 2, 7, 0 ], 355, 10, 
       "the path model", "X83BBB99685FB9FB7" ], [ "\033[1X\033[33X\033[0;-2YNotes\033[133X\033[101X", "2.8", [ 2, 8, 0 ], 
-      424, 11, "notes", "X7BB6B9777D54FA07" ], [ "\033[1X\033[33X\033[0;-2YQuaGroup\033[133X\033[101X", "3", [ 3, 0, 0 ], 
+      422, 11, "notes", "X7BB6B9777D54FA07" ], [ "\033[1X\033[33X\033[0;-2YQuaGroup\033[133X\033[101X", "3", [ 3, 0, 0 ], 
       1, 12, "quagroup", "X80C9BD6584865157" ], [ "\033[1X\033[33X\033[0;-2YGlobal constants\033[133X\033[101X", "3.1", 
       [ 3, 1, 0 ], 6, 12, "global constants", "X7C202C54806653DE" ], 
   [ "\033[1X\033[33X\033[0;-2YGaussian integers\033[133X\033[101X", "3.2", [ 3, 2, 0 ], 36, 12, "gaussian integers", 

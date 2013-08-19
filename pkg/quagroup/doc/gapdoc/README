@@ -7,5 +7,7 @@ the manual of QuaGroup. The files are
       * quagroup.bib   (contains the bibliography).
 
 The manual can be produced in GAP (when GAPDoc is loaded) with the command
+
+    gap> MakeGAPDocDoc( ".", "quagroup",  [], "quagroup", "MathJax" );;
+    gap> CopyHTMLStyleFiles(".");
  
-    gap> MakeGAPDocDoc( ".", "quagroup",  [], "quagroup" );;

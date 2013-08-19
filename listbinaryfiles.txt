@@ -2,3 +2,6 @@ quagroup/changes.log
 quagroup/copying
 quagroup/doc/manual.pdf
 quagroup/doc/manual.six
+quagroup/doc/toggless.js
+quagroup/doc/rainbow.js
+quagroup/doc/manual.js

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<?LaTeX ExtraPreamble="\usepackage{amstex}"?>
+<?LaTeX ExtraPreamble="\usepackage{amsmath}"?>
 
 <!DOCTYPE Book SYSTEM "gapdoc.dtd">
 
@@ -8,7 +8,7 @@
 
 <TitlePage>
   <Title> <Package>QuaGroup</Package> </Title>
-  <Version>Version 1.7</Version>
+  <Version>Version 1.8</Version>
   <Author>Willem A. de Graaf
     <Email> degraaf@science.unitn.it</Email>
 <Homepage>http://www.science.unitn.it/~degraaf</Homepage>
@@ -128,9 +128,7 @@ gap> Image( t, p[1] );
 <Chapter Label="chap2"> <Heading>Background</Heading>
 
 In this chapter we summarize some of the theoretical concepts with which 
-<Package>QuaGroup</Package> operates. Due to the rather mathematical nature 
-of this chapter everything has been written in LaTeX. Therefore, it will be 
-almost unreadable in the html version.
+<Package>QuaGroup</Package> operates. 
 
 <Section Label="sec2.1"> <Heading>Gaussian Binomials</Heading>
 
@@ -246,9 +244,9 @@ example, we can twist <Math>\Delta,\varepsilon,S</Math> by an automorphism, or a
 anti-automorphism <Math>f</Math>. The twisted comultiplication is given by 
 <Display>\Delta^f = f\otimes f \circ\Delta\circ f^{-1}.</Display> 
 The twisted antipode by 
-<Display> S^f = \begin{cases} f\circ S\circ f^{-1} \text{ ~~~~if }f\text{ is an 
-automorphism}\\ f\circ S^{-1}\circ f^{-1} 
-\text{ ~if }f\text{ is an anti-automorphism.}\end{cases}</Display> 
+<Display> S^f = \begin{cases} f\circ S\circ f^{-1} &amp; \text{ if }f\text{ is an
+automorphism}\\ f\circ S^{-1}\circ f^{-1}
+&amp; \text{ if }f\text{ is an anti-automorphism.}\end{cases}</Display>
 And the twisted counit by <Math>\varepsilon^f = \varepsilon\circ f^{-1}</Math> 
 (see <Cite Key="J96"/>, 3.8).
 
@@ -445,7 +443,7 @@ In this section we recall some basic facts on Littelmann's path model. <P/>
 From Section <Ref Sect="sec2.2"/> we recall that <Math>P</Math> denotes the weight 
 lattice. Let <Math>P_{\mathbb{R}}</Math> be the vector space over <Math>\mathbb{R}</Math> spanned 
 by <Math>P</Math>. Let <Math>\Pi</Math> be the set of all piecewise linear paths 
-<Math>\xi : [0,1]\to P_{\mathbb{R} </Math>, such that <Math>\xi(0)=0</Math>. For <Math>\alpha\in\Delta</Math> 
+<Math>\xi : [0,1]\to P_{\mathbb{R}} </Math>, such that <Math>\xi(0)=0</Math>. For <Math>\alpha\in\Delta</Math> 
 Littelmann defined operators <Math>f_{\alpha}, e_{\alpha} : \Pi \to \Pi\cup \{0\}</Math>. 
 Let <Math>\lambda</Math> be a dominant weight and let <Math>\xi_{\lambda}</Math> be the path joining 
 <Math>\lambda</Math> and the origin by a straight line. Let <Math>\Pi_{\lambda}</Math> be the set 

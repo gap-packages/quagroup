@@ -2,9 +2,7 @@
   [1X2 [33X[0;0YBackground[133X[101X
   
   [33X[0;0YIn  this  chapter  we  summarize some of the theoretical concepts with which
-  [5XQuaGroup[105X  operates.  Due  to  the rather mathematical nature of this chapter
-  everything  has  been  written  in  LaTeX.  Therefore,  it  will  be  almost
-  unreadable in the html version.[133X
+  [5XQuaGroup[105X operates.[133X
   
   
   [1X2.1 [33X[0;0YGaussian Binomials[133X[101X
@@ -147,8 +145,8 @@
   [33X[0;0YThe twisted antipode by[133X
   
   
-        [33X[1;6Y[24X[33X[0;0YS^f = \begin{cases} f\circ S\circ f^{-1} \text{ ~~~~if }f\text{ is an
-        automorphism}\\ f\circ S^{-1}\circ f^{-1} \text{ ~if }f\text{ is an
+        [33X[1;6Y[24X[33X[0;0YS^f = \begin{cases} f\circ S\circ f^{-1} & \text{ if }f\text{ is an
+        automorphism}\\ f\circ S^{-1}\circ f^{-1} & \text{ if }f\text{ is an
         anti-automorphism.}\end{cases}[133X [124X[133X
   
   
@@ -361,7 +359,7 @@
   
   [33X[0;0YFrom  Section  [14X2.2[114X  we  recall  that  [23XP[123X  denotes  the  weight  lattice.  Let
   [23XP_{\mathbb{R}}[123X  be the vector space over [23X\mathbb{R}[123X spanned by [23XP[123X. Let [23X\Pi[123X be
-  the  set  of  all piecewise linear paths [23X\xi : [0,1]\to P_{\mathbb{R} [123X, such
+  the  set  of all piecewise linear paths [23X\xi : [0,1]\to P_{\mathbb{R}} [123X, such
   that  [23X\xi(0)=0[123X. For [23X\alpha\in\Delta[123X Littelmann defined operators [23Xf_{\alpha},
   e_{\alpha} : \Pi \to \Pi\cup \{0\}[123X. Let [23X\lambda[123X be a dominant weight and let
   [23X\xi_{\lambda}[123X be the path joining [23X\lambda[123X and the origin by a straight line.

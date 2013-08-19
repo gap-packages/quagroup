@@ -6,7 +6,7 @@
   groups and their representations (Cambridge, 1997), Kluwer Acad. Publ., Dordrecht (1998), 151--173.
   
   [[20XCom06[120X]  [16XCommittee,  E.[116X, [17XA note on the paper: ``A survey of the work of George Lusztig'' by R. W. Carter [Nagoya Math. J.
-  \bf 182 (2006), 1--45; \refcno 2235338][117X, [18XNagoya Math. J.[118X, [19X183[119X (2006), i--ii.
+  \bf 182 (2006), 1--45][117X, [18XNagoya Math. J.[118X, [19X183[119X (2006), i--ii.
   
   [[20XGra01[120X]  [16XGraaf,  W.  A.  d.[116X,  [17XComputing  with  quantized  enveloping  algebras:  PBW-type  bases, highest-weight modules,
   R-matrices[117X, [18XJ. Symbolic Comput.[118X, [19X32[119X, 5 (2001), 475--490.
