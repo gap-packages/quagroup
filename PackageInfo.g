@@ -27,7 +27,7 @@ Status := "accepted",
 CommunicatedBy := "Gerhard Hiss (Aachen)",
 AcceptDate := "10/2003",
 README_URL := 
-  "http://www.science.unitn.it/~degraaf/README.quagroup",
+  "http://www.science.unitn.it/~degraaf/README.md",
 PackageInfoURL := 
   "http://www.science.unitn.it/~degraaf/PackageInfo.g",
 AbstractHTML := "The package <span class=\"pkgname\">QuaGroup</span> contains \
