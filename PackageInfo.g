@@ -7,10 +7,8 @@ SetPackageInfo( rec(
 PackageName := "QuaGroup",
 Subtitle := "Computations with quantum groups",        
 Version := "1.8",
-Date := "16/08/2013",
-ArchiveURL := Concatenation("http://www.science.unitn.it/~degraaf/quagroup-",
-                            ~.Version),
-ArchiveFormats := ".tar.gz",
+Date := "16/08/2013", # this is in dd/mm/yyyy format
+
 Persons := [
   rec(
   LastName := "de Graaf",
@@ -26,14 +24,24 @@ Persons := [
 Status := "accepted",
 CommunicatedBy := "Gerhard Hiss (Aachen)",
 AcceptDate := "10/2003",
-README_URL := 
-  "http://www.science.unitn.it/~degraaf/README.md",
-PackageInfoURL := 
-  "http://www.science.unitn.it/~degraaf/PackageInfo.g",
+
+PackageWWWHome  := "https://gap-packages.github.io/quagroup/",
+README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/quagroup",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/quagroup-", ~.Version ),
+ArchiveFormats := ".tar.gz",
+
 AbstractHTML := "The package <span class=\"pkgname\">QuaGroup</span> contains \
                  functionality for working with quantized enveloping algebras\
                  of finite-dimensional semisimple Lie algebras.",
-PackageWWWHome := "http://www.science.unitn.it/~degraaf/quagroup.html",
+
 PackageDoc := [rec(
   BookName := "QuaGroup",
   ArchiveURLSubset := ["doc"],
