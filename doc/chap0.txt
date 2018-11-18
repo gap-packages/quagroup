@@ -1,1 +1,141 @@
-Placeholder
+  
+  
+                                   [1X QuaGroup [101X
+  
+  
+                       [1X Computations with quantum groups [101X
+  
+  
+                                  Version 1.8
+  
+  
+                                 16 August 2013
+  
+  
+                            Willem Adriaan de Graaf
+  
+  
+  
+  Willem Adriaan de Graaf
+      Email:    [7Xmailto:degraaf@science.unitn.it[107X
+      Homepage: [7Xhttp://www.science.unitn.it/~degraaf[107X
+  
+  -------------------------------------------------------
+  [1XCopyright[101X
+  [33X[0;0Y© 2002 Willem A. de Graaf[133X
+  
+  
+  -------------------------------------------------------
+  
+  
+  [1XContents (quagroup)[101X
+  
+  1 [33X[0;0YIntroduction[133X
+  2 [33X[0;0YBackground[133X
+    2.1 [33X[0;0YGaussian Binomials[133X
+    2.2 [33X[0;0YQuantized enveloping algebras[133X
+    2.3 [33X[0;0YRepresentations of [23XU_q(\mathfrak{g})[123X[133X
+    2.4 [33X[0;0YPBW-type bases[133X
+    2.5 [33X[0;0YThe [23X{\mathbb Z}[123X-form of [23XU_q(\mathfrak{g})[123X[133X
+    2.6 [33X[0;0YThe canonical basis[133X
+    2.7 [33X[0;0YThe path model[133X
+    2.8 [33X[0;0YNotes[133X
+  3 [33X[0;0YQuaGroup[133X
+    3.1 [33X[0;0YGlobal constants[133X
+      3.1-1 QuantumField
+      3.1-2 _q
+    3.2 [33X[0;0YGaussian integers[133X
+      3.2-1 GaussNumber
+      3.2-2 GaussianFactorial
+      3.2-3 GaussianBinomial
+    3.3 [33X[0;0YRoots and root systems[133X
+      3.3-1 RootSystem
+      3.3-2 BilinearFormMatNF
+      3.3-3 PositiveRootsNF
+      3.3-4 SimpleSystemNF
+      3.3-5 PositiveRootsInConvexOrder
+      3.3-6 SimpleRootsAsWeights
+    3.4 [33X[0;0YWeyl groups and their elements[133X
+      3.4-1 ApplyWeylElement
+      3.4-2 LengthOfWeylWord
+      3.4-3 LongestWeylWord
+      3.4-4 ReducedWordIterator
+      3.4-5 ExchangeElement
+      3.4-6 GetBraidRelations
+      3.4-7 LongWords
+    3.5 [33X[0;0YQuantized enveloping algebras[133X
+      3.5-1 QuantizedUEA
+      3.5-2 ObjByExtRep
+      3.5-3 ExtRepOfObj
+      3.5-4 QuantumParameter
+      3.5-5 CanonicalMapping
+      3.5-6 WriteQEAToFile
+      3.5-7 ReadQEAFromFile
+    3.6 [33X[0;0YHomomorphisms and automorphisms[133X
+      3.6-1 QEAHomomorphism
+      3.6-2 QEAAutomorphism
+      3.6-3 QEAAntiAutomorphism
+      3.6-4 AutomorphismOmega
+      3.6-5 AntiAutomorphismTau
+      3.6-6 BarAutomorphism
+      3.6-7 AutomorphismTalpha
+      3.6-8 DiagramAutomorphism
+      3.6-9 \*
+    3.7 [33X[0;0YHopf algebra structure[133X
+      3.7-1 TensorPower
+      3.7-2 UseTwistedHopfStructure
+      3.7-3 ComultiplicationMap
+      3.7-4 AntipodeMap
+      3.7-5 CounitMap
+    3.8 [33X[0;0YModules[133X
+      3.8-1 HighestWeightModule
+      3.8-2 IrreducibleQuotient
+      3.8-3 HWModuleByTensorProduct
+      3.8-4 DIYModule
+      3.8-5 TensorProductOfAlgebraModules
+      3.8-6 HWModuleByGenerator
+      3.8-7 InducedQEAModule
+      3.8-8 GenericModule
+      3.8-9 CanonicalMapping
+      3.8-10 U2Module
+      3.8-11 MinusculeModule
+      3.8-12 DualAlgebraModule
+      3.8-13 TrivialAlgebraModule
+      3.8-14 WeightsAndVectors
+      3.8-15 HighestWeightsAndVectors
+      3.8-16 RMatrix
+      3.8-17 IsomorphismOfTensorModules
+      3.8-18 WriteModuleToFile
+      3.8-19 ReadModuleFromFile
+    3.9 [33X[0;0YThe path model[133X
+      3.9-1 DominantLSPath
+      3.9-2 Falpha
+      3.9-3 Ealpha
+      3.9-4 LSSequence
+      3.9-5 WeylWord
+      3.9-6 EndWeight
+      3.9-7 CrystalGraph
+    3.10 [33X[0;0YCanonical bases[133X
+      3.10-1 Falpha
+      3.10-2 Ealpha
+      3.10-3 CanonicalBasis
+      3.10-4 PBWElements
+      3.10-5 MonomialElements
+      3.10-6 Strings
+      3.10-7 PrincipalMonomial
+      3.10-8 StringMonomial
+      3.10-9 Falpha
+      3.10-10 Ealpha
+      3.10-11 CrystalBasis
+      3.10-12 CrystalVectors
+      3.10-13 Falpha
+      3.10-14 Ealpha
+      3.10-15 CrystalGraph
+    3.11 [33X[0;0YUniversal enveloping algebras[133X
+      3.11-1 UEA
+      3.11-2 UnderlyingLieAlgebra
+      3.11-3 HighestWeightModule
+      3.11-4 QUEAToUEAMap
+  
+  
+  [32X

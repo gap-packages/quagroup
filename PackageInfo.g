@@ -1,101 +1,83 @@
 #############################################################################
 ##  
-##  Demo PackageInfo.g for the GitHubPagesForGAP
-##
+##  PkgInfo file for the package QuaGroup               Willem de Graaf
+##  
 
 SetPackageInfo( rec(
-
-PackageName := "GitHubPagesForGAP",
-
-Subtitle := "A GitHub Pages generator for GAP packages",
-Version := "0.2",
-Date := "04/02/2017", # dd/mm/yyyy format
+PackageName := "QuaGroup",
+Subtitle := "Computations with quantum groups",        
+Version := "1.8",
+Date := "16/08/2013", # this is in dd/mm/yyyy format
 
 Persons := [
   rec(
-    LastName      := "Horn",
-    FirstNames    := "Max",
-    IsAuthor      := true,
-    IsMaintainer  := true,
-    Email         := "max.horn@math.uni-giessen.de",
-    WWWHome       := "http://www.quendi.de/math",
-    PostalAddress := Concatenation(
-                       "AG Algebra\n",
-                       "Mathematisches Institut\n",
-                       "Justus-Liebig-Universität Gießen\n",
-                       "Arndtstraße 2\n",
-                       "35392 Gießen\n",
-                       "Germany" ),
-    Place         := "Gießen",
-    Institution   := "Justus-Liebig-Universität Gießen"
-  ),
-
-  rec(
-    LastName      := "Thor",
-    FirstNames    := "A. U.",
-    IsAuthor      := true,
-    IsMaintainer  := false,
-    #Email         := "author@example.com",
-  ),
-
-  rec(
-    LastName      := "Itor",
-    FirstNames    := "Jan",
-    IsAuthor      := false,
-    IsMaintainer  := true,
-    #Email         := "janitor@example.com",
-  ),
+  LastName := "de Graaf",
+  FirstNames := "Willem Adriaan",
+  IsAuthor := true,
+  IsMaintainer := true,
+  Email := "degraaf@science.unitn.it",
+  WWWHome := "http://www.science.unitn.it/~degraaf",
+  Place := "Trento",
+  Institution := "Dipartimento di Matematica"
+  )
 ],
+Status := "accepted",
+CommunicatedBy := "Gerhard Hiss (Aachen)",
+AcceptDate := "10/2003",
 
-Status := "other",
+PackageWWWHome  := "https://gap-packages.github.io/quagroup/",
+README_URL      := Concatenation( ~.PackageWWWHome, "README.md" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
+SourceRepository := rec(
+    Type := "git",
+    URL := "https://github.com/gap-packages/quagroup",
+),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/quagroup-", ~.Version ),
+ArchiveFormats := ".tar.gz",
 
-# The following are not strictly necessary in your own PackageInfo.g
-# (in the sense that update.g only looks at the usual fields
-# like PackageWWWHome, ArchiveURL etc.). But they are convenient
-# if you use exactly the scheme for your package website that we propose.
-GithubUser := "gap-system",
-GithubRepository := ~.PackageName,
-GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
+AbstractHTML := "The package <span class=\"pkgname\">QuaGroup</span> contains \
+                 functionality for working with quantized enveloping algebras\
+                 of finite-dimensional semisimple Lie algebras.",
 
-PackageWWWHome := Concatenation("https://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
-README_URL     := Concatenation( ~.PackageWWWHome, "README.md" ),
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-# The following assumes you are using the Github releases system. If not, adjust
-# it accordingly.
-ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/releases/download/v", ~.Version, "/",
-                    ~.GithubRepository, "-", ~.Version),
-
-ArchiveFormats := ".tar.gz .tar.bz2",
-
-AbstractHTML := 
-  "This is a pseudo package that contains no actual\
-  <span class=\"pkgname\">GAP</span> code. Instead, it is a template for other\
-  GAP packages that allows to quickly setup GitHub Pages.",
-
-PackageDoc := rec(
-  BookName  := "GitHubPagesForGAP",
+PackageDoc := [rec(
+  BookName := "QuaGroup",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/chap0.html",
-  PDFFile   := "doc/manual.pdf",
-  SixFile   := "doc/manual.six",
-  LongTitle := "A GitHub Pages generator for GAP packages",
-),
-
-# The following dependencies are fake and for testing / demo purposes
+  PDFFile := "doc/manual.pdf",
+  SixFile := "doc/manual.six",
+  LongTitle := "Computations with quantum groups",
+  Autoload := true
+  )],
 Dependencies := rec(
-  GAP := ">=4.8.1",
-  NeededOtherPackages := [
-    ["GAPDoc", ">= 1.2"],
-    ["IO", ">= 4.1"],
-  ],
-  SuggestedOtherPackages := [["orb", ">= 4.2"]],
+  GAP := ">=4.8",
+  NeededOtherPackages:= [ ],                 
+  SuggestedOtherPackages := [ ],
   ExternalConditions := []
 ),
-
 AvailabilityTest := ReturnTrue,
+Autoload := false,
 
-Keywords := ["GitHub Pages", "GAP"]
+# the banner
+BannerString := Concatenation(
+"     |                                                                 \n",
+"     |          QuaGroup ", ~.Version, "\n",
+"     |                                                                 \n",
+"-----------     A package for dealing with quantized enveloping algebras\n",
+"     |                                                                 \n",
+"     |          Willem de Graaf                                        \n",
+"     |          degraaf@science.unitn.it                               \n\n"
+),
+Keywords := ["quantum groups"],
+
+AutoDoc := rec(
+    TitlePage := rec(
+        Version := Concatenation( "Version ", ~.Version ),
+        Copyright := "&copyright; 2002 Willem A. de Graaf",
+    ),
+),
 
 ));
 
