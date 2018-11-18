@@ -5,7 +5,7 @@
 
 SetPackageInfo( rec(
 PackageName := "QuaGroup",
-Subtitle := "a package for doing computations with quantum groups",        
+Subtitle := "Computations with quantum groups",        
 Version := "1.8",
 Date := "16/08/2013",
 ArchiveURL := Concatenation("http://www.science.unitn.it/~degraaf/quagroup-",
@@ -40,7 +40,7 @@ PackageDoc := [rec(
   HTMLStart := "doc/chap0.html",
   PDFFile := "doc/manual.pdf",
   SixFile := "doc/manual.six",
-  LongTitle := "a package for doing computations with quantum groups",
+  LongTitle := "Computations with quantum groups",
   Autoload := true
   )],
 Dependencies := rec(
@@ -62,7 +62,15 @@ BannerString := Concatenation(
 "     |          Willem de Graaf                                        \n",
 "     |          degraaf@science.unitn.it                               \n\n"
 ),
-Keywords := ["quantum groups"]
+Keywords := ["quantum groups"],
+
+AutoDoc := rec(
+    TitlePage := rec(
+        Version := Concatenation( "Version ", ~.Version ),
+        Copyright := "&copyright; 2002 Willem A. de Graaf",
+    ),
+),
+
 ));
 
 

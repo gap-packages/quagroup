@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <?LaTeX ExtraPreamble="\usepackage{amsmath}"?>
 
@@ -6,17 +6,7 @@
 
 <Book Name="quagroup">
 
-<TitlePage>
-  <Title> <Package>QuaGroup</Package> </Title>
-  <Version>Version 1.8</Version>
-  <Author>Willem A. de Graaf
-    <Email> degraaf@science.unitn.it</Email>
-<Homepage>http://www.science.unitn.it/~degraaf</Homepage>
-  </Author>
-
-  <Copyright>&copyright; 2002 Willem A. de Graaf <P/>
-  </Copyright>
-</TitlePage>
+<#Include SYSTEM "title.xml">
 
 <TableOfContents/>
 
