@@ -55,7 +55,7 @@ Autoload := false,
 # the banner
 BannerString := Concatenation(
 "     |                                                                 \n",
-"     |          QuaGroup                                               \n",
+"     |          QuaGroup ", ~.Version, "\n",
 "     |                                                                 \n",
 "-----------     A package for dealing with quantized enveloping algebras\n",
 "     |                                                                 \n",
