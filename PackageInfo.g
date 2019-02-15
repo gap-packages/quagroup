@@ -7,7 +7,8 @@ SetPackageInfo( rec(
 PackageName := "QuaGroup",
 Subtitle := "Computations with quantum groups",        
 Version := "1.8dev",
-Date := "16/08/2013", # this is in dd/mm/yyyy format
+Date := "16/08/2013", # dd/mm/yyyy format
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
