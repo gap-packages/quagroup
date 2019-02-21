@@ -6,8 +6,9 @@
 SetPackageInfo( rec(
 PackageName := "QuaGroup",
 Subtitle := "Computations with quantum groups",        
-Version := "1.8",
-Date := "16/08/2013", # this is in dd/mm/yyyy format
+Version := "1.8.1",
+Date := "21/02/2019", # dd/mm/yyyy format
+License := "GPL-2.0-or-later",
 
 Persons := [
   rec(
@@ -19,7 +20,14 @@ Persons := [
   WWWHome := "http://www.science.unitn.it/~degraaf",
   Place := "Trento",
   Institution := "Dipartimento di Matematica"
-  )
+  ),
+  rec(
+    LastName      := "GAP Team",
+    FirstNames    := "The",
+    IsAuthor      := false,
+    IsMaintainer  := true,
+    Email         := "support@gap-system.org",
+  ),
 ],
 Status := "accepted",
 CommunicatedBy := "Gerhard Hiss (Aachen)",

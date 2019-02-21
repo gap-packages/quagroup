@@ -6,19 +6,23 @@
                        [1X Computations with quantum groups [101X
   
   
-                                  Version 1.8
+                                 Version 1.8.1
   
   
-                                 16 August 2013
+                                21 February 2019
   
   
                             Willem Adriaan de Graaf
+  
+                                  The GAP Team
   
   
   
   Willem Adriaan de Graaf
       Email:    [7Xmailto:degraaf@science.unitn.it[107X
       Homepage: [7Xhttp://www.science.unitn.it/~degraaf[107X
+  The GAP Team
+      Email:    [7Xmailto:support@gap-system.org[107X
   
   -------------------------------------------------------
   [1XCopyright[101X
