@@ -66,7 +66,6 @@ Dependencies := rec(
   ExternalConditions := []
 ),
 AvailabilityTest := ReturnTrue,
-Autoload := false,
 
 # the banner
 BannerString := Concatenation(
@@ -79,6 +78,8 @@ BannerString := Concatenation(
 "     |          degraaf@science.unitn.it                               \n\n"
 ),
 Keywords := ["quantum groups"],
+
+TestFile := "tst/testall.g",
 
 AutoDoc := rec(
     TitlePage := rec(
