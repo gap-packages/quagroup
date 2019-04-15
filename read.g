@@ -1,10 +1,5 @@
 # read the code. 
 
-if not IsBound( ReadPackage ) then
-    ReadPackage:= ReadPkg;
-fi;
-
-
 ReadPackage( "quagroup", "gap/basic.gi");
 ReadPackage( "quagroup", "gap/roots.gi");
 ReadPackage( "quagroup", "gap/multtab.g");

@@ -5,11 +5,6 @@
 ##    
 ##
 
-if not IsBound( ReadPackage ) then
-    ReadPackage:= ReadPkg;
-fi;
-
-
 ReadPackage( "quagroup", "gap/basic.gd");
 ReadPackage( "quagroup", "gap/roots.gd");
 ReadPackage( "quagroup", "gap/qea.gd");
