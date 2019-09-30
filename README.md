@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/gap-packages/quagroup.svg)](https://travis-ci.org/gap-packages/quagroup)
+[![Code Coverage](https://codecov.io/github/gap-packages/quagroup/coverage.svg)](https://codecov.io/gh/gap-packages/quagroup)
+
 # QuaGroup
 
 QuaGroup is a GAP4 package. Its main objective is to provide

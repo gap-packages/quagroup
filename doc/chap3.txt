@@ -45,7 +45,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XGaussNumber( 4, _q );[127X[104X
-    [4X[28Xq^-3+q^-1+q+q^3[128X[104X
+    [4X[28Xq^3+q+q^-1+q^-3[128X[104X
   [4X[32X[104X
   
   [1X3.2-2 GaussianFactorial[101X
@@ -56,9 +56,9 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XGaussianFactorial( 3, _q );[127X[104X
-    [4X[28Xq^-3+2*q^-1+2*q+q^3[128X[104X
+    [4X[28Xq^3+2*q+2*q^-1+q^-3[128X[104X
     [4X[25Xgap>[125X [27XGaussianFactorial( 3, _q^2 );[127X[104X
-    [4X[28Xq^-6+2*q^-2+2*q^2+q^6[128X[104X
+    [4X[28Xq^6+2*q^2+2*q^-2+q^-6[128X[104X
   [4X[32X[104X
   
   [1X3.2-3 GaussianBinomial[101X
@@ -70,7 +70,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XGaussianBinomial( 5, 2, _q^2 );[127X[104X
-    [4X[28Xq^-12+q^-8+2*q^-4+2+2*q^4+q^8+q^12[128X[104X
+    [4X[28Xq^12+q^8+2*q^4+2+2*q^-4+q^-8+q^-12[128X[104X
   [4X[32X[104X
   
   
@@ -128,7 +128,7 @@
     [4X[28X[ 2, 1 ][128X[104X
     [4X[25Xgap>[125X [27Xo:= WeylOrbitIterator( W, [-3,2] );[127X[104X
     [4X[28X<iterator>[128X[104X
-    [4X[28X# Using the iterator we can loop over the orbit:[128X[104X
+    [4X[25Xgap>[125X [27X# Using the iterator we can loop over the orbit:[127X[104X
     [4X[25Xgap>[125X [27XNextIterator( o );[127X[104X
     [4X[28X[ 2, 1 ][128X[104X
     [4X[25Xgap>[125X [27XNextIterator( o );[127X[104X
@@ -164,8 +164,8 @@
     [4X[25Xgap>[125X [27XR:= RootSystem( SimpleLieAlgebra( "B", 2, Rationals ) );;[127X[104X
     [4X[25Xgap>[125X [27XPositiveRootsNF( R );[127X[104X
     [4X[28X[ [ 1, 0 ], [ 0, 1 ], [ 1, 1 ], [ 1, 2 ] ][128X[104X
-    [4X[28X# We note that in this case PositiveRoots( R ) will give the positive roots in[128X[104X
-    [4X[28X# a different format.[128X[104X
+    [4X[25Xgap>[125X [27X# We note that in this case PositiveRoots( R ) will give the[127X[104X
+    [4X[25Xgap>[125X [27X# positive roots in a different format.[127X[104X
   [4X[32X[104X
   
   [1X3.3-4 SimpleSystemNF[101X
@@ -344,8 +344,7 @@
     [4X[28X[ 1, 2, 1, 3, 2, 1 ][128X[104X
     [4X[25Xgap>[125X [27Xwd2:= [ 1, 3, 2, 1, 3, 2 ];;[127X[104X
     [4X[25Xgap>[125X [27XGetBraidRelations( WeylGroup(R), wd1, wd2 );[127X[104X
-    [4X[28X[ [ 3, 3, 4, 1 ], [ 4, 2, 5, 1, 6, 2 ], [ 2, 3, 3, 2, 4, 3 ],[128X[104X
-    [4X[28X  [ 4, 1, 5, 3 ] ][128X[104X
+    [4X[28X[ [ 3, 3, 4, 1 ], [ 4, 2, 5, 1, 6, 2 ], [ 2, 3, 3, 2, 4, 3 ], [ 4, 1, 5, 3 ] ][128X[104X
   [4X[32X[104X
   
   [1X3.4-7 LongWords[101X
@@ -362,10 +361,10 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XR:= RootSystem( "A", 3 );;[127X[104X
     [4X[25Xgap>[125X [27XLongWords( R )[3];[127X[104X
-    [4X[28X[ [ 3, 1, 2, 1, 3, 2 ],[128X[104X
-    [4X[28X  [ [ 3, 3, 4, 1 ], [ 4, 2, 5, 1, 6, 2 ], [ 2, 3, 3, 2, 4, 3 ],[128X[104X
-    [4X[28X      [ 4, 1, 5, 3 ], [ 1, 3, 2, 1 ] ],[128X[104X
-    [4X[28X  [ [ 4, 3, 5, 1 ], [ 1, 1, 2, 3 ], [ 2, 2, 3, 3, 4, 2 ],[128X[104X
+    [4X[28X[ [ 3, 1, 2, 1, 3, 2 ], [128X[104X
+    [4X[28X  [ [ 3, 3, 4, 1 ], [ 4, 2, 5, 1, 6, 2 ], [ 2, 3, 3, 2, 4, 3 ], [128X[104X
+    [4X[28X      [ 4, 1, 5, 3 ], [ 1, 3, 2, 1 ] ], [128X[104X
+    [4X[28X  [ [ 4, 3, 5, 1 ], [ 1, 1, 2, 3 ], [ 2, 2, 3, 3, 4, 2 ], [128X[104X
     [4X[28X      [ 4, 1, 5, 2, 6, 1 ], [ 3, 1, 4, 3 ] ] ][128X[104X
   [4X[32X[104X
   
@@ -412,33 +411,33 @@
   F, v )[103X respectively.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28X# We construct the generic quantized enveloping algebra corresponding[128X[104X
-    [4X[28X# to the root system of type A2+G2:[128X[104X
+    [4X[25Xgap>[125X [27X# We construct the generic quantized enveloping algebra corresponding[127X[104X
+    [4X[25Xgap>[125X [27X# to the root system of type A2+G2:[127X[104X
     [4X[25Xgap>[125X [27XR:= RootSystem( [ "A", 2, "G", 2 ] );;[127X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( R );[127X[104X
     [4X[28XQuantumUEA( <root system of type A2 G2>, Qpar = q )[128X[104X
     [4X[25Xgap>[125X [27XRootSystem( U );[127X[104X
     [4X[28X<root system of type A2 G2>[128X[104X
     [4X[25Xgap>[125X [27Xg:= GeneratorsOfAlgebra( U );[127X[104X
-    [4X[28X[ F1, F2, F3, F4, F5, F6, F7, F8, F9, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,[128X[104X
-    [4X[28X  K2+(q^-1-q)*[ K2 ; 1 ], K3, K3+(q^-1-q)*[ K3 ; 1 ], K4,[128X[104X
-    [4X[28X  K4+(q^-3-q^3)*[ K4 ; 1 ], E1, E2, E3, E4, E5, E6, E7, E8, E9 ][128X[104X
-    [4X[28X# These elements generate a PBW-type basis of U; the nine elements Fi,[128X[104X
-    [4X[28X# and the nine elements Ei correspond to the roots listed in convex order:[128X[104X
+    [4X[28X[ F1, F2, F3, F4, F5, F6, F7, F8, F9, K1, (-q+q^-1)*[ K1 ; 1 ]+K1, K2, [128X[104X
+    [4X[28X  (-q+q^-1)*[ K2 ; 1 ]+K2, K3, (-q+q^-1)*[ K3 ; 1 ]+K3, K4, [128X[104X
+    [4X[28X  (-q^3+q^-3)*[ K4 ; 1 ]+K4, E1, E2, E3, E4, E5, E6, E7, E8, E9 ][128X[104X
+    [4X[25Xgap>[125X [27X# These elements generate a PBW-type basis of U; the nine elements Fi,[127X[104X
+    [4X[25Xgap>[125X [27X# and the nine elements Ei correspond to the roots listed in convex order:[127X[104X
     [4X[25Xgap>[125X [27XPositiveRootsInConvexOrder( R );[127X[104X
-    [4X[28X[ [ 1, 0, 0, 0 ], [ 1, 1, 0, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 1, 0 ],[128X[104X
-    [4X[28X  [ 0, 0, 3, 1 ], [ 0, 0, 2, 1 ], [ 0, 0, 3, 2 ], [ 0, 0, 1, 1 ],[128X[104X
+    [4X[28X[ [ 1, 0, 0, 0 ], [ 1, 1, 0, 0 ], [ 0, 1, 0, 0 ], [ 0, 0, 1, 0 ], [128X[104X
+    [4X[28X  [ 0, 0, 3, 1 ], [ 0, 0, 2, 1 ], [ 0, 0, 3, 2 ], [ 0, 0, 1, 1 ], [128X[104X
     [4X[28X  [ 0, 0, 0, 1 ] ][128X[104X
-    [4X[28X# So, for example, F5 is an element of weight -[ 0, 0, 3, 1 ].[128X[104X
-    [4X[28X# We can also multiply elements; the result is written on the PBW-basis:[128X[104X
+    [4X[25Xgap>[125X [27X# So, for example, F5 is an element of weight -[ 0, 0, 3, 1 ].[127X[104X
+    [4X[25Xgap>[125X [27X# We can also multiply elements; the result is written on the PBW-basis:[127X[104X
     [4X[25Xgap>[125X [27Xg[17]*g[4];[127X[104X
-    [4X[28X(q^-6-1)*F4*[ K4 ; 1 ]+(q^-3)*F4*K4[128X[104X
-    [4X[28X# Now we construct a non-generic quantized enveloping algebra:[128X[104X
+    [4X[28X(-1+q^-6)*F4*[ K4 ; 1 ]+(q^-3)*F4*K4[128X[104X
+    [4X[25Xgap>[125X [27X# Now we construct a non-generic quantized enveloping algebra:[127X[104X
     [4X[25Xgap>[125X [27XR:= RootSystem( "A", 2 );;[127X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( R, CF(3), E(3) );;[127X[104X
     [4X[25Xgap>[125X [27Xg:= GeneratorsOfAlgebra( U );[127X[104X
-    [4X[28X[ F1, F2, F3, K1, K1+(-E(3)+E(3)^2)*[ K1 ; 1 ], K2,[128X[104X
-    [4X[28X  K2+(-E(3)+E(3)^2)*[ K2 ; 1 ], E1, E2, E3 ][128X[104X
+    [4X[28X[ F1, F2, F3, K1, (-E(3)+E(3)^2)*[ K1 ; 1 ]+K1, K2, [128X[104X
+    [4X[28X  (-E(3)+E(3)^2)*[ K2 ; 1 ]+K2, E1, E2, E3 ][128X[104X
   [4X[32X[104X
   
   [33X[0;0YAs  can  be  seen  in the example, every element of [22XU[122X is written as a linear
@@ -490,10 +489,10 @@
     [4X[25Xgap>[125X [27Xfam:= ElementsFamily( FamilyObj( U ) );;[127X[104X
     [4X[25Xgap>[125X [27Xlist:= [ [ 2, 3, [ 4, 0 ], 8, 6, 11 ], _q^2,    # monomial and coefficient[127X[104X
     [4X[25X>[125X [27X[ 1, 7, 3, 5, [ 5, 1 ], 3, 8, 9 ], _q^-1 + _q^2 ]; # monomial and coefficient[127X[104X
-    [4X[28X[ [ 2, 3, [ 4, 0 ], 8, 6, 11 ], q^2, [ 1, 7, 3, 5, [ 5, 1 ], 3, 8, 9 ],[128X[104X
-    [4X[28X  q^-1+q^2 ][128X[104X
+    [4X[28X[ [ 2, 3, [ 4, 0 ], 8, 6, 11 ], q^2, [ 1, 7, 3, 5, [ 5, 1 ], 3, 8, 9 ], [128X[104X
+    [4X[28X  q^2+q^-1 ][128X[104X
     [4X[25Xgap>[125X [27XObjByExtRep( fam, list );[127X[104X
-    [4X[28X(q^2)*F2^(3)*[ K1 ; 8 ]*E1^(11)+(q^-1+q^2)*F1^(7)*F3^(5)*K2[ K2 ; 3 ]*E3^(9)[128X[104X
+    [4X[28X(q^2)*F2^(3)*[ K1 ; 8 ]*E1^(11)+(q^2+q^-1)*F1^(7)*F3^(5)*K2[ K2 ; 3 ]*E3^(9)[128X[104X
   [4X[32X[104X
   
   [1X3.5-3 ExtRepOfObj[101X
@@ -506,10 +505,10 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("A",2) );;[127X[104X
     [4X[25Xgap>[125X [27Xg:= GeneratorsOfAlgebra(U);[127X[104X
-    [4X[28X[ F1, F2, F3, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2, K2+(q^-1-q)*[ K2 ; 1 ], E1,[128X[104X
+    [4X[28X[ F1, F2, F3, K1, (-q+q^-1)*[ K1 ; 1 ]+K1, K2, (-q+q^-1)*[ K2 ; 1 ]+K2, E1, [128X[104X
     [4X[28X  E2, E3 ][128X[104X
     [4X[25Xgap>[125X [27XExtRepOfObj( g[5] );[127X[104X
-    [4X[28X[ [ [ 4, 1 ], 0 ], 1, [ [ 4, 0 ], 1 ], q^-1-q ][128X[104X
+    [4X[28X[ [ [ 4, 0 ], 1 ], -q+q^-1, [ [ 4, 1 ], 0 ], 1 ][128X[104X
   [4X[32X[104X
   
   [1X3.5-4 QuantumParameter[101X
@@ -539,7 +538,7 @@
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( R, CF(5), E(5) );;[127X[104X
     [4X[25Xgap>[125X [27Xf:= CanonicalMapping( U );[127X[104X
     [4X[28XMappingByFunction( QuantumUEA( <root system of type A[128X[104X
-    [4X[28X3>, Qpar = q ), QuantumUEA( <root system of type A3>, Qpar =[128X[104X
+    [4X[28X3>, Qpar = q ), QuantumUEA( <root system of type A3>, Qpar = [128X[104X
     [4X[28XE(5) ), function( u ) ... end )[128X[104X
     [4X[25Xgap>[125X [27XU0:= Source( f );[127X[104X
     [4X[28XQuantumUEA( <root system of type A3>, Qpar = q )[128X[104X
@@ -560,7 +559,7 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("A",3) );;[127X[104X
-    [4X[25Xgap>[125X [27XWriteQEAToFile( U, "/home/wdg/A3" );[127X[104X
+    [4X[25Xgap>[125X [27XWriteQEAToFile( U, "A3" );[127X[104X
   [4X[32X[104X
   
   [1X3.5-7 ReadQEAFromFile[101X
@@ -573,8 +572,8 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("A",3) );;[127X[104X
-    [4X[25Xgap>[125X [27XWriteQEAToFile( U, "/home/wdg/A3" );[127X[104X
-    [4X[25Xgap>[125X [27XU0:= ReadQEAFromFile( "/home/wdg/A3" );[127X[104X
+    [4X[25Xgap>[125X [27XWriteQEAToFile( U, "A3" );[127X[104X
+    [4X[25Xgap>[125X [27XU0:= ReadQEAFromFile( "A3" );[127X[104X
     [4X[28XQuantumUEA( <root system of type A3>, Qpar = q )[128X[104X
   [4X[32X[104X
   
@@ -611,26 +610,25 @@
     [4X[25Xgap>[125X [27XSetLongestWeylWord( S, [2,1,2,1,2,1] );[127X[104X
     [4X[25Xgap>[125X [27XUS:= QuantizedUEA( S );;[127X[104X
     [4X[25Xgap>[125X [27XgS:= GeneratorsOfAlgebra( US );[127X[104X
-    [4X[28X[ F1, F2, F3, F4, F5, F6, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,[128X[104X
-    [4X[28X  K2+(q^-3-q^3)*[ K2 ; 1 ], E1, E2, E3, E4, E5, E6 ][128X[104X
+    [4X[28X[ F1, F2, F3, F4, F5, F6, K1, (-q+q^-1)*[ K1 ; 1 ]+K1, K2, [128X[104X
+    [4X[28X  (-q^3+q^-3)*[ K2 ; 1 ]+K2, E1, E2, E3, E4, E5, E6 ][128X[104X
     [4X[25Xgap>[125X [27XSimpleSystem( R );[127X[104X
     [4X[28X[ [ 1, 0 ], [ 0, 1 ] ][128X[104X
     [4X[25Xgap>[125X [27XPositiveRootsInConvexOrder( S );[127X[104X
     [4X[28X[ [ 0, 1 ], [ 1, 1 ], [ 3, 2 ], [ 2, 1 ], [ 3, 1 ], [ 1, 0 ] ][128X[104X
-    [4X[28X# We see that the simple roots of R occur on positions 6 and 1[128X[104X
-    [4X[28X# in the list PositiveRootsInConvexOrder( S ); This means that we[128X[104X
-    [4X[28X# get the following list of images of the homomorphism:[128X[104X
+    [4X[25Xgap>[125X [27X# We see that the simple roots of R occur on positions 6 and 1[127X[104X
+    [4X[25Xgap>[125X [27X# in the list PositiveRootsInConvexOrder( S ); This means that we[127X[104X
+    [4X[25Xgap>[125X [27X# get the following list of images of the homomorphism:[127X[104X
     [4X[25Xgap>[125X [27Ximgs:= [ gS[6], gS[1],      # the images of the F_{\alpha}[127X[104X
     [4X[25X>[125X [27XgS[7], gS[9],                  # the images of the K_{\alpha}[127X[104X
     [4X[25X>[125X [27XgS[8], gS[10],                 # the images of the K_{\alpha}^{-1}[127X[104X
     [4X[25X>[125X [27XgS[16], gS[11] ];              # the images of the E_{\alpha}[127X[104X
-    [4X[28X[ F6, F1, K1, K2, K1+(q^-1-q)*[ K1 ; 1 ], K2+(q^-3-q^3)*[ K2 ; 1 ], E6, E1[128X[104X
-    [4X[28X ][128X[104X
+    [4X[28X[ F6, F1, K1, K2, (-q+q^-1)*[ K1 ; 1 ]+K1, (-q^3+q^-3)*[ K2 ; 1 ]+K2, E6, E1 ][128X[104X
     [4X[25Xgap>[125X [27Xh:= QEAHomomorphism( UR, US, imgs );[127X[104X
     [4X[28X<homomorphism: QuantumUEA( <root system of type G[128X[104X
     [4X[28X2>, Qpar = q ) -> QuantumUEA( <root system of type G2>, Qpar = q )>[128X[104X
     [4X[25Xgap>[125X [27XImage( h, GeneratorsOfAlgebra( UR )[3] );[127X[104X
-    [4X[28X(1-q^4-q^6+q^10)*F1*F6^(2)+(-q^2+q^6)*F2*F6+(q^4)*F4[128X[104X
+    [4X[28X(q^10-q^6-q^4+1)*F1*F6^(2)+(q^6-q^2)*F2*F6+(q^4)*F4[128X[104X
   [4X[32X[104X
   
   [1X3.6-2 QEAAutomorphism[101X
@@ -665,32 +663,33 @@
   quantum parameter is a fifth root of unity.[133X
   
   [4X[32X  Example  [32X[104X
-    [4X[28X# First we construct the quantized enveloping algebra:[128X[104X
+    [4X[25Xgap>[125X [27X# First we construct the quantized enveloping algebra:[127X[104X
     [4X[25Xgap>[125X [27XR:= RootSystem( "A", 3 );;[127X[104X
     [4X[25Xgap>[125X [27XU0:= QuantizedUEA( R );[127X[104X
     [4X[28XQuantumUEA( <root system of type A3>, Qpar = q )[128X[104X
     [4X[25Xgap>[125X [27Xg:= GeneratorsOfAlgebra( U0 );[127X[104X
-    [4X[28X[ F1, F2, F3, F4, F5, F6, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,[128X[104X
-    [4X[28X  K2+(q^-1-q)*[ K2 ; 1 ], K3, K3+(q^-1-q)*[ K3 ; 1 ], E1, E2, E3, E4, E5, E6 ][128X[104X
-    [4X[28X# Now, for instance, we map F_{\alpha} to E_{\alpha}, where \alpha[128X[104X
-    [4X[28X# is a simple root. In order to find where those F_{\alpha}, E_{\alpha}[128X[104X
-    [4X[28X# are in the list of generators, we look at the list of positive roots[128X[104X
-    [4X[28X# in convex order:[128X[104X
+    [4X[28X[ F1, F2, F3, F4, F5, F6, K1, (-q+q^-1)*[ K1 ; 1 ]+K1, K2, [128X[104X
+    [4X[28X  (-q+q^-1)*[ K2 ; 1 ]+K2, K3, (-q+q^-1)*[ K3 ; 1 ]+K3, E1, E2, E3, E4, E5, [128X[104X
+    [4X[28X  E6 ][128X[104X
+    [4X[25Xgap>[125X [27X# Now, for instance, we map F_{\alpha} to E_{\alpha}, where \alpha[127X[104X
+    [4X[25Xgap>[125X [27X# is a simple root. In order to find where those F_{\alpha}, E_{\alpha}[127X[104X
+    [4X[25Xgap>[125X [27X# are in the list of generators, we look at the list of positive roots[127X[104X
+    [4X[25Xgap>[125X [27X# in convex order:[127X[104X
     [4X[25Xgap>[125X [27XPositiveRootsInConvexOrder( R );[127X[104X
-    [4X[28X[ [ 1, 0, 0 ], [ 1, 1, 0 ], [ 0, 1, 0 ], [ 1, 1, 1 ], [ 0, 1, 1 ],[128X[104X
+    [4X[28X[ [ 1, 0, 0 ], [ 1, 1, 0 ], [ 0, 1, 0 ], [ 1, 1, 1 ], [ 0, 1, 1 ], [128X[104X
     [4X[28X  [ 0, 0, 1 ] ][128X[104X
-    [4X[28X# So the simple roots occur on positions 1, 3, 6. This means that we[128X[104X
-    [4X[28X# have the following list of images:[128X[104X
-    [4X[25Xgap>[125X [27Ximgs:= [ g[13], g[15], g[18], g[8], g[10], g[12], g[7], g[9], g[11],[127X[104X
+    [4X[25Xgap>[125X [27X# So the simple roots occur on positions 1, 3, 6. This means that we[127X[104X
+    [4X[25Xgap>[125X [27X# have the following list of images:[127X[104X
+    [4X[25Xgap>[125X [27Ximgs:= [ g[13], g[15], g[18], g[8], g[10], g[12], g[7], g[9], g[11], [127X[104X
     [4X[25X>[125X [27Xg[1], g[3], g[6] ];[127X[104X
-    [4X[28X[ E1, E3, E6, K1+(q^-1-q)*[ K1 ; 1 ], K2+(q^-1-q)*[ K2 ; 1 ],[128X[104X
-    [4X[28X  K3+(q^-1-q)*[ K3 ; 1 ], K1, K2, K3, F1, F3, F6 ][128X[104X
+    [4X[28X[ E1, E3, E6, (-q+q^-1)*[ K1 ; 1 ]+K1, (-q+q^-1)*[ K2 ; 1 ]+K2, [128X[104X
+    [4X[28X  (-q+q^-1)*[ K3 ; 1 ]+K3, K1, K2, K3, F1, F3, F6 ][128X[104X
     [4X[25Xgap>[125X [27Xf:= QEAAutomorphism( U0, imgs );[127X[104X
     [4X[28X<automorphism of QuantumUEA( <root system of type A3>, Qpar = q )>[128X[104X
     [4X[25Xgap>[125X [27XImage( f, g[2] );[127X[104X
     [4X[28X(-q)*E2[128X[104X
-    [4X[28X# f induces an automorphism of any non-generic quantized enveloping[128X[104X
-    [4X[28X# algebra with the same root system R:[128X[104X
+    [4X[25Xgap>[125X [27X# f induces an automorphism of any non-generic quantized enveloping[127X[104X
+    [4X[25Xgap>[125X [27X# algebra with the same root system R:[127X[104X
     [4X[25Xgap>[125X [27XU1:= QuantizedUEA( R, CF(5), E(5) );[127X[104X
     [4X[28XQuantumUEA( <root system of type A3>, Qpar = E(5) )[128X[104X
     [4X[25Xgap>[125X [27Xh:= QEAAutomorphism( U1, f );[127X[104X
@@ -747,7 +746,7 @@
     [4X[25Xgap>[125X [27Xbar:= BarAutomorphism( U );[127X[104X
     [4X[28X<automorphism of QuantumUEA( <root system of type A2 B2>, Qpar = q )>[128X[104X
     [4X[25Xgap>[125X [27XImage( bar, GeneratorsOfAlgebra( U )[5] );[127X[104X
-    [4X[28X(-q^-2+q^2)*F4*F7+F5[128X[104X
+    [4X[28X(q^2-q^-2)*F4*F7+F5[128X[104X
   [4X[32X[104X
   
   [1X3.6-7 AutomorphismTalpha[101X
@@ -785,9 +784,9 @@
     [4X[25Xgap>[125X [27Xf:= DiagramAutomorphism( U, (1,3) );[127X[104X
     [4X[28X<automorphism of QuantumUEA( <root system of type A3>, Qpar = q )>[128X[104X
     [4X[25Xgap>[125X [27Xg:= GeneratorsOfAlgebra( U );[127X[104X
-    [4X[28X[ F1, F2, F3, F4, F5, F6, K1, K1+(q^-1-q)*[ K1 ; 1 ], K2,[128X[104X
-    [4X[28X  K2+(q^-1-q)*[ K2 ; 1 ], K3, K3+(q^-1-q)*[ K3 ; 1 ], E1, E2, E3, E4, E5, E6[128X[104X
-    [4X[28X ][128X[104X
+    [4X[28X[ F1, F2, F3, F4, F5, F6, K1, (-q+q^-1)*[ K1 ; 1 ]+K1, K2, [128X[104X
+    [4X[28X  (-q+q^-1)*[ K2 ; 1 ]+K2, K3, (-q+q^-1)*[ K3 ; 1 ]+K3, E1, E2, E3, E4, E5, [128X[104X
+    [4X[28X  E6 ][128X[104X
     [4X[25Xgap>[125X [27XImage( f, g[1] );[127X[104X
     [4X[28XF6[128X[104X
   [4X[32X[104X
@@ -814,9 +813,9 @@
     [4X[25Xgap>[125X [27XT:= AutomorphismTalpha( U, 2 );;[127X[104X
     [4X[25Xgap>[125X [27XTinv:= t*T*t;[127X[104X
     [4X[28X<automorphism of QuantumUEA( <root system of type B3>, Qpar = q )>[128X[104X
-    [4X[28X# (The last call may take a little while.)[128X[104X
+    [4X[25Xgap>[125X [27X# (The last call may take a little while.)[127X[104X
     [4X[25Xgap>[125X [27Xx:= Image( T, GeneratorsOfAlgebra( U )[1] );[127X[104X
-    [4X[28X(1-q^4)*F1*F3+(-q^2)*F2[128X[104X
+    [4X[28X(-q^4+1)*F1*F3+(-q^2)*F2[128X[104X
     [4X[25Xgap>[125X [27XImage( Tinv, x );[127X[104X
     [4X[28XF1[128X[104X
   [4X[32X[104X
@@ -883,7 +882,7 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("A",2), CF(5), E(5) );;[127X[104X
     [4X[25Xgap>[125X [27XD:= ComultiplicationMap( U, 3 );[127X[104X
-    [4X[28X<Comultiplication of QuantumUEA( <root system of type A2>, Qpar =[128X[104X
+    [4X[28X<Comultiplication of QuantumUEA( <root system of type A2>, Qpar = [128X[104X
     [4X[28XE(5) ), degree 3>[128X[104X
     [4X[25Xgap>[125X [27XImage( D, GeneratorsOfAlgebra(U)[4] );[127X[104X
     [4X[28X1*(K1<x>K1<x>K1)[128X[104X
@@ -955,8 +954,8 @@
     [4X[25Xgap>[125X [27XBasis( V )[1];[127X[104X
     [4X[28X1*v0[128X[104X
     [4X[25Xgap>[125X [27XBasis(V)[23]+(_q^2+_q^-2)*Basis(V)[137];[127X[104X
-    [4X[28XF3*F5*v0+(q^-2+q^2)*F8^(6)*v0[128X[104X
-    [4X[28X# We compute the action of an element on a vector:[128X[104X
+    [4X[28XF3*F5*v0+(q^2+q^-2)*F8^(6)*v0[128X[104X
+    [4X[25Xgap>[125X [27X# We compute the action of an element on a vector:[127X[104X
     [4X[25Xgap>[125X [27Xgg:= GeneratorsOfAlgebra( U );;[127X[104X
     [4X[25Xgap>[125X [27Xx:= gg[21]*gg[5];[127X[104X
     [4X[28XF5*E4+(-q^-1)*F6*K3[128X[104X
@@ -977,10 +976,10 @@
     [4X[25Xgap>[125X [27XR:= RootSystem( "A", 2 );;[127X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( R, CF(3), E(3) );;[127X[104X
     [4X[25Xgap>[125X [27XV:= HighestWeightModule( U, [1,1] );[127X[104X
-    [4X[28X<8-dimensional left-module over QuantumUEA( <root system of type A2>, Qpar =[128X[104X
+    [4X[28X<8-dimensional left-module over QuantumUEA( <root system of type A2>, Qpar = [128X[104X
     [4X[28XE(3) )>[128X[104X
     [4X[25Xgap>[125X [27XIrreducibleQuotient( V );[127X[104X
-    [4X[28X<7-dimensional left-module over QuantumUEA( <root system of type A2>, Qpar =[128X[104X
+    [4X[28X<7-dimensional left-module over QuantumUEA( <root system of type A2>, Qpar = [128X[104X
     [4X[28XE(3) )>[128X[104X
   [4X[32X[104X
   
@@ -1002,7 +1001,7 @@
     [4X[25Xgap>[125X [27XV:= HWModuleByTensorProduct( U, [2,1] );[127X[104X
     [4X[28X<189-dimensional left-module over QuantumUEA( <root system of type G[128X[104X
     [4X[28X2>, Qpar = q )>[128X[104X
-    [4X[28X# (This is a case where this algorithm is a lot faster.)[128X[104X
+    [4X[25Xgap>[125X [27X# (This is a case where this algorithm is a lot faster.)[127X[104X
   [4X[32X[104X
   
   [1X3.8-4 DIYModule[101X
@@ -1033,7 +1032,7 @@
     [4X[28X( QuantumField^2 )[128X[104X
     [4X[25Xgap>[125X [27Xv:= BasisVectors( Basis(V) );[127X[104X
     [4X[28X[ [ 1, 0 ], [ 0, 1 ] ][128X[104X
-    [4X[25Xgap>[125X [27Xacts:= [ [ v[2], 0*v[1] ], [ _q*v[1], _q^-1*v[2] ],[127X[104X
+    [4X[25Xgap>[125X [27Xacts:= [ [ v[2], 0*v[1] ], [ _q*v[1], _q^-1*v[2] ], [127X[104X
     [4X[25X>[125X [27X[ _q^-1*v[1], _q*v[2] ], [ 0*v[1], v[1] ] ];;[127X[104X
     [4X[25Xgap>[125X [27XM:= DIYModule( U, V, acts );[127X[104X
     [4X[28X<2-dimensional left-module over QuantumUEA( <root system of type A[128X[104X
@@ -1058,7 +1057,8 @@
     [4X[25Xgap>[125X [27XV1:= HighestWeightModule( U, [ 1, 0 ] );;[127X[104X
     [4X[25Xgap>[125X [27XV2:= HighestWeightModule( U, [ 0, 1 ] );;[127X[104X
     [4X[25Xgap>[125X [27XTensorProductOfAlgebraModules( V1, V2 );[127X[104X
-    [4X[28X<9-dimensional left-module over QuantumUEA( <root system of type A2>, Qpar = q )>[128X[104X
+    [4X[28X<9-dimensional left-module over QuantumUEA( <root system of type A[128X[104X
+    [4X[28X2>, Qpar = q )>[128X[104X
   [4X[32X[104X
   
   [1X3.8-6 HWModuleByGenerator[101X
@@ -1097,10 +1097,10 @@
     [4X[25Xgap>[125X [27XU0:= QuantizedUEA( R, CF(3), E(3) );;[127X[104X
     [4X[25Xgap>[125X [27XV:= HighestWeightModule( U, [1,1] );;[127X[104X
     [4X[25Xgap>[125X [27XW:= InducedQEAModule( U0, V );[127X[104X
-    [4X[28X<16-dimensional left-module over QuantumUEA( <root system of type B[128X[104X
-    [4X[28X2>, Qpar = E(3) )>[128X[104X
-    [4X[28X# This module is isomorphic to the one obtained by[128X[104X
-    [4X[28X# HighestWeightModule( U0, [1,1] );[128X[104X
+    [4X[28X<16-dimensional left-module over QuantumUEA( <root system of type B2>, Qpar = [128X[104X
+    [4X[28XE(3) )>[128X[104X
+    [4X[25Xgap>[125X [27X# This module is isomorphic to the one obtained by[127X[104X
+    [4X[25Xgap>[125X [27X# HighestWeightModule( U0, [1,1] );[127X[104X
   [4X[32X[104X
   
   [1X3.8-8 GenericModule[101X
@@ -1128,8 +1128,8 @@
     [4X[28XMappingByFunction( <[128X[104X
     [4X[28X16-dimensional left-module over QuantumUEA( <root system of type B[128X[104X
     [4X[28X2>, Qpar = q )>, <[128X[104X
-    [4X[28X16-dimensional left-module over QuantumUEA( <root system of type B[128X[104X
-    [4X[28X2>, Qpar = E(3) )>, function( v ) ... end )[128X[104X
+    [4X[28X16-dimensional left-module over QuantumUEA( <root system of type B2>, Qpar = [128X[104X
+    [4X[28XE(3) )>, function( v ) ... end )[128X[104X
     [4X[25Xgap>[125X [27XImage( f, _q^2*Basis(V)[3] );[127X[104X
     [4X[28X(E(3)^2)*e.3[128X[104X
   [4X[32X[104X
@@ -1195,17 +1195,17 @@
     [4X[25Xgap>[125X [27Xu:= GeneratorsOfAlgebra( U )[2];[127X[104X
     [4X[28XF2[128X[104X
     [4X[25Xgap>[125X [27Xvv:= BasisVectors( Basis( M ) );[127X[104X
-    [4X[28X[ (1)*F@1*v0, (1)*F@F1*v0, (1)*F@F3*v0, (1)*F@F1*F3*v0, (1)*F@F2*v0,[128X[104X
+    [4X[28X[ (1)*F@1*v0, (1)*F@F1*v0, (1)*F@F3*v0, (1)*F@F1*F3*v0, (1)*F@F2*v0, [128X[104X
     [4X[28X  (1)*F@F1*F2*v0, (1)*F@F2*F3*v0, (1)*F@F2^(2)*v0 ][128X[104X
     [4X[25Xgap>[125X [27Xu^vv[3];[127X[104X
     [4X[28X<zero function>[128X[104X
-    [4X[28X# (The zero of the dual space is printed as <zero function>).[128X[104X
+    [4X[25Xgap>[125X [27X# (The zero of the dual space is printed as <zero function>).[127X[104X
     [4X[25Xgap>[125X [27Xu^vv[4];[127X[104X
-    [4X[28X(q^3-q^5)*F@1*v0[128X[104X
-    [4X[28X# We get the function corresponding to a vector in M by using ExtRepOfObj:[128X[104X
+    [4X[28X(-q^5+q^3)*F@1*v0[128X[104X
+    [4X[25Xgap>[125X [27X# We get the function corresponding to a vector in M by using ExtRepOfObj:[127X[104X
     [4X[25Xgap>[125X [27Xf:= ExtRepOfObj( vv[1] );[127X[104X
     [4X[28X(1)*F@1*v0[128X[104X
-    [4X[28X# We can calculate images of this function:[128X[104X
+    [4X[25Xgap>[125X [27X# We can calculate images of this function:[127X[104X
     [4X[25Xgap>[125X [27XList( Basis(V), v -> Image( f, v ) );[127X[104X
     [4X[28X[ 1, 0, 0, 0, 0, 0, 0, 0 ][128X[104X
   [4X[32X[104X
@@ -1243,9 +1243,9 @@
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem( "A", 2 ) );;[127X[104X
     [4X[25Xgap>[125X [27XV:= HighestWeightModule( U, [ 1, 1 ] );;[127X[104X
     [4X[25Xgap>[125X [27XWeightsAndVectors( V );[127X[104X
-    [4X[28X[ [ [ 1, 1 ], [ -1, 2 ], [ 2, -1 ], [ 0, 0 ], [ -2, 1 ], [ 1, -2 ],[128X[104X
-    [4X[28X      [ -1, -1 ] ],[128X[104X
-    [4X[28X  [ [ 1*v0 ], [ F1*v0 ], [ F3*v0 ], [ F1*F3*v0, F2*v0 ], [ F1*F2*v0 ],[128X[104X
+    [4X[28X[ [ [ 1, 1 ], [ -1, 2 ], [ 2, -1 ], [ 0, 0 ], [ -2, 1 ], [ 1, -2 ], [128X[104X
+    [4X[28X      [ -1, -1 ] ], [128X[104X
+    [4X[28X  [ [ 1*v0 ], [ F1*v0 ], [ F3*v0 ], [ F1*F3*v0, F2*v0 ], [ F1*F2*v0 ], [128X[104X
     [4X[28X      [ F2*F3*v0 ], [ F2^(2)*v0 ] ] ][128X[104X
   [4X[32X[104X
   
@@ -1282,7 +1282,7 @@
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("A",1) );;[127X[104X
     [4X[25Xgap>[125X [27XV:= HighestWeightModule( U, [1] );;[127X[104X
     [4X[25Xgap>[125X [27XRMatrix( V );[127X[104X
-    [4X[28X[ [ 1, 0, 0, 0 ], [ 0, q, 1-q^2, 0 ], [ 0, 0, q, 0 ], [ 0, 0, 0, 1 ] ][128X[104X
+    [4X[28X[ [ 1, 0, 0, 0 ], [ 0, q, -q^2+1, 0 ], [ 0, 0, q, 0 ], [ 0, 0, 0, 1 ] ][128X[104X
   [4X[32X[104X
   
   [1X3.8-17 IsomorphismOfTensorModules[101X
@@ -1307,7 +1307,7 @@
     [4X[28X<20-dimensional left-module over QuantumUEA( <root system of type B[128X[104X
     [4X[28X2>, Qpar = q )>[128X[104X
     [4X[25Xgap>[125X [27XImage( h, Basis(VW)[13] );[127X[104X
-    [4X[28Xq*(1*v0<x>F3*v0)+1-q^2*(F4*v0<x>F2*v0)+q^-1-q^3*(F3*v0<x>1*v0)[128X[104X
+    [4X[28Xq*(1*v0<x>F3*v0)+-q^2+1*(F4*v0<x>F2*v0)+-q^3+q^-1*(F3*v0<x>1*v0)[128X[104X
   [4X[32X[104X
   
   [1X3.8-18 WriteModuleToFile[101X
@@ -1338,8 +1338,8 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("A",3) );;[127X[104X
     [4X[25Xgap>[125X [27XV:= HighestWeightModule( U, [1,1,1] );;[127X[104X
-    [4X[25Xgap>[125X [27XWriteModuleToFile( V, "/home/wdg/A3mod" );[127X[104X
-    [4X[25Xgap>[125X [27XW:= ReadModuleFromFile( "/home/wdg/A3mod" );[127X[104X
+    [4X[25Xgap>[125X [27XWriteModuleToFile( V, "A3mod" );[127X[104X
+    [4X[25Xgap>[125X [27XW:= ReadModuleFromFile( "A3mod" );[127X[104X
     [4X[28X<64-dimensional left-module over QuantumUEA( <root system of type A[128X[104X
     [4X[28X3>, Qpar = q )>[128X[104X
   [4X[32X[104X
@@ -1466,17 +1466,18 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XR:= RootSystem( "A", 2 );;[127X[104X
     [4X[25Xgap>[125X [27XCrystalGraph( R, [1,1] );[127X[104X
-    [4X[28Xrec([128X[104X
-    [4X[28X  points := [ <LS path of shape [ 1, 1 ] ending in [ 1, 1 ] >, <LS path of sha\[128X[104X
-    [4X[28Xpe [ 1, 1 ] ending in [ -1, 2 ] >, <LS path of shape [ 1, 1 ] ending in[128X[104X
-    [4X[28X        [ 2, -1 ] >, <LS path of shape [ 1, 1 ] ending in [ 0, 0 ] >,[128X[104X
-    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ 0, 0 ] >,[128X[104X
-    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ 1, -2 ] >,[128X[104X
-    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ -2, 1 ] >,[128X[104X
-    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ -1, -1 ] > ],[128X[104X
-    [4X[28X  edges := [ [ [ 1, 2 ], 1 ], [ [ 1, 3 ], 2 ], [ [ 2, 4 ], 2 ],[128X[104X
-    [4X[28X      [ [ 3, 5 ], 1 ], [ [ 4, 6 ], 2 ], [ [ 5, 7 ], 1 ], [ [ 6, 8 ], 1 ],[128X[104X
-    [4X[28X      [ [ 7, 8 ], 2 ] ] )[128X[104X
+    [4X[28Xrec( [128X[104X
+    [4X[28X  edges := [ [ [ 1, 2 ], 1 ], [ [ 1, 3 ], 2 ], [ [ 2, 4 ], 2 ], [128X[104X
+    [4X[28X      [ [ 3, 5 ], 1 ], [ [ 4, 6 ], 2 ], [ [ 5, 7 ], 1 ], [ [ 6, 8 ], 1 ], [128X[104X
+    [4X[28X      [ [ 7, 8 ], 2 ] ], [128X[104X
+    [4X[28X  points := [ <LS path of shape [ 1, 1 ] ending in [ 1, 1 ] >, [128X[104X
+    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ -1, 2 ] >, [128X[104X
+    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ 2, -1 ] >, [128X[104X
+    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ 0, 0 ] >, [128X[104X
+    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ 0, 0 ] >, [128X[104X
+    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ 1, -2 ] >, [128X[104X
+    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ -2, 1 ] >, [128X[104X
+    [4X[28X      <LS path of shape [ 1, 1 ] ending in [ -1, -1 ] > ] )[128X[104X
   [4X[32X[104X
   
   
@@ -1519,7 +1520,6 @@
     [4X[28XF1*F4*F7*F17[128X[104X
     [4X[25Xgap>[125X [27XEalpha( x, 3 );[127X[104X
     [4X[28XF1*F2*F7*F17[128X[104X
-    [4X[28X[128X[104X
   [4X[32X[104X
   
   [1X3.10-3 CanonicalBasis[101X
@@ -1554,14 +1554,14 @@
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem( "F", 4 ) );;[127X[104X
     [4X[25Xgap>[125X [27XB:= CanonicalBasis( U );;[127X[104X
     [4X[25Xgap>[125X [27XPBWElements( B, [1,2,1,0] );[127X[104X
-    [4X[28X[ F1*F3^(2)*F9, F1*F3*F7+(q^4)*F1*F3^(2)*F9, (q^4)*F1*F3^(2)*F9+F2*F3*F9,[128X[104X
-    [4X[28X  (q^2)*F1*F3*F7+(q^2+q^6)*F1*F3^(2)*F9+(q^2)*F2*F3*F9+F2*F7,[128X[104X
+    [4X[28X[ F1*F3^(2)*F9, F1*F3*F7+(q^4)*F1*F3^(2)*F9, (q^4)*F1*F3^(2)*F9+F2*F3*F9, [128X[104X
+    [4X[28X  (q^2)*F1*F3*F7+(q^6+q^2)*F1*F3^(2)*F9+(q^2)*F2*F3*F9+F2*F7, [128X[104X
     [4X[28X  (q^4)*F1*F3*F7+(q^8)*F1*F3^(2)*F9+(q^4)*F2*F3*F9+(q^2)*F2*F7+F3*F4 ][128X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("G",2) );;[127X[104X
     [4X[25Xgap>[125X [27XB:= CanonicalBasis( U );;[127X[104X
     [4X[25Xgap>[125X [27XPBWElements( B, [2,3] : lowrank );[127X[104X
-    [4X[28X[ F1^(2)*F6^(3), F1*F5*F6^(2)+(q^8+q^10)*F1^(2)*F6^(3),[128X[104X
-    [4X[28X  (q^2)*F1*F5*F6^(2)+(q^6+q^12)*F1^(2)*F6^(3)+F3*F6^(2),[128X[104X
+    [4X[28X[ F1^(2)*F6^(3), F1*F5*F6^(2)+(q^10+q^8)*F1^(2)*F6^(3), [128X[104X
+    [4X[28X  (q^2)*F1*F5*F6^(2)+(q^12+q^6)*F1^(2)*F6^(3)+F3*F6^(2), [128X[104X
     [4X[28X  (q^8)*F1*F5*F6^(2)+(q^18)*F1^(2)*F6^(3)+(q^6)*F3*F6^(2)+F5^(2)*F6 ][128X[104X
   [4X[32X[104X
   
@@ -1581,7 +1581,7 @@
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem( "F", 4 ) );;[127X[104X
     [4X[25Xgap>[125X [27XB:= CanonicalBasis( U );;[127X[104X
     [4X[25Xgap>[125X [27XMonomialElements( B, [1,2,1,0] );[127X[104X
-    [4X[28X[ F1*F3^(2)*F9, F1*F3*F9*F3+(-1)*F1*F3^(2)*F9, F3^(2)*F1*F9, F3*F1*F9*F3,[128X[104X
+    [4X[28X[ F1*F3^(2)*F9, F1*F3*F9*F3+(-1)*F1*F3^(2)*F9, F3^(2)*F1*F9, F3*F1*F9*F3, [128X[104X
     [4X[28X  F3*F9*F3*F1+(-1)*F3^(2)*F1*F9 ][128X[104X
   [4X[32X[104X
   
@@ -1604,7 +1604,7 @@
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem( "F", 4 ) );;[127X[104X
     [4X[25Xgap>[125X [27XB:= CanonicalBasis( U );;[127X[104X
     [4X[25Xgap>[125X [27XStrings( B, [1,2,1,0] );[127X[104X
-    [4X[28X[ [ 1, 1, 2, 2, 3, 1 ], [ 1, 1, 2, 1, 3, 1, 2, 1 ], [ 2, 2, 1, 1, 3, 1 ],[128X[104X
+    [4X[28X[ [ 1, 1, 2, 2, 3, 1 ], [ 1, 1, 2, 1, 3, 1, 2, 1 ], [ 2, 2, 1, 1, 3, 1 ], [128X[104X
     [4X[28X  [ 2, 1, 1, 1, 3, 1, 2, 1 ], [ 2, 1, 3, 1, 2, 1, 1, 1 ] ][128X[104X
     [4X[25Xgap>[125X [27XFalpha( Falpha( Falpha( Falpha( One(U), 3 ), 1 ), 2 ), 2 );[127X[104X
     [4X[28XF2*F3*F9[128X[104X
@@ -1623,8 +1623,8 @@
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem("G",2) );;[127X[104X
     [4X[25Xgap>[125X [27XB:= CanonicalBasis( U );;[127X[104X
     [4X[25Xgap>[125X [27Xp:= PBWElements( B, [4,4] : lowrank )[4];[127X[104X
-    [4X[28X(q^9)*F1^(2)*F3*F6^(3)+F1^(2)*F5^(2)*F6^(2)+(q^9+q^11+q^13)*F1^(3)*F5*F6^([128X[104X
-    [4X[28X3)+(q^20+q^22+2*q^24+q^26+q^28)*F1^(4)*F6^(4)[128X[104X
+    [4X[28X(q^9)*F1^(2)*F3*F6^(3)+F1^(2)*F5^(2)*F6^(2)+(q^13+q^11+q^9)*F1^(3)*F5*F6^([128X[104X
+    [4X[28X3)+(q^28+q^26+2*q^24+q^22+q^20)*F1^(4)*F6^(4)[128X[104X
     [4X[25Xgap>[125X [27XPrincipalMonomial( p );[127X[104X
     [4X[28XF1^(2)*F5^(2)*F6^(2)[128X[104X
   [4X[32X[104X
@@ -1701,15 +1701,16 @@
   
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XU:= QuantizedUEA( RootSystem( "B", 2 ) );;[127X[104X
-    [4X[28X gap> V:= HighestWeightModule( U, [1,1] );[128X[104X
-    [4X[28X <16-dimensional left-module over QuantumUEA( <root system of type B2>, Qpar[128X[104X
-    [4X[28X= q )>[128X[104X
-    [4X[28X gap>  CrystalBasis( V );[128X[104X
-    [4X[28X Basis( <16-dimensional left-module over QuantumUEA( <root system of type B[128X[104X
-    [4X[28X 2>, Qpar = q )>, [ 1*v0, F1*v0, F4*v0, F1*F4*v0, (q^2)*F1*F4*v0+F2*v0, F2*F4*v0,[128X[104X
-    [4X[28X(q)*F2*F4*v0+F3*v0, (-q^-4)*F1*F2*v0, (-q^-1)*F1*F3*v0+(-q^-3)*F2^(2)*v0,[128X[104X
-    [4X[28X(-q^-2)*F2^(2)*v0, F3*F4*v0, (-q^-4)*F2*F3*v0+(-q^-2)*F2^(2)*F4*v0,[128X[104X
-    [4X[28X(-q^-2)*F2*F3*v0, (q^-4)*F2^(3)*v0, (-q^-1)*F3^(2)*v0, (q^-5)*F2^(2)*F3*v0 ] )[128X[104X
+    [4X[25Xgap>[125X [27XV:= HighestWeightModule( U, [1,1] );[127X[104X
+    [4X[28X<16-dimensional left-module over QuantumUEA( <root system of type B[128X[104X
+    [4X[28X2>, Qpar = q )>[128X[104X
+    [4X[25Xgap>[125X [27X CrystalBasis( V );[127X[104X
+    [4X[28XBasis( <16-dimensional left-module over QuantumUEA( <root system of type B[128X[104X
+    [4X[28X2>, Qpar = q )>, [ 1*v0, F1*v0, F4*v0, F1*F4*v0, (q^2)*F1*F4*v0+F2*v0, [128X[104X
+    [4X[28X  F2*F4*v0, (q)*F2*F4*v0+F3*v0, (-q^-4)*F1*F2*v0, [128X[104X
+    [4X[28X  (-q^-1)*F1*F3*v0+(-q^-3)*F2^(2)*v0, (-q^-2)*F2^(2)*v0, F3*F4*v0, [128X[104X
+    [4X[28X  (-q^-4)*F2*F3*v0+(-q^-2)*F2^(2)*F4*v0, (-q^-2)*F2*F3*v0, (q^-4)*F2^(3)*v0, [128X[104X
+    [4X[28X  (-q^-1)*F3^(2)*v0, (q^-5)*F2^(2)*F3*v0 ] )[128X[104X
   [4X[32X[104X
   
   [1X3.10-12 CrystalVectors[101X
@@ -1735,11 +1736,10 @@
     [4X[28X<16-dimensional left-module over QuantumUEA( <root system of type B[128X[104X
     [4X[28X2>, Qpar = q )>[128X[104X
     [4X[25Xgap>[125X [27XCrystalVectors( V );[127X[104X
-    [4X[28X[ <1*v0>, <F1*v0>, <F4*v0>, <F2*v0>, <F1*F4*v0>, <F3*v0>,[128X[104X
-    [4X[28X  <(-q^-4)*F1*F2*v0>, <F2*F4*v0>, <F1*F3*v0>, <F3*F4*v0>,[128X[104X
-    [4X[28X  <(-q^-1)*F1*F3*v0+(-q^-3)*F2^(2)*v0>, <(-q^-4)*F2*F3*v0+(-q^-2)*F2^(2)*F[128X[104X
-    [4X[28X    4*v0>, <F2^(2)*F4*v0>, <(q^-4)*F2^(3)*v0>, <(-q^-1)*F3^(2)*v0>,[128X[104X
-    [4X[28X  <(q^-5)*F2^(2)*F3*v0> ][128X[104X
+    [4X[28X[ <1*v0>, <F1*v0>, <F4*v0>, <F2*v0>, <F1*F4*v0>, <F3*v0>, <(-q^-4)*F1*F2*v0>, [128X[104X
+    [4X[28X  <F2*F4*v0>, <F1*F3*v0>, <F3*F4*v0>, <(-q^-1)*F1*F3*v0+(-q^-3)*F2^(2)*v0>, [128X[104X
+    [4X[28X  <(-q^-4)*F2*F3*v0+(-q^-2)*F2^(2)*F4*v0>, <F2^(2)*F4*v0>, <(q^-4)*F2^(3)*v0>,[128X[104X
+    [4X[28X  <(-q^-1)*F3^(2)*v0>, <(q^-5)*F2^(2)*F3*v0> ][128X[104X
   [4X[32X[104X
   
   [1X3.10-13 Falpha[101X
@@ -1804,15 +1804,15 @@
     [4X[25Xgap>[125X [27XV2:= HighestWeightModule( U, [0,1] );;[127X[104X
     [4X[25Xgap>[125X [27XW:= TensorProductOfAlgebraModules( V1, V2 );;[127X[104X
     [4X[25Xgap>[125X [27XCrystalGraph( W );[127X[104X
-    [4X[28Xrec([128X[104X
-    [4X[28X  points := [ <1*(1*v0<x>1*v0)>, <1*(F1*v0<x>1*v0)>, <1*(1*v0<x>F3*v0)>,[128X[104X
-    [4X[28X      <1*(1*v0<x>F2*v0)+q^-1*(F2*v0<x>1*v0)>,[128X[104X
-    [4X[28X      <-q^-1*(1*v0<x>F2*v0)+q^-1*(F1*v0<x>F3*v0)>, <1*(F2*v0<x>F3*v0)>,[128X[104X
-    [4X[28X      <-q^-1*(F1*v0<x>F2*v0)>, <-q^-1*(F2*v0<x>F2*v0)>,[128X[104X
-    [4X[28X      <-q^-3*(1*v0<x>F2*v0)+-q^-1*(F1*v0<x>F3*v0)+1*(F2*v0<x>1*v0)> ],[128X[104X
-    [4X[28X  edges := [ [ [ 1, 2 ], 1 ], [ [ 1, 3 ], 2 ], [ [ 2, 4 ], 2 ],[128X[104X
-    [4X[28X      [ [ 3, 5 ], 1 ], [ [ 4, 6 ], 2 ], [ [ 5, 7 ], 1 ], [ [ 6, 8 ], 1 ],[128X[104X
-    [4X[28X      [ [ 7, 8 ], 2 ] ] )[128X[104X
+    [4X[28Xrec( [128X[104X
+    [4X[28X  edges := [ [ [ 1, 2 ], 1 ], [ [ 1, 3 ], 2 ], [ [ 2, 4 ], 2 ], [128X[104X
+    [4X[28X      [ [ 3, 5 ], 1 ], [ [ 4, 6 ], 2 ], [ [ 5, 7 ], 1 ], [ [ 6, 8 ], 1 ], [128X[104X
+    [4X[28X      [ [ 7, 8 ], 2 ] ], [128X[104X
+    [4X[28X  points := [ <1*(1*v0<x>1*v0)>, <1*(F1*v0<x>1*v0)>, <1*(1*v0<x>F3*v0)>, [128X[104X
+    [4X[28X      <1*(1*v0<x>F2*v0)+q^-1*(F2*v0<x>1*v0)>, [128X[104X
+    [4X[28X      <-q^-1*(1*v0<x>F2*v0)+q^-1*(F1*v0<x>F3*v0)>, <1*(F2*v0<x>F3*v0)>, [128X[104X
+    [4X[28X      <-q^-1*(F1*v0<x>F2*v0)>, <-q^-1*(F2*v0<x>F2*v0)>, [128X[104X
+    [4X[28X      <-q^-3*(1*v0<x>F2*v0)+-q^-1*(F1*v0<x>F3*v0)+1*(F2*v0<x>1*v0)> ] )[128X[104X
   [4X[32X[104X
   
   
@@ -1867,7 +1867,7 @@
     [4X[25Xgap>[125X [27XL:= SimpleLieAlgebra( "B", 2, Rationals );;[127X[104X
     [4X[25Xgap>[125X [27Xu:= UEA( L );;[127X[104X
     [4X[25Xgap>[125X [27XHighestWeightModule( u, [2,3] );[127X[104X
-    [4X[28X<140-dimensional left-module over <algebra over Rationals, with[128X[104X
+    [4X[28X<140-dimensional left-module over <algebra over Rationals, with [128X[104X
     [4X[28X10 generators>>[128X[104X
   [4X[32X[104X
   
@@ -1888,8 +1888,8 @@
   [4X[32X  Example  [32X[104X
     [4X[25Xgap>[125X [27XL:= SimpleLieAlgebra( "B", 2, Rationals );;[127X[104X
     [4X[25Xgap>[125X [27Xf:= QUEAToUEAMap( L );[127X[104X
-    [4X[28X<mapping: QuantumUEA( <root system of rank[128X[104X
-    [4X[28X2>, Qpar = q ) -> Algebra( Rationals, [ y1, y2, y3, y4, x1, x2, x3, x4,[128X[104X
+    [4X[28X<mapping: QuantumUEA( <root system of rank [128X[104X
+    [4X[28X2>, Qpar = q ) -> Algebra( Rationals, [ y1, y2, y3, y4, x1, x2, x3, x4, [128X[104X
     [4X[28X  ( h9/1 ), ( h10/1 ) ] ) >[128X[104X
     [4X[25Xgap>[125X [27XU:= Source( f );[127X[104X
     [4X[28XQuantumUEA( <root system of rank 2>, Qpar = q )[128X[104X
@@ -1897,14 +1897,13 @@
     [4X[28X<algebra over Rationals, with 10 generators>[128X[104X
     [4X[25Xgap>[125X [27XB:= CanonicalBasis( U );;[127X[104X
     [4X[25Xgap>[125X [27Xp:= PBWElements( B, [1,2] );[127X[104X
-    [4X[28X[ F1*F4^(2), (q+q^3)*F1*F4^(2)+F2*F4, (q^4)*F1*F4^(2)+(q)*F2*F4+F3 ][128X[104X
+    [4X[28X[ F1*F4^(2), (q^3+q)*F1*F4^(2)+F2*F4, (q^4)*F1*F4^(2)+(q)*F2*F4+F3 ][128X[104X
     [4X[25Xgap>[125X [27Xpu:= List( p, x -> Image( f, x ) );[127X[104X
     [4X[28X[ y1*y2^(2), 2*y1*y2^(2)+y2*y3-2*y4, y1*y2^(2)+y2*y3-1*y4 ][128X[104X
     [4X[25Xgap>[125X [27XV:= HighestWeightModule( u, [2,1] );[127X[104X
-    [4X[28X<40-dimensional left-module over <algebra over Rationals, with[128X[104X
-    [4X[28X10 generators>>[128X[104X
+    [4X[28X<40-dimensional left-module over <algebra over Rationals, with 10 generators>>[128X[104X
     [4X[25Xgap>[125X [27XList( pu, x -> x^Basis(V)[1] );[127X[104X
-    [4X[28X[ 0*v0, y2*y3*v0+-2*y4*v0, y2*y3*v0+-1*y4*v0 ][128X[104X
-    [4X[28X# Which gives us a piece of the canonical basis of V.[128X[104X
+    [4X[28X[ 0*v0, y2*y3*v0-2*y4*v0, y2*y3*v0-1*y4*v0 ][128X[104X
+    [4X[25Xgap>[125X [27X# Which gives us a piece of the canonical basis of V.[127X[104X
   [4X[32X[104X
   
