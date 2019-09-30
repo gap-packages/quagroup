@@ -1,5 +1,10 @@
 This file describes changes in the GAP package 'quagroup'.
 
+- Version 1.8.2, 01/10/2019
+
+  - added a test suite, based on the manual examples
+  - various janitorial changes
+
 - Version 1.8.1, 21/02/2019
 
   - moved package sources and website to GitHub
