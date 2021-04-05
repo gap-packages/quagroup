@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/gap-packages/quagroup.svg)](https://travis-ci.org/gap-packages/quagroup)
+[![Build Status](https://travis-ci.com/gap-packages/quagroup.svg)](https://travis-ci.com/gap-packages/quagroup)
 [![Code Coverage](https://codecov.io/github/gap-packages/quagroup/coverage.svg)](https://codecov.io/gh/gap-packages/quagroup)
 
 # QuaGroup
