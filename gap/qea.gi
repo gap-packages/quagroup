@@ -303,7 +303,7 @@ end );
 #M  \<( <m1>, <m2> ) . . . . . . . . . . . . . . for two QEA elements
 #M  \=( <m1>, <m2> ) . . . . . . . . . . . . . . for two QEA elements
 #M  \+( <m1>, <m2> ) . . . . . . . . . . . . . . for two QEA elements
-#M  \AINV( <m> )     . . . . . . . . . . . . . . for a QEA element
+#M  \-( <m> )     . . . . . . . . . . . . . . for a QEA element
 #M  \in( <U>, <u> )  . . . . . . . . . . . . . . for QEA, and element
 ##
 InstallMethod( OneOp,
@@ -383,7 +383,7 @@ InstallMethod( \+,
 end );
 
 
-InstallMethod( AINV,
+InstallMethod( AdditiveInverseSameMutability,
         "for QEA element",
         true, [ IsQEAElement and IsPackedElementDefaultRep ], 0,
         function( x )
@@ -397,7 +397,7 @@ InstallMethod( AINV,
     return ObjByExtRep( FamilyObj(x), ex );
 end );
 
-InstallMethod( AINV_MUT,
+InstallMethod( AdditiveInverseMutable,
         "for QEA element",
         true, [ IsQEAElement and IsPackedElementDefaultRep ], 0,
         function( x )

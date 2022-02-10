@@ -1432,7 +1432,7 @@ InstallMethod( \*,
 end );
 
 
-InstallMethod( AINV,
+InstallMethod( AdditiveInverseSameMutability,
         "for a dual element", true,
         [ IsDualElement ], 0,
         function( d )
@@ -1446,7 +1446,7 @@ InstallMethod( AINV,
     return ObjByExtRep( FamilyObj( d ), ed );
 end );
 
-InstallMethod( AINV_MUT,
+InstallMethod( AdditiveInverseMutable,
         "for a dual element", true,
         [ IsDualElement ], 0,
         function( d )
