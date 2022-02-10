@@ -1,6 +1,6 @@
 name: QuaGroup
-version: 1.8.2
-date: 2019-10-01
+version: 1.8.3
+date: 2022-02-10
 description: |
     Computations with quantum groups
 
@@ -22,7 +22,7 @@ packageinfo: https://gap-packages.github.io/quagroup/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/quagroup/releases/download/v1.8.2/quagroup-1.8.2.tar.gz
+      url: https://github.com/gap-packages/quagroup/releases/download/v1.8.3/quagroup-1.8.3.tar.gz
 
 abstract: |
     The package <span class="pkgname">QuaGroup</span> contains                  functionality for working with quantized enveloping algebras                 of finite-dimensional semisimple Lie algebras.
@@ -34,27 +34,27 @@ keywords: |
     quantum groups.
 citeas: |
     <p class='BibEntry'>
-    [<span class='BibKey'>GT19</span>]   <b class='BibAuthor'>de Graaf, W. A. and GAP Team, T.</b>,
+    [<span class='BibKey'>GT22</span>]   <b class='BibAuthor'>de Graaf, W. A. and GAP Team, T.</b>,
      <i class='BibTitle'>QuaGroup, Computations with quantum groups,
-             Version 1.8.2</i>
-     (<span class='BibYear'>2019</span>)<br />
+             Version 1.8.3</i>
+     (<span class='BibYear'>2022</span>)<br />
     (<span class='BibNote'>Refereed GAP package</span>),
     <span class='BibHowpublished'><a href="https://gap-packages.github.io/quagroup/">https://gap-packages.github.io/quagroup/</a></span>.
     </p>
     
 
 bibtex: |
-    @misc{ QuaGroup1.8.2,
+    @misc{ QuaGroup1.8.3,
       author =           {de Graaf, W. A. and GAP Team, T.},
       title =            {{QuaGroup},    Computations   with   quantum   groups,
-                          {V}ersion 1.8.2},
-      month =            {Oct},
-      year =             {2019},
+                          {V}ersion 1.8.3},
+      month =            {Feb},
+      year =             {2022},
       note =             {Refereed GAP package},
       howpublished =     {\href       {https://gap-packages.github.io/quagroup/}
                           {\texttt{https://gap-packages.github.io/}\discretionary
                           {}{}{}\texttt{quagroup/}}},
       keywords =         {quantum groups},
-      printedkey =       {GT19}
+      printedkey =       {GT22}
     }
 

@@ -8,7 +8,7 @@
   
   [1X3.1-1 QuantumField[101X
   
-  [33X[1;0Y[29X[2XQuantumField[102X[32X global variable[133X
+  [33X[1;0Y[29X[2XQuantumField[102X [32X global variable[133X
   
   [33X[0;0YThis is the field [22XQ(q)[122X of rational functions in [22Xq[122X, over [22XQ[122X.[133X
   
@@ -19,7 +19,7 @@
   
   [1X3.1-2 _q[101X
   
-  [33X[1;0Y[29X[2X_q[102X[32X global variable[133X
+  [33X[1;0Y[29X[2X_q[102X [32X global variable[133X
   
   [33X[0;0YThis is an indeterminate; [3XQuantumField[103X is the field of rational functions in
   this  indeterminate. The identifier [3X_q[103X is fixed once the package [5XQuaGroup[105X is
