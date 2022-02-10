@@ -1,5 +1,9 @@
 This file describes changes in the GAP package 'quagroup'.
 
+- Version 1.8.3, 2022-02-10
+
+  - janitorial changes (replace AINV, AINV_MUT by official names)
+
 - Version 1.8.2, 01/10/2019
 
   - added a test suite, based on the manual examples
