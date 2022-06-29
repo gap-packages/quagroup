@@ -53,7 +53,7 @@ AbstractHTML := "The package <span class=\"pkgname\">QuaGroup</span> contains \
 PackageDoc := rec(
   BookName := "QuaGroup",
   ArchiveURLSubset := ["doc"],
-  HTMLStart := "doc/chap0.html",
+  HTMLStart := "doc/chap0_mj.html",
   PDFFile := "doc/manual.pdf",
   SixFile := "doc/manual.six",
   LongTitle := "Computations with quantum groups",
