@@ -1,5 +1,9 @@
 This file describes changes in the GAP package 'quagroup'.
 
+- Version 1.8.4, 2024-01-11
+
+  - minor janitorial changes (stop using InstallValue)
+
 - Version 1.8.3, 2022-02-10
 
   - janitorial changes (replace AINV, AINV_MUT by official names)
