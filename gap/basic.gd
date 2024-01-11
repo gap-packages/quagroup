@@ -11,8 +11,7 @@
 #V  QGPrivateFunctions
 ##
 ##
-DeclareGlobalVariable( "QGPrivateFunctions", 
-       "Private functions for QG package" );
+BindGlobal( "QGPrivateFunctions", rec(indetNo:= 1000) );
 
 
 #############################################################################
@@ -26,24 +25,14 @@ DeclareCategory( "IsQuantumField", IsField );
 
 #############################################################################
 ##
-#V   QuantumField
-##
-##   This is the field ${\bf Q}(q)$ over which all quantized enveloping 
-##   algebras are defined.
-##
-##
-DeclareGlobalVariable( "QuantumField", "field of rational functions in q" );
-
-
-#############################################################################
-##
 #V    _q
 ##
 ##    This is the generator of `QuantumField'. The element `q' will be
 ##    fixed once the package {\sf QuaGroup} is loaded. It is used 
 ##    in many places in the code.
 ##
-DeclareGlobalVariable( "_q", "the quantum parameter" );
+BindGlobal( "_q", Indeterminate( Rationals, QGPrivateFunctions.indetNo ) );
+SetName( _q, "q" );
 
 
 ###########################################################################
