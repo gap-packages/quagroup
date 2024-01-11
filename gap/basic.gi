@@ -7,13 +7,15 @@
 ##
 
 
-InstallValue( QGPrivateFunctions, rec() );
-
-QGPrivateFunctions.indetNo:= 1000;
-
-InstallValue( _q, Indeterminate( Rationals, QGPrivateFunctions.indetNo ) );
-SetName( _q, "q" );
-InstallValue( QuantumField,  Objectify( NewType( 
+#############################################################################
+##
+#V   QuantumField
+##
+##   This is the field ${\bf Q}(q)$ over which all quantized enveloping
+##   algebras are defined.
+##
+##
+BindGlobal( "QuantumField",  Objectify( NewType(
                    CollectionsFamily( FamilyObj( _q ) ),
                    IsAttributeStoringRep and 
                    IsField and 
