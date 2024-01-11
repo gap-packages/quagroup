@@ -57,8 +57,8 @@
   algebras[117X, [18XJ. Amer. Math. Soc.[118X, [19X3[119X, 2 (1990a), 447--498.
   
   [[20XRos91[120X]  [16XRosso,  M.[116X, [17XRepr\'esentations des groupes quantiques[117X, [18XAst\'erisque[118X,
-  201-203  (1991),  Exp.\  No.\  744, 443--483 (1992), ((S\'eminaire Bourbaki,
-  Vol.\ 1990/91)).
+  201-203  (1991),  Exp.\  No.\  744,  443--483 (1992), (S\'eminaire Bourbaki,
+  Vol.\ 1990/91).
   
   [[20XSte01[120X]  [16XStembridge,  J.  R.[116X, [17XComputational aspects of root systems, Coxeter
   groups,   and   Weyl   characters[117X,   in  Interaction  of  combinatorics  and
