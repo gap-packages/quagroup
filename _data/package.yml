@@ -1,5 +1,6 @@
 name: QuaGroup
-version: 1.8.4
+version: "1.8.4"
+license: "GPL-2.0-or-later"
 date: 2024-01-11
 description: |
     Computations with quantum groups
