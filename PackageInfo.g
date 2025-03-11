@@ -57,7 +57,6 @@ PackageDoc := rec(
   PDFFile := "doc/manual.pdf",
   SixFile := "doc/manual.six",
   LongTitle := "Computations with quantum groups",
-  Autoload := true
   ),
 Dependencies := rec(
   GAP := ">=4.8",
