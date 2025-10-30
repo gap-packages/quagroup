@@ -601,7 +601,7 @@ These functions supplement the ones already present in the &GAP; library.
 
 <ManSection> 
 <Oper Name="RootSystem" Arg="type, rank"/>
-<Oper Name="RootSystem" Arg="list"/>
+<Oper Name="RootSystem" Arg="list" Label="RootSystemList"/>
 <Description>
 Here  <A>type</A>  is  a capital letter between <A>"A"</A> and <A>"G"</A>, 
 and <A>rank</A> is a positive integer (<M>\geq 1</M> if <A>type="A"</A>, 
@@ -926,9 +926,9 @@ over a different field.
 
 <ManSection>         
 <Attr Name="QuantizedUEA" Arg="R"/>
-<Oper Name="QuantizedUEA" Arg="R, F, v"/>
-<Attr Name="QuantizedUEA" Arg="L"/>
-<Oper Name="QuantizedUEA" Arg="L, F, v"/>
+<Oper Name="QuantizedUEA" Arg="R, F, v" Label="QuantizedUEAOper"/>
+<Attr Name="QuantizedUEA" Arg="L" Label="QuantizedUEALieAlg"/>
+<Oper Name="QuantizedUEA" Arg="L, F, v" Label="QuantizedUEALieAlgOper"/>
 <Description>
 In  the  first  two  forms  <A>R</A>  is  a  root system. With only 
 <A>R</A> as input, the corresponding  generic  quantized  enveloping  
@@ -1182,7 +1182,7 @@ gap> Image( h, GeneratorsOfAlgebra( UR )[3] );
 
 <ManSection>         
 <Oper Name="QEAAutomorphism" Arg="U, list"/>
-<Oper Name="QEAAutomorphism" Arg="U, f"/>
+<Oper Name="QEAAutomorphism" Arg="U, f" Label="QEAAutomorphismNonGeneric"/>
 <Description>
 In  the  first  form <A>U</A> is a generic quantized enveloping algebra 
 (i.e., with quantum  parameter  <A>&uscore;q</A>),  and  <A>list</A> is a 
@@ -1252,7 +1252,7 @@ gap> Image( h, GeneratorsOfAlgebra(U1)[7] );
 
 <ManSection>         
 <Oper Name="QEAAntiAutomorphism" Arg="U, list"/>
-<Oper Name="QEAAntiAutomorphism" Arg="U, f"/>
+<Oper Name="QEAAntiAutomorphism" Arg="U, f" Label="QEAAntiAutomorphismNonGeneric"/>
 <Description>
 These   are  functions  for  constructing  anti-automorphisms  of  quantized
 enveloping algebras. The same comments apply as for 
@@ -1609,14 +1609,14 @@ gap> M:= DIYModule( U, V, acts );
 
 <ManSection>     
 <Oper Name="TensorProductOfAlgebraModules" Arg="V, W"/>
-<Oper Name="TensorProductOfAlgebraModules" Arg="V, W"/>
+<Oper Name="TensorProductOfAlgebraModules" Arg="list" Label="TensorProductOfAlgebraModules"/>
 <Description>
 Here  <A>V</A> and <A>W</A> are two modules over the same quantized 
 enveloping algebra <A>U</A>. This  function constructs the tensor product 
 of <A>V</A> and <A>W</A> (as a <A>U</A>-module). For
 this  the  comultiplication  map  of  <A>U</A>  is  used  (see  
 <Ref Attr="ComultiplicationMap"/>). <P/>
-In  the  second  form list is a list of <A>U</A>-modules. In that case 
+In  the  second  form <A>list</A> is a list of <A>U</A>-modules. In that case 
 the iterated tensor product is constructed.
 <Example><![CDATA[
 gap> U:= QuantizedUEA( RootSystem( [ "A", 2 ] ) );;
@@ -1682,7 +1682,7 @@ returns the corresponding module over the generic quantized enveloping algebra.
 </ManSection>
 
 <ManSection>     
-<Attr Name="CanonicalMapping" Arg="W"/>
+<Attr Name="CanonicalMapping" Arg="W" Label="CanonicalMappingInducedModule"/>
 <Description>
 Here  <A>W</A> is an induced module. Let <A>V</A> be the corresponding 
 generic module (<Ref Attr="GenericModule"/>). This function returns the map 
