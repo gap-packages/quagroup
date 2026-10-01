@@ -1,40 +1,40 @@
 This file describes changes in the GAP package 'quagroup'.
 
-- Version 1.8.4, 2024-01-11
+## 1.8.4 (2024-01-11)
 
   - minor janitorial changes (stop using InstallValue)
 
-- Version 1.8.3, 2022-02-10
+## 1.8.3 (2022-02-10)
 
   - janitorial changes (replace AINV, AINV_MUT by official names)
 
-- Version 1.8.2, 01/10/2019
+## 1.8.2 (2019-10-01)
 
   - added a test suite, based on the manual examples
   - various janitorial changes
 
-- Version 1.8.1, 21/02/2019
+## 1.8.1 (2019-02-21)
 
   - moved package sources and website to GitHub
   - various janitorial changes
 
-- Version 1.8, 16/08/2013
+## 1.8 (2013-08-16)
 
   - manual now also uses MathJax.
 
-- Version 1.7, 31/07/2013
+## 1.7 (2013-07-31)
 
-- Version 1.6, 13/02/2012
+## 1.6 (2012-02-13)
 
-- Version 1.5, 23/01/2012
+## 1.5 (2012-01-23)
 
-- Version 1.4, 21/01/2012
+## 1.4 (2012-01-21)
 
-- Version 1.3, 17/10/2007
+## 1.3 (2007-10-17)
 
-- Version 1.2, 01/04/2005
+## 1.2 (2005-04-01)
 
-- Version 1.1, 01/04/2003
+## 1.1 (2003-04-01)
 
   - Added the function HWModuleByTensorProduct.
 
@@ -45,4 +45,4 @@ This file describes changes in the GAP package 'quagroup'.
   - Calculation of the comultiplication map when the Hopf structure
     is twisted is a lot faster now.
 
-- Version 1.0
+## 1.0
